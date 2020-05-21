@@ -19,9 +19,16 @@ extension Constants {
 
 extension Constants.UnSplash {
     enum ClientAuth {
-        static let clientId = ""
-        static let secret = ""
+        static let clientId = ClientAuth.environmentVariable(named: "0xEY4jia4h4ZY9VHWheBUzwbZxO9TWVYWha3Q-_q2ZE") ?? ""
+        static let secret = ClientAuth.environmentVariable(named: "_gL7FKhuBMHgtd2PmBjgTcvgGU1W3nz34Zzh0GoHA68") ?? ""
         
         
+        private static func environmentVariable(named: String) -> String? {
+            guard let infoDict = Bundle.main.infoDictionary, let value = infoDict[named] as? String else {
+                debugPrint("Missing Environment Variable: '\(named)'")
+                return nil
+            }
+            return value
+        }
     }
 }

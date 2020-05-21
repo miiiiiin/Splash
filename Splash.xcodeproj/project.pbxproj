@@ -20,6 +20,15 @@
 		7DED447C2473E5580049E205 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */; };
 		7DED447E2473E5C50049E205 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447D2473E5C50049E205 /* Scene.swift */; };
 		7DED44822473E96E0049E205 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44812473E96E0049E205 /* Constants.swift */; };
+		7DED44842474BC820049E205 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44832474BC820049E205 /* User.swift */; };
+		7DED44862474CBB90049E205 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44852474CBB90049E205 /* ProfileImage.swift */; };
+		7DED44882474CC010049E205 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44872474CC010049E205 /* Photo.swift */; };
+		7DED448A24760CF30049E205 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED448924760CF30049E205 /* Location.swift */; };
+		7DED448C24760DC90049E205 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED448B24760DC90049E205 /* Tag.swift */; };
+		7DED448E24760E170049E205 /* PhotoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED448D24760E170049E205 /* PhotoCollection.swift */; };
+		7DED449024760F4A0049E205 /* Exif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED448F24760F4A0049E205 /* Exif.swift */; };
+		7DED449224760FF40049E205 /* ImageURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED449124760FF40049E205 /* ImageURLs.swift */; };
+		7DED4494247610470049E205 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED4493247610470049E205 /* Links.swift */; };
 		B504D98123B5EFA25E5B92F2 /* Pods_SplashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */; };
 		EBB5D7FC3E075CE8612143D2 /* Pods_Splash_SplashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +74,15 @@
 		7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		7DED447D2473E5C50049E205 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		7DED44812473E96E0049E205 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7DED44832474BC820049E205 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7DED44852474CBB90049E205 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		7DED44872474CC010049E205 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		7DED448924760CF30049E205 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		7DED448B24760DC90049E205 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		7DED448D24760E170049E205 /* PhotoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollection.swift; sourceTree = "<group>"; };
+		7DED448F24760F4A0049E205 /* Exif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exif.swift; sourceTree = "<group>"; };
+		7DED449124760FF40049E205 /* ImageURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLs.swift; sourceTree = "<group>"; };
+		7DED4493247610470049E205 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		B9E1D9023CE229121F80B2EE /* Pods-Splash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.release.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.release.xcconfig"; sourceTree = "<group>"; };
 		C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splash_SplashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DBBA000A9C1EEEB3C96E60 /* Pods-Splash-SplashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash-SplashUITests.debug.xcconfig"; path = "Target Support Files/Pods-Splash-SplashUITests/Pods-Splash-SplashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +210,15 @@
 		7DED447F2473E7980049E205 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7DED44832474BC820049E205 /* User.swift */,
+				7DED44852474CBB90049E205 /* ProfileImage.swift */,
+				7DED44872474CC010049E205 /* Photo.swift */,
+				7DED448924760CF30049E205 /* Location.swift */,
+				7DED448B24760DC90049E205 /* Tag.swift */,
+				7DED448D24760E170049E205 /* PhotoCollection.swift */,
+				7DED448F24760F4A0049E205 /* Exif.swift */,
+				7DED449124760FF40049E205 /* ImageURLs.swift */,
+				7DED4493247610470049E205 /* Links.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,11 +470,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DED448C24760DC90049E205 /* Tag.swift in Sources */,
 				7DD98E0C24403CAC0051809A /* ViewController.swift in Sources */,
+				7DED448E24760E170049E205 /* PhotoCollection.swift in Sources */,
+				7DED448A24760CF30049E205 /* Location.swift in Sources */,
 				7DD98E0824403CAC0051809A /* AppDelegate.swift in Sources */,
 				7DED447E2473E5C50049E205 /* Scene.swift in Sources */,
 				7DED447C2473E5580049E205 /* SceneCoordinatorType.swift in Sources */,
+				7DED4494247610470049E205 /* Links.swift in Sources */,
+				7DED44882474CC010049E205 /* Photo.swift in Sources */,
+				7DED44862474CBB90049E205 /* ProfileImage.swift in Sources */,
+				7DED44842474BC820049E205 /* User.swift in Sources */,
 				7DED44822473E96E0049E205 /* Constants.swift in Sources */,
+				7DED449024760F4A0049E205 /* Exif.swift in Sources */,
+				7DED449224760FF40049E205 /* ImageURLs.swift in Sources */,
 				7DD98E0A24403CAC0051809A /* SceneDelegate.swift in Sources */,
 				7DED447A2473E48E0049E205 /* SceneTransitionType.swift in Sources */,
 			);
