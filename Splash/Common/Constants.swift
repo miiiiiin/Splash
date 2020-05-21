@@ -13,6 +13,8 @@ enum Constants {}
 extension Constants {
     enum UnSplash {
         static let baseurl = "https://api.unsplash.com/"
+        static let clientID = ClientAuth.clientId
+        static let clientSecret = ClientAuth.secret
         
     }
 }

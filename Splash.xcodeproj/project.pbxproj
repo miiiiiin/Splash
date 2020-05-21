@@ -38,6 +38,9 @@
 		7DED44A4247651770049E205 /* Splash+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44A3247651770049E205 /* Splash+Style.swift */; };
 		7DED44A6247651910049E205 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44A5247651910049E205 /* Splash.swift */; };
 		7DED44A8247653C80049E205 /* SplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44A7247653C80049E205 /* SplashError.swift */; };
+		7DED44AB24768B400049E205 /* SplashTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44AA24768B400049E205 /* SplashTabBarController.swift */; };
+		7DED44AE24768BC60049E205 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44AD24768BC60049E205 /* HomeViewController.swift */; };
+		7DED44B024768C490049E205 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44AF24768C490049E205 /* HomeViewModel.swift */; };
 		B504D98123B5EFA25E5B92F2 /* Pods_SplashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */; };
 		EBB5D7FC3E075CE8612143D2 /* Pods_Splash_SplashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +104,9 @@
 		7DED44A3247651770049E205 /* Splash+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Splash+Style.swift"; sourceTree = "<group>"; };
 		7DED44A5247651910049E205 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		7DED44A7247653C80049E205 /* SplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashError.swift; sourceTree = "<group>"; };
+		7DED44AA24768B400049E205 /* SplashTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashTabBarController.swift; sourceTree = "<group>"; };
+		7DED44AD24768BC60049E205 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7DED44AF24768C490049E205 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B9E1D9023CE229121F80B2EE /* Pods-Splash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.release.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.release.xcconfig"; sourceTree = "<group>"; };
 		C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splash_SplashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DBBA000A9C1EEEB3C96E60 /* Pods-Splash-SplashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash-SplashUITests.debug.xcconfig"; path = "Target Support Files/Pods-Splash-SplashUITests/Pods-Splash-SplashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 		7DD98E0624403CAC0051809A /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				7DED44A924768B2B0049E205 /* Scenes */,
 				7DED449F247645AF0049E205 /* Utils */,
 				7DED44802473E80C0049E205 /* Common */,
 				7DED447F2473E7980049E205 /* Model */,
@@ -272,6 +279,24 @@
 				7DED44A124764A680049E205 /* Cache.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		7DED44A924768B2B0049E205 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7DED44AC24768BBD0049E205 /* Home */,
+				7DED44AA24768B400049E205 /* SplashTabBarController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		7DED44AC24768BBD0049E205 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7DED44AD24768BC60049E205 /* HomeViewController.swift */,
+				7DED44AF24768C490049E205 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,11 +546,13 @@
 				7DED4496247641250049E205 /* LikeUnlike.swift in Sources */,
 				7DED448A24760CF30049E205 /* Location.swift in Sources */,
 				7DD98E0824403CAC0051809A /* AppDelegate.swift in Sources */,
+				7DED44AB24768B400049E205 /* SplashTabBarController.swift in Sources */,
 				7DED449E247645270049E205 /* AuthError.swift in Sources */,
 				7DED44A8247653C80049E205 /* SplashError.swift in Sources */,
 				7DED447E2473E5C50049E205 /* Scene.swift in Sources */,
 				7DED44A6247651910049E205 /* Splash.swift in Sources */,
 				7DED447C2473E5580049E205 /* SceneCoordinatorType.swift in Sources */,
+				7DED44AE24768BC60049E205 /* HomeViewController.swift in Sources */,
 				7DED4494247610470049E205 /* Links.swift in Sources */,
 				7DED44882474CC010049E205 /* Photo.swift in Sources */,
 				7DED44862474CBB90049E205 /* ProfileImage.swift in Sources */,
@@ -534,6 +561,7 @@
 				7DED44822473E96E0049E205 /* Constants.swift in Sources */,
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
 				7DED449024760F4A0049E205 /* Exif.swift in Sources */,
+				7DED44B024768C490049E205 /* HomeViewModel.swift in Sources */,
 				7DED449224760FF40049E205 /* ImageURLs.swift in Sources */,
 				7DD98E0A24403CAC0051809A /* SceneDelegate.swift in Sources */,
 				7DED4498247641E10049E205 /* SearchResults.swift in Sources */,
