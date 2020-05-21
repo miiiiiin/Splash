@@ -34,6 +34,7 @@
 		7DED449A247642FE0049E205 /* PhotoStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED4499247642FE0049E205 /* PhotoStatistics.swift */; };
 		7DED449C2476446E0049E205 /* UserAuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED449B2476446E0049E205 /* UserAuthToken.swift */; };
 		7DED449E247645270049E205 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED449D247645270049E205 /* AuthError.swift */; };
+		7DED44A224764A680049E205 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44A124764A680049E205 /* Cache.swift */; };
 		B504D98123B5EFA25E5B92F2 /* Pods_SplashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */; };
 		EBB5D7FC3E075CE8612143D2 /* Pods_Splash_SplashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		7DED4499247642FE0049E205 /* PhotoStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStatistics.swift; sourceTree = "<group>"; };
 		7DED449B2476446E0049E205 /* UserAuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthToken.swift; sourceTree = "<group>"; };
 		7DED449D247645270049E205 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		7DED44A124764A680049E205 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		B9E1D9023CE229121F80B2EE /* Pods-Splash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.release.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.release.xcconfig"; sourceTree = "<group>"; };
 		C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splash_SplashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DBBA000A9C1EEEB3C96E60 /* Pods-Splash-SplashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash-SplashUITests.debug.xcconfig"; path = "Target Support Files/Pods-Splash-SplashUITests/Pods-Splash-SplashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		7DD98E0624403CAC0051809A /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				7DED449F247645AF0049E205 /* Utils */,
 				7DED44802473E80C0049E205 /* Common */,
 				7DED447F2473E7980049E205 /* Model */,
 				7DED44782473E4780049E205 /* Coordinator */,
@@ -244,6 +247,22 @@
 				7DED44812473E96E0049E205 /* Constants.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		7DED449F247645AF0049E205 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7DED44A024764A600049E205 /* Cache */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		7DED44A024764A600049E205 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				7DED44A124764A680049E205 /* Cache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +508,7 @@
 				7DED448C24760DC90049E205 /* Tag.swift in Sources */,
 				7DD98E0C24403CAC0051809A /* ViewController.swift in Sources */,
 				7DED448E24760E170049E205 /* PhotoCollection.swift in Sources */,
+				7DED44A224764A680049E205 /* Cache.swift in Sources */,
 				7DED4496247641250049E205 /* LikeUnlike.swift in Sources */,
 				7DED448A24760CF30049E205 /* Location.swift in Sources */,
 				7DD98E0824403CAC0051809A /* AppDelegate.swift in Sources */,
