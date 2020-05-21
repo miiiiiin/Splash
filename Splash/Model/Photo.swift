@@ -65,3 +65,12 @@ extension Photo: IdentifiableType {
         return id
     }
 }
+
+extension Photo: Cacheable {
+    var identifier: String {
+        guard let id = id else {
+            fatalError("The photo id shouldn't be nil")
+        }
+        return id
+    }
+}
