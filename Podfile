@@ -8,6 +8,7 @@ target 'Splash' do
   #Rx
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxDataSources'
 
   #Networking
 

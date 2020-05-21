@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxDataSources
 
 struct Photo: Codable {
     let id: String?
@@ -53,5 +54,14 @@ struct Photo: Codable {
 extension Photo: Equatable {
     static func ==(lhs: Photo, rhs: Photo) -> Bool {
         return lhs.id == rhs.id
+    }
+}
+
+extension Photo: IdentifiableType {
+    typealias Identity = String
+    
+    var identity: Identity {
+        guard let id = id else { fatalError("The photo id shouldn't be nil") }
+        return id
     }
 }
