@@ -41,6 +41,8 @@
 		7DED44AB24768B400049E205 /* SplashTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44AA24768B400049E205 /* SplashTabBarController.swift */; };
 		7DED44AE24768BC60049E205 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44AD24768BC60049E205 /* HomeViewController.swift */; };
 		7DED44B024768C490049E205 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44AF24768C490049E205 /* HomeViewModel.swift */; };
+		7DED44BC247DF7810049E205 /* HomeViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44BB247DF7810049E205 /* HomeViewCellModel.swift */; };
+		7DED44C0247DF8E70049E205 /* HomeViewCellHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44BF247DF8E70049E205 /* HomeViewCellHeaderModel.swift */; };
 		B504D98123B5EFA25E5B92F2 /* Pods_SplashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */; };
 		EBB5D7FC3E075CE8612143D2 /* Pods_Splash_SplashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +109,8 @@
 		7DED44AA24768B400049E205 /* SplashTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashTabBarController.swift; sourceTree = "<group>"; };
 		7DED44AD24768BC60049E205 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7DED44AF24768C490049E205 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		7DED44BB247DF7810049E205 /* HomeViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellModel.swift; sourceTree = "<group>"; };
+		7DED44BF247DF8E70049E205 /* HomeViewCellHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellHeaderModel.swift; sourceTree = "<group>"; };
 		B9E1D9023CE229121F80B2EE /* Pods-Splash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.release.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.release.xcconfig"; sourceTree = "<group>"; };
 		C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splash_SplashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DBBA000A9C1EEEB3C96E60 /* Pods-Splash-SplashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash-SplashUITests.debug.xcconfig"; path = "Target Support Files/Pods-Splash-SplashUITests/Pods-Splash-SplashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -293,10 +297,36 @@
 		7DED44AC24768BBD0049E205 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7DED44BA247DF7760049E205 /* Cell */,
 				7DED44AD24768BC60049E205 /* HomeViewController.swift */,
 				7DED44AF24768C490049E205 /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		7DED44BA247DF7760049E205 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7DED44BE247DF8D40049E205 /* Footer */,
+				7DED44BD247DF8CD0049E205 /* Header */,
+				7DED44BB247DF7810049E205 /* HomeViewCellModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7DED44BD247DF8CD0049E205 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				7DED44BF247DF8E70049E205 /* HomeViewCellHeaderModel.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		7DED44BE247DF8D40049E205 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Footer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,7 +592,9 @@
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
 				7DED449024760F4A0049E205 /* Exif.swift in Sources */,
 				7DED44B024768C490049E205 /* HomeViewModel.swift in Sources */,
+				7DED44C0247DF8E70049E205 /* HomeViewCellHeaderModel.swift in Sources */,
 				7DED449224760FF40049E205 /* ImageURLs.swift in Sources */,
+				7DED44BC247DF7810049E205 /* HomeViewCellModel.swift in Sources */,
 				7DD98E0A24403CAC0051809A /* SceneDelegate.swift in Sources */,
 				7DED4498247641E10049E205 /* SearchResults.swift in Sources */,
 				7DED447A2473E48E0049E205 /* SceneTransitionType.swift in Sources */,

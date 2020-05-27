@@ -38,8 +38,9 @@ protocol HomeViewModelOutput {
     
     //Emits a boolean  when the first page is requested
     var isFirstPageRequested: Observable<Bool> { get }
+    
     //Emites the child viewModels
-    //var homeViewCellModelTypes: Observable<[HomeViewController]
+    var homeViewCellModelTypes: Observable<[HomeViewCellModelType]> { get }
 }
 
 protocol HomeViewModelType {
@@ -47,9 +48,11 @@ protocol HomeViewModelType {
     var outputs: HomeViewModelInput { get }
 }
 
-class HomeViewModel {
+class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
     
     //MARK: - Inputs & Outputs -
+    var inputs: HomeViewModelInput { return self }
+    var outputs: HomeViewModelInput { return self }
     
     //MARK: - Input -
     let refreshProperty = BehaviorSubject<Bool>(value: true)
@@ -59,7 +62,9 @@ class HomeViewModel {
     //Mark: - Output -
     let isRefreshing: Observable<Bool>
     let isLoadingMore: Observable<Bool>
-    let isOrderBy: Observable<Bool>
+    let isOrderBy: Observable<OrderBy>
     let isFirstPageRequested: Observable<Bool>
 //    let homeViewCellModelTypes: Observable<[HomeViewCellModelType]>
+    
+    
 }

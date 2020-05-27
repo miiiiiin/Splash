@@ -9,6 +9,7 @@ target 'Splash' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
+  pod 'Action'
 
   #Networking
 
