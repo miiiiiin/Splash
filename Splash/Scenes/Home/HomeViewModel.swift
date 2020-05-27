@@ -9,12 +9,6 @@
 import Foundation
 import RxSwift
 
-enum OrderBy {
-    case latest
-    case oldest
-    case popular
-}
-
 protocol HomeViewModelInput {
     //Call when the pull-to-refresh is invoked
     var refreshProperty: BehaviorSubject<Bool> { get }
@@ -64,7 +58,14 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
     let isLoadingMore: Observable<Bool>
     let isOrderBy: Observable<OrderBy>
     let isFirstPageRequested: Observable<Bool>
-//    let homeViewCellModelTypes: Observable<[HomeViewCellModelType]>
+    let homeViewCellModelTypes: Observable<[HomeViewCellModelType]>
+    
+    private let cache: Cache
+    private let sceneCoordinator: SceneCoordinatorType
+    
+    
+//    private let service: PhotoServiceType
+//    private let sceneCoordinator: SceneCoordinatorType
     
     
 }

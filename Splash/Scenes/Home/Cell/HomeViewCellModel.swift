@@ -32,7 +32,6 @@ protocol HomeViewCellModelType {
 
 
 class HomeViewCellModel: HomeViewCellModelType, HomeViewCellModelInput, HomeViewCellModelOutput {
-    
 
     // MARK: Inputs & Outputs
     var inputs: HomeViewCellModelInput { return self }
@@ -50,36 +49,36 @@ class HomeViewCellModel: HomeViewCellModelType, HomeViewCellModelInput, HomeView
     var extraHeight = Observable<Double>.just(70)
     
     // MARK: Private
-       private let photo: Photo
-       private let sceneCoordinator: SceneCoordinatorType
+    private let photo: Photo
+    private let sceneCoordinator: SceneCoordinatorType
 
-    
-    init(photo: Photo, sceneCoordinator: SceneCoordinatorType = SceneCoordinatorType.shared) {
-        self.photo = photo
-        self.sceneCoordinator = sceneCoordinator
-        photoStream = Observable.just(photo)
-        
-        smallPhotoUrl = photoStream
-            .map { $0.urls?.small }
-        
-        regularPhotoUrl = photoStream
-            .map { $0.urls?.regular }
-        
-        fullPhotoUrl = photoStream
-            .map { $0.urls?.full }
-        
-        let height = photoStream
-            .map { $0.height }
-            .map { $0 * Double(UIScreen.main.bounds.width) }
-            .map { Double($0) }
-        
-        let width = photoStream
-            .map { $0.width }
-            .map { Double($0) }
-        
-        photoSize = Observable.combineLatest(width, height, extraHeight).map {
-            width, height, extraHeight in
-            return (Double(UIScreen.main.bounds.width), height / width + 2 * extraHeight)
-        }
-    }
+//
+//    init(photo: Photo, sceneCoordinator: SceneCoordinatorType = SceneCoordinatorType.shared) {
+//        self.photo = photo
+//        self.sceneCoordinator = sceneCoordinator
+//        photoStream = Observable.just(photo)
+//
+//        smallPhotoUrl = photoStream
+//            .map { $0.urls?.small }
+//
+//        regularPhotoUrl = photoStream
+//            .map { $0.urls?.regular }
+//
+//        fullPhotoUrl = photoStream
+//            .map { $0.urls?.full }
+//
+//        let height = photoStream
+//            .map { $0.height }
+//            .map { $0 * Double(UIScreen.main.bounds.width) }
+//            .map { Double($0) }
+//
+//        let width = photoStream
+//            .map { $0.width }
+//            .map { Double($0) }
+//
+//        photoSize = Observable.combineLatest(width, height, extraHeight).map {
+//            width, height, extraHeight in
+//            return (Double(UIScreen.main.bounds.width), height / width + 2 * extraHeight)
+//        }
+//    }
 }

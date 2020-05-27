@@ -12,6 +12,7 @@ target 'Splash' do
   pod 'Action'
 
   #Networking
+  pod 'TinyNetworking'
 
   #UI Transition
   pod 'Hero'
