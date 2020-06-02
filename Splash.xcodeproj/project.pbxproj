@@ -48,7 +48,7 @@
 		7DED44C6247E058A0049E205 /* PhotoServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44C5247E058A0049E205 /* PhotoServiceType.swift */; };
 		7DED44C9247E06820049E205 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44C8247E06820049E205 /* Orientation.swift */; };
 		7DED44CB247E06B60049E205 /* OrderBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44CA247E06B60049E205 /* OrderBy.swift */; };
-		7DED44CD247F47FD0049E205 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44CC247F47FD0049E205 /* Splash.swift */; };
+		7DED44CD247F47FD0049E205 /* UnSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44CC247F47FD0049E205 /* UnSplash.swift */; };
 		B504D98123B5EFA25E5B92F2 /* Pods_SplashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */; };
 		EBB5D7FC3E075CE8612143D2 /* Pods_Splash_SplashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */; };
 /* End PBXBuildFile section */
@@ -122,7 +122,7 @@
 		7DED44C5247E058A0049E205 /* PhotoServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoServiceType.swift; sourceTree = "<group>"; };
 		7DED44C8247E06820049E205 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		7DED44CA247E06B60049E205 /* OrderBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBy.swift; sourceTree = "<group>"; };
-		7DED44CC247F47FD0049E205 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		7DED44CC247F47FD0049E205 /* UnSplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplash.swift; sourceTree = "<group>"; };
 		B9E1D9023CE229121F80B2EE /* Pods-Splash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.release.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.release.xcconfig"; sourceTree = "<group>"; };
 		C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splash_SplashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DBBA000A9C1EEEB3C96E60 /* Pods-Splash-SplashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash-SplashUITests.debug.xcconfig"; path = "Target Support Files/Pods-Splash-SplashUITests/Pods-Splash-SplashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 			children = (
 				7DED44C8247E06820049E205 /* Orientation.swift */,
 				7DED44CA247E06B60049E205 /* OrderBy.swift */,
-				7DED44CC247F47FD0049E205 /* Splash.swift */,
+				7DED44CC247F47FD0049E205 /* UnSplash.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -624,7 +624,7 @@
 				7DED44A8247653C80049E205 /* SplashError.swift in Sources */,
 				7DED447E2473E5C50049E205 /* Scene.swift in Sources */,
 				7DED44A6247651910049E205 /* Splash.swift in Sources */,
-				7DED44CD247F47FD0049E205 /* Splash.swift in Sources */,
+				7DED44CD247F47FD0049E205 /* UnSplash.swift in Sources */,
 				7DED447C2473E5580049E205 /* SceneCoordinatorType.swift in Sources */,
 				7DED44C6247E058A0049E205 /* PhotoServiceType.swift in Sources */,
 				7DED44AE24768BC60049E205 /* HomeViewController.swift in Sources */,
