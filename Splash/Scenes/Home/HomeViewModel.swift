@@ -27,7 +27,7 @@ protocol HomeViewModelOutput {
     //Emits a boolean when the content is loading or not.
     var isLoadingMore: Observable<Bool> { get }
     
-    //Emits an OrderBy value when an OrderBy option is chosen
+    //Emits an OrderBy value when an OsrderBy option is chosen
     var isOrderBy: Observable<OrderBy> { get }
     
     //Emits a boolean  when the first page is requested
@@ -61,11 +61,20 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
     let homeViewCellModelTypes: Observable<[HomeViewCellModelType]>
     
     private let cache: Cache
+    private let service: PhotoServiceType
     private let sceneCoordinator: SceneCoordinatorType
     
-    
-//    private let service: PhotoServiceType
-//    private let sceneCoordinator: SceneCoordinatorType
+    init(cache: Cache = Cache.shared, service: PhotoServiceType = PhotoService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
+        
+        self.cache = cache
+        self.service = service
+        self.sceneCoordinator = sceneCoordinator
+        
+        var currPageNumber = 1
+        var photoArray = [Photo]()
+        
+//        let firstResult = Observable.combineLatest
+    }
     
     
 }

@@ -13,36 +13,38 @@ import TinyNetworking
 struct PhotoService: PhotoServiceType {
     
     private let cache: Cache
+    private let splash: TinyNetworking<UnSplash>
     
-    init(cache: Cache = Cache.shared) {
-        
+    init(splash: TinyNetworking<UnSplash> = TinyNetworking<UnSplash>(), cache: Cache = Cache.shared) {
+        self.cache = cache
+        self.splash = splash
     }
     
     func like(photo: Photo) -> Observable<Result<Photo, Splash.Error>> {
-        <#code#>
+        
     }
     
     func unlike(photo: Photo) -> Observable<Result<Photo, Splash.Error>> {
-        <#code#>
+        
     }
     
     func photo(withId id: String) -> Observable<Photo> {
-        <#code#>
+        
     }
     
     func photos(byPageNumber pgNumber: Int?, orderBy: OrderBy?) -> Observable<Result<[Photo], Splash.Error>> {
-        <#code#>
+        
     }
     
     func statistics(of photo: Photo) -> Observable<PhotoStatistics> {
-        <#code#>
+        
     }
     
     func photoDownloadLink(wihId id: String) -> Observable<Result<String, Splash.Error>> {
-        <#code#>
+        
     }
     
     func randomPhotos(from collections: [String], isFeatured: Bool, orientation: Orientation) -> Observable<[Photo]> {
-        <#code#>
+        
     }
 }

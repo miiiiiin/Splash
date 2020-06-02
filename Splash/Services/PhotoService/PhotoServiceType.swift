@@ -16,7 +16,7 @@ protocol PhotoServiceType {
     
     func photo(withId id: String) -> Observable<Photo>
     
-    func photos(byPageNumber pgNumber: Int? orderBy: OrderBy?) -> Observable<Result<[Photo], Splash.Error>>
+    func photos(byPageNumber pgNumber: Int?, orderBy: OrderBy?) -> Observable<Result<[Photo], Splash.Error>>
     
     func statistics(of photo: Photo) -> Observable<PhotoStatistics>
     

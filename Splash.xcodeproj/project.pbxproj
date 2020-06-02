@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29112690B364F192C4FCFF18 /* Pods_Splash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BCC9D6591F79F8FAD62804 /* Pods_Splash.framework */; };
+		7DD09E042485FF7E00FA0006 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD09E032485FF7E00FA0006 /* SceneCoordinator.swift */; };
 		7DD98E0824403CAC0051809A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98E0724403CAC0051809A /* AppDelegate.swift */; };
 		7DD98E0A24403CAC0051809A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98E0924403CAC0051809A /* SceneDelegate.swift */; };
 		7DD98E0C24403CAC0051809A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98E0B24403CAC0051809A /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		7DED44C6247E058A0049E205 /* PhotoServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44C5247E058A0049E205 /* PhotoServiceType.swift */; };
 		7DED44C9247E06820049E205 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44C8247E06820049E205 /* Orientation.swift */; };
 		7DED44CB247E06B60049E205 /* OrderBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44CA247E06B60049E205 /* OrderBy.swift */; };
+		7DED44CD247F47FD0049E205 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44CC247F47FD0049E205 /* Splash.swift */; };
 		B504D98123B5EFA25E5B92F2 /* Pods_SplashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */; };
 		EBB5D7FC3E075CE8612143D2 /* Pods_Splash_SplashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,7 @@
 		570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SplashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E543ACB27EAE1EA25556950 /* Pods-SplashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplashTests.release.xcconfig"; path = "Target Support Files/Pods-SplashTests/Pods-SplashTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D446D6023B04AA8D94E8538 /* Pods-Splash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.debug.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.debug.xcconfig"; sourceTree = "<group>"; };
+		7DD09E032485FF7E00FA0006 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		7DD98E0424403CAC0051809A /* Splash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DD98E0724403CAC0051809A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DD98E0924403CAC0051809A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		7DED44C5247E058A0049E205 /* PhotoServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoServiceType.swift; sourceTree = "<group>"; };
 		7DED44C8247E06820049E205 /* Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
 		7DED44CA247E06B60049E205 /* OrderBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBy.swift; sourceTree = "<group>"; };
+		7DED44CC247F47FD0049E205 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		B9E1D9023CE229121F80B2EE /* Pods-Splash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.release.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.release.xcconfig"; sourceTree = "<group>"; };
 		C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splash_SplashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DBBA000A9C1EEEB3C96E60 /* Pods-Splash-SplashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash-SplashUITests.debug.xcconfig"; path = "Target Support Files/Pods-Splash-SplashUITests/Pods-Splash-SplashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				7DED44792473E48E0049E205 /* SceneTransitionType.swift */,
 				7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */,
 				7DED447D2473E5C50049E205 /* Scene.swift */,
+				7DD09E032485FF7E00FA0006 /* SceneCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 			children = (
 				7DED44C8247E06820049E205 /* Orientation.swift */,
 				7DED44CA247E06B60049E205 /* OrderBy.swift */,
+				7DED44CC247F47FD0049E205 /* Splash.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -618,6 +624,7 @@
 				7DED44A8247653C80049E205 /* SplashError.swift in Sources */,
 				7DED447E2473E5C50049E205 /* Scene.swift in Sources */,
 				7DED44A6247651910049E205 /* Splash.swift in Sources */,
+				7DED44CD247F47FD0049E205 /* Splash.swift in Sources */,
 				7DED447C2473E5580049E205 /* SceneCoordinatorType.swift in Sources */,
 				7DED44C6247E058A0049E205 /* PhotoServiceType.swift in Sources */,
 				7DED44AE24768BC60049E205 /* HomeViewController.swift in Sources */,
@@ -630,6 +637,7 @@
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
 				7DED449024760F4A0049E205 /* Exif.swift in Sources */,
 				7DED44B024768C490049E205 /* HomeViewModel.swift in Sources */,
+				7DD09E042485FF7E00FA0006 /* SceneCoordinator.swift in Sources */,
 				7DED44C0247DF8E70049E205 /* HomeViewCellHeaderModel.swift in Sources */,
 				7DED449224760FF40049E205 /* ImageURLs.swift in Sources */,
 				7DED44C4247E056C0049E205 /* PhotoService.swift in Sources */,
