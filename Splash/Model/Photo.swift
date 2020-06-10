@@ -17,8 +17,8 @@ struct Photo: Codable {
     let height: Int?
     let color: String?
     let downloads: Int?
-    let likes: Int?
-    let likedByUser: Bool?
+    var likes: Int?
+    var likedByUser: Bool?
     let description: String?
     let location: Location?
 //    let tags: [Tag]?

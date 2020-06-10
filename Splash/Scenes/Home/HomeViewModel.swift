@@ -43,7 +43,7 @@ protocol HomeViewModelType {
 }
 
 class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
-    
+  
     //MARK: - Inputs & Outputs -
     var inputs: HomeViewModelInput { return self }
     var outputs: HomeViewModelInput { return self }
@@ -59,6 +59,7 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
     let isOrderBy: Observable<OrderBy>
     let isFirstPageRequested: Observable<Bool>
     let homeViewCellModelTypes: Observable<[HomeViewCellModelType]>
+      
     
     private let cache: Cache
     private let service: PhotoServiceType
@@ -73,8 +74,60 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
         var currPageNumber = 1
         var photoArray = [Photo]()
         
-//        let firstResult = Observable.combineLatest
+        let firstResult = Observable.combineLatest(refreshProperty, orderByProperty).flatMapLatest { isRefreshing, orderBy -> Observable<Result<[Photo], Splash.Error>> in
+            guard isRefreshing else { return .empty() }
+            return service.photos(byPageNumber: nil, orderBy: orderBy)
+        }
+        .execute { _ in
+            photoArray = []
+            currPageNumber = 1
+        }
+        .share()
+
+        let nextResult = Observable.combineLatest(loadMoreProperty, orderByProperty).flatMapLatest { isLoadingMore, orderBy -> Observable<Result<[Photo], Splash.Error>> in
+            guard isLoadingMore else { return .empty() }
+            currPageNumber += 1
+            return service.photos(byPageNumber: currPageNumber, orderBy: orderBy)
+        }
+        .share()
+        
+        let requestedPhotos = firstResult
+        .merge(with: nextResult)
+        .map { result -> [Photo]? in
+            switch result {
+                    
+            case let .success(photos):
+                return photos
+            case let .failure(error):
+                //FIXME: show alert
+                return nil
+            }
+        }
+        .unwrap()
+        .map { photos -> [Photo] in
+            photos.forEach {
+                photoArray.append($0)
+                
+            }
+            return photoArray
+        }
+        
+        isRefreshing = refreshProperty
+        isLoadingMore = loadMoreProperty
+        isOrderBy = orderByProperty
+        isFirstPageRequested = firstResult.map(to: true)
+        
+        homeViewCellModelTypes = Observable.combineLatest(requestedPhotos, cache.getAllObject(ofType: Photo.self)).map { photos, cachedPhotos -> [Photo] in
+            let cachedPhotos = cachedPhotos.filter {
+                photos.contains($0)
+            }
+            
+            return zip(photos, cachedPhotos).map { photo, cachedPhoto -> Photo in
+                var photo = photo
+                photo.likes = cachedPhoto.likes
+                photo.likedByUser = cachedPhoto.likedByUser
+                return photo
+            }
+        }.mapMany { HomeViewCellModel(photo: $0) }
     }
-    
-    
 }
