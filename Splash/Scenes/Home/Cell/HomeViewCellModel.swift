@@ -62,22 +62,30 @@ class HomeViewCellModel: HomeViewCellModelType, HomeViewCellModelInput, HomeView
         
         smallPhotoUrl = photoStream
             .map { $0.urls?.small }
-            .asObservable()
-            
+            .unwrap()
+            .mapToURL()
         
         regularPhotoUrl = photoStream
             .map { $0.urls?.regular }
-            .asObservable()
+            .unwrap()
+            .mapToURL()
         
         fullPhotoUrl = photoStream
             .map { $0.urls?.full }
-            .asObservable()
+            .unwrap()
+            .mapToURL()
         
         let height = photoStream
             .map { $0.height }
+            .unwrap()
+            .map { Double($0) }
+            .map { $0 * Double(UIScreen.main.bounds.width) }
+        
         
         let width = photoStream
             .map { $0.width }
+            .unwrap()
+            .map { Double($0) }
         
         photoSize = Observable.combineLatest(width, height, extraHeight).map { width, height, extraHeight in
             return (Double(UIScreen.main.bounds.width), height / width + 2 * extraHeight)

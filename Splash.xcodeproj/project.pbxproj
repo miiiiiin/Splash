@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		29112690B364F192C4FCFF18 /* Pods_Splash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BCC9D6591F79F8FAD62804 /* Pods_Splash.framework */; };
 		7D19518B24906EA500A9C0A2 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518A24906EA500A9C0A2 /* BindableType.swift */; };
+		7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */; };
 		7DD09E042485FF7E00FA0006 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD09E032485FF7E00FA0006 /* SceneCoordinator.swift */; };
 		7DD98E0824403CAC0051809A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98E0724403CAC0051809A /* AppDelegate.swift */; };
 		7DD98E0A24403CAC0051809A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98E0924403CAC0051809A /* SceneDelegate.swift */; };
@@ -78,6 +79,7 @@
 		5E543ACB27EAE1EA25556950 /* Pods-SplashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplashTests.release.xcconfig"; path = "Target Support Files/Pods-SplashTests/Pods-SplashTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D446D6023B04AA8D94E8538 /* Pods-Splash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.debug.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.debug.xcconfig"; sourceTree = "<group>"; };
 		7D19518A24906EA500A9C0A2 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
+		7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+ObservableType.swift"; sourceTree = "<group>"; };
 		7DD09E032485FF7E00FA0006 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		7DD98E0424403CAC0051809A /* Splash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DD98E0724403CAC0051809A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,9 +187,18 @@
 		7D19518924906E9000A9C0A2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7D19518C2490724300A9C0A2 /* Rx */,
 				7D19518A24906EA500A9C0A2 /* BindableType.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7D19518C2490724300A9C0A2 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */,
+			);
+			path = Rx;
 			sourceTree = "<group>";
 		};
 		7DD98DFB24403CAC0051809A = {
@@ -645,6 +656,7 @@
 				7DED44842474BC820049E205 /* User.swift in Sources */,
 				7DED449A247642FE0049E205 /* PhotoStatistics.swift in Sources */,
 				7DED44822473E96E0049E205 /* Constants.swift in Sources */,
+				7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */,
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
 				7DED449024760F4A0049E205 /* Exif.swift in Sources */,
 				7DED44B024768C490049E205 /* HomeViewModel.swift in Sources */,
