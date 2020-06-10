@@ -69,8 +69,8 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
             
           _ = navigationController.rx.delegate
                     .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
-                    .bind(to: subject)
-                    .ignoreElements()
+//                        .bind(to: subject)
+//                    .ignoreElements()
             
             navigationController.pushViewController(SceneCoordinator.actualViewController(for: viewController), animated: true)
         case let .present(viewController):
@@ -110,10 +110,10 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
         } else if let navigationController = currentVC.navigationController {
             _ = navigationController
                 .rx
-            .delegate
+                .delegate
                 .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
-                .bind(to: currentObserver)
-                .ignoreElements()
+//                .bind(to: currentObserver!)
+            //                .ignoreElements()
             
             guard navigationController.popViewController(animated: animated) != nil else {
                 fatalError("can't navigate back from \(currentVC)")
@@ -123,18 +123,18 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
                 currentVC = SceneCoordinator.actualViewController(for: navigationController.viewControllers.last!)
             }
         } else {
-            fatalError("Not a modal, no navigation controller: can't navigate back from \(currentViewController)")
+            fatalError("Not a modal, no navigation controller: can't navigate back from \(currentVC)")
         }
         
         return source
         .take(1)
-        .ignoreElements()
+//        .ignoreElements()
     }
 }
 
 //Cannot declare conformance to 'NSObjectProtocol' in Swift; 'SceneCoordinator' should inherit 'NSObject' instead
 extension SceneCoordinator: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, didshow viewController: UIViewController, animated: Bool) {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         currentVC = SceneCoordinator.actualViewController(for: viewController)
     }
 }

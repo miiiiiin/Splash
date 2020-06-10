@@ -51,34 +51,36 @@ class HomeViewCellModel: HomeViewCellModelType, HomeViewCellModelInput, HomeView
     // MARK: Private
     private let photo: Photo
     private let sceneCoordinator: SceneCoordinatorType
+    
+    
+    init(photo: Photo, sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
 
-//
-//    init(photo: Photo, sceneCoordinator: SceneCoordinatorType = SceneCoordinatorType.shared) {
-//        self.photo = photo
-//        self.sceneCoordinator = sceneCoordinator
-//        photoStream = Observable.just(photo)
-//
-//        smallPhotoUrl = photoStream
-//            .map { $0.urls?.small }
-//
-//        regularPhotoUrl = photoStream
-//            .map { $0.urls?.regular }
-//
-//        fullPhotoUrl = photoStream
-//            .map { $0.urls?.full }
-//
-//        let height = photoStream
-//            .map { $0.height }
-//            .map { $0 * Double(UIScreen.main.bounds.width) }
-//            .map { Double($0) }
-//
-//        let width = photoStream
-//            .map { $0.width }
-//            .map { Double($0) }
-//
-//        photoSize = Observable.combineLatest(width, height, extraHeight).map {
-//            width, height, extraHeight in
-//            return (Double(UIScreen.main.bounds.width), height / width + 2 * extraHeight)
-//        }
-//    }
+        self.photo = photo
+        self.sceneCoordinator = sceneCoordinator
+        
+        self.photoStream = Observable.just(photo)
+        
+        smallPhotoUrl = photoStream
+            .map { $0.urls?.small }
+            .asObservable()
+            
+        
+        regularPhotoUrl = photoStream
+            .map { $0.urls?.regular }
+            .asObservable()
+        
+        fullPhotoUrl = photoStream
+            .map { $0.urls?.full }
+            .asObservable()
+        
+        let height = photoStream
+            .map { $0.height }
+        
+        let width = photoStream
+            .map { $0.width }
+        
+        photoSize = Observable.combineLatest(width, height, extraHeight).map { width, height, extraHeight in
+            return (Double(UIScreen.main.bounds.width), height / width + 2 * extraHeight)
+        }
+    }
 }
