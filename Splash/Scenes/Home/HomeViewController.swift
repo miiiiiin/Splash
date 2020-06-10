@@ -9,14 +9,37 @@
 import UIKit
 import RxSwift
 import RxDataSources
+import RxCocoa
 import VanillaConstraints
 
 class HomeViewController: UIViewController {
- 
-//    typealias HomeSectionModel = SectionModel<Strin
+    
+    //MARK: - RxDataSources Model -
+    typealias HomeSectionModel = SectionModel<String, HomeViewCellModelType>
     
     //MARK: - ViewModel -
     var viewModel: HomeViewModel!
+
+    private let disposeBag = DisposeBag()
+    private let collectionLayout: UICollectionViewLayout!
+    private var datasource: RxCollectionViewSectionedReloadDataSource<HomeSectionModel>!
+    private var collectionView: UICollectionView!
+    private var refreshControl: UIRefreshControl!
+    private var rightBarButtonItem: UIBarButtonItem!
+    private var collectionViewDataSource: CollectionViewSectionedDataSource<HomeSectionModel>.ConfigureCell {
+        return { _, collectionView, IndexPath, cellModel in
+            var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeViewCell", for: IndexPath)
+//            cell.bind(to: cellModel)
+            
+            if let pinterestLayout = collectionView.collectionViewLayout as? PinterestLayout {
+                cellModel.outputs.photoSize
+                    .map { CGSize(width: $0, height: $1) }
+                    .bind(to: pinterestLayout.rx.updateSize(IndexPath))
+                    .disposed(by: self.disposeBag)
+            }
+            return cell
+        }
+    }
 }
 
 
