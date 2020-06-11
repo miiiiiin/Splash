@@ -20,6 +20,9 @@ target 'Splash' do
   #Constraints
   pod 'VanillaConstraints'
 
+  #Image Caching
+  pod 'Nuke'
+
   # Pods for Splash
 
   target 'SplashTests' do

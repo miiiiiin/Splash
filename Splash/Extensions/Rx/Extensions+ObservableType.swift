@@ -37,6 +37,12 @@ extension ObservableType {
         print("map to value : \(value)")
         return map { _ in value }
     }
+    
+    func orEmpty() -> Observable<Element> {
+        return catchError { _ in
+            return .empty()
+        }
+    }
 }
 
 extension Observable where Element == String {

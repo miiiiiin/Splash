@@ -13,6 +13,7 @@ struct User: Codable {
     let username: String?
     let name: String?
     let firstName: String?
+    let fullName: String?
     let lastName: String?
     let email: String?
     let url: String?
@@ -41,6 +42,7 @@ struct User: Codable {
         case firstName = "first_name"
         case lastName = "last_name"
         case name
+        case fullName = "full_name"
         case email
         case url
         case location
