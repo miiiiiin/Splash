@@ -11,7 +11,7 @@ import Foundation
 enum Constants {}
 
 extension Constants {
-    enum UnSplash {
+    enum Splash {
         static let baseurl = "https://api.unsplash.com/"
         static let clientID = ClientAuth.clientId
         static let clientSecret = ClientAuth.secret
@@ -19,7 +19,7 @@ extension Constants {
     }
 }
 
-extension Constants.UnSplash {
+extension Constants.Splash {
     enum ClientAuth {
         static let clientId = ClientAuth.environmentVariable(named: "0xEY4jia4h4ZY9VHWheBUzwbZxO9TWVYWha3Q-_q2ZE") ?? ""
         static let secret = ClientAuth.environmentVariable(named: "_gL7FKhuBMHgtd2PmBjgTcvgGU1W3nz34Zzh0GoHA68") ?? ""

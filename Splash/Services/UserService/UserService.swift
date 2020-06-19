@@ -18,31 +18,19 @@ struct UserService: UserServiceType {
         self.splash = splash
     }
     
+
     func getMe() -> Observable<Result<User, Splash.Error>> {
-        
+    return splash.rx
+        .request(resource: .getMe)
+        .map(to: User.self)
+        .map(Result.success)
+        .catchError { error in
+            let accessToken = UserDefaults.standard.string(forKey: Constants.Splash.clientID)
+            guard accessToken == nil else {
+                return .just(.failure(.other(message: error.localizedDescription)))
+            }
+            return .just(.failure(.noAccessToken))
+        }
+        .asObservable()
     }
-    
-    
-    
 }
-//
-//private let unsplash: TinyNetworking<Unsplash>
-//
-//init(unsplash: TinyNetworking<Unsplash> = TinyNetworking<Unsplash>()) {
-//    self.unsplash = unsplash
-//}
-//
-//func getMe() -> Observable<Result<User, Papr.Error>> {
-//    return unsplash.rx
-//        .request(resource: .getMe)
-//        .map(to: User.self)
-//        .map(Result.success)
-//        .catchError { error in
-//            let accessToken = UserDefaults.standard.string(forKey: Papr.Unsplash.clientID)
-//            guard accessToken == nil else {
-//                return .just(.failure(.other(message: error.localizedDescription)))
-//            }
-//            return .just(.failure(.noAccessToken))
-//        }
-//        .asObservable()
-//}
