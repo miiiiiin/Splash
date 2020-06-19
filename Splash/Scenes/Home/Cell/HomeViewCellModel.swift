@@ -11,7 +11,6 @@ import RxSwift
 import Action
 
 protocol HomeViewCellModelInput {
-    
     var photoDetailsAction: Action<Photo, Photo> { get }
 }
 
@@ -24,12 +23,10 @@ protocol HomeViewCellModelOutput {
     var extraHeight: Observable<Double> { get }
 }
 
-
 protocol HomeViewCellModelType {
     var inputs: HomeViewCellModelInput { get }
     var outputs: HomeViewCellModelOutput { get }
 }
-
 
 class HomeViewCellModel: HomeViewCellModelType, HomeViewCellModelInput, HomeViewCellModelOutput {
 

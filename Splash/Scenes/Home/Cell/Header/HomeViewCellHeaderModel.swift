@@ -33,7 +33,7 @@ struct HomeViewCellHeaderModel: HomeViewCellHeaderModelInput, HomeViewCellHeader
     let userName: Observable<String>
     let updatedTime: Observable<String>
     
-    init(photo: Photo) {
+    init(photo: Photo) {//FIXME
         let photoStream = Observable.just(photo)
         
         profileImageURL = photoStream

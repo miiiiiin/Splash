@@ -20,7 +20,7 @@ class HomeViewCell: UICollectionViewCell {
     }
     
     private let stackView = UIStackView()
-//    private let headerView = homeviewcellheader()
+    private let headerVie = HomeViewCellHeader()
     private var photoButton = UIButton()
     private let photoImageView = UIImageView()
 //    private let footerView = homeviewcellfooter()
