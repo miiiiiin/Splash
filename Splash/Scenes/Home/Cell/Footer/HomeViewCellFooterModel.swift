@@ -103,9 +103,8 @@ class HomeViewCellFooterModel: HomeViewCellFooterModelInput, HomeViewCellFooterM
                 .flatMap { result -> Observable<Void> in
                 switch result {
                 case let .success(user): //FIXME
-//                        let viewModel = addtoc
-//                        return self.sceneCoordinator.transition(to: Scene.addToCollection(viewModel))
-                    break
+                    let viewModel = AddToCollectionViewModel(loggedInUser: user, photo: photo)
+                    return self.sceneCoordinator.transition(to: Scene.addToCollection(viewModel))
                 case let .failure(error):
                     switch error {
                     case .noAccessToken:
@@ -118,7 +117,6 @@ class HomeViewCellFooterModel: HomeViewCellFooterModelInput, HomeViewCellFooterM
             }
         }
     }()
-    
     
     lazy var writeImageToPhotosAlbumAction: Action<UIImage, Void> = {
         Action<UIImage, Void> { image in

@@ -24,7 +24,7 @@ enum Scene {
     case alert
     case activity([Any])
     case photoDetails
-    case addToCollection
+    case addToCollection(AddToCollectionViewModel)
     case createCollection
     case searchPhotos
     case searchCollections
@@ -55,7 +55,12 @@ extension Scene: TargetScene {
         case .photoDetails:
             break
         case .addToCollection:
+//            var vc = AddToCollectionViewController.initFromNib()
+//            let rootViewController = UINavigationController(rootViewController: vc)
+//            vc.bind(to: viewModel)
+//            return .present(rootViewController)//FIXME
             break
+            
         case .createCollection:
             break
         case .searchPhotos:

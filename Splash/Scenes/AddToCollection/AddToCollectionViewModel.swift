@@ -16,7 +16,7 @@ protocol AddToCollectionViewModelInput {
 }
 
 protocol AddToCollectionViewModelOutput {
-//    var collectionCellModelTypes: Observable<[PhotoCollectionCellModelType]> { get }//fixme
+    var collectionCellModelTypes: Observable<[PhotoCollectionCellModelType]> { get }
     var photoStream: Observable<Photo> { get }
 }
 
@@ -30,7 +30,7 @@ final class AddToCollectionViewModel: AddToCollectionViewModelInput, AddToCollec
     //MARK: Private
     private var loggedInUser: User!
     private var photo: Photo!
-//    private var service: CollectionServiceType!//FIXME
+    private var service: CollectionServiceType!
     private var sceneCoordinator: SceneCoordinatorType!
     private var myCollectionStream: Observable<[PhotoCollection]>!
     
@@ -49,24 +49,22 @@ final class AddToCollectionViewModel: AddToCollectionViewModelInput, AddToCollec
         CocoaAction { [unowned self] _ in
 //            let viewModel = createcollection
 //            return self.sceneCoordinator.transition(to: Scene.createCollection(viewModel))//FIXME
-            
-            
             return
         }
     }()
     
-    
     //MARK: Outputs
     let photoStream: Observable<Photo>
-//    lazy var  collectionCellModelTypes: Observable<[PhotoCollectionCellModelType]> = {
-//        Observable.combineLatest(photoStream, myCollectionsStream)
-//            .map { photo, collections in
-//                collections.map { PhotoCollectionCellModel(photo: photo, photoCollection: $0) }
-//            }
-//    }() //FIXME
     
-    lazy var alertAction: Action<Splash.Error, Void> = {
-        Action<Splash.Error, Void> { [unowned self] error in
+    lazy var collectionCellModelTypes: Observable<[PhotoCollectionCellModelType]> = {
+        Observable.combineLatest(photoStream, myCollectionStream)
+            .map { photo, collections in
+                collections.map { PhotoCollectionCellModel(photo: photo, photoCollection: $0) }
+        }
+    }()
+    
+//    lazy var alertAction: Action<Splash.Error, Void> = {
+//        Action<Splash.Error, Void> { [unowned self] error in
 //            let alertViewModel = AlertViewModel(
             //                title: "Upsss...",
             //                message: error.errorDescription,
@@ -74,53 +72,33 @@ final class AddToCollectionViewModel: AddToCollectionViewModelInput, AddToCollec
             //            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
             //        }
             //FIXME
-            
-        }
-    }()
-    
-    init(loggedInUser: User, photo: Photo, service: )
-}
-
-
-
-
-// lazy var alertAction: Action<Papr.Error, Void> = {
-//        Action<Papr.Error, Void> { [unowned self] error in
-//            let alertViewModel = AlertViewModel(
-//                title: "Upsss...",
-//                message: error.errorDescription,
-//                mode: .ok)
-//            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
+//
 //        }
 //    }()
-//
-//    init(loggedInUser: User,
-//         photo: Photo,
-//         service: CollectionServiceType = CollectionService(),
-//         sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
-//
-//        self.loggedInUser = loggedInUser
-//        self.photo = photo
-//        self.service = service
-//        self.sceneCoordinator = sceneCoordinator
-//
-//        photoStream = Observable.just(photo)
-//
-//        var myCollections = [PhotoCollection]()
-//
-//        myCollectionsStream = service.collections(withUsername: loggedInUser.username ?? "")
-//            .map { result in
-//                switch result {
-//                case let .success(collections):
-//                    collections.forEach { collection in
-//                        myCollections.append(collection)
-//                    }
-//                    return myCollections
-//                case let .failure(error):
-//                    self.alertAction.execute(error)
-//                    return myCollections
-//                }
-//            }
-//        }
-//
-//}
+    
+    init(loggedInUser: User, photo: Photo, service: CollectionServiceType = CollectionService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
+        self.loggedInUser = loggedInUser
+        self.photo = photo
+        self.service = service
+        self.sceneCoordinator = sceneCoordinator
+        
+        photoStream = Observable.just(photo)
+        
+        var myCollections = [PhotoCollection]()
+        
+        myCollectionStream = service.collections(withUserName: loggedInUser.username ?? "")
+            .map { result in
+            switch result {
+            case let .success(collections):
+                collections.forEach { collection in
+                    myCollections.append(collection)
+                }
+                return myCollections
+                
+            case let .failure(error):
+//                    self.alertAction.execute(error)//fixme
+                return myCollections
+            }
+        }
+    }
+}

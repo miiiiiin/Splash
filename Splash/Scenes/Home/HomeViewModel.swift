@@ -39,14 +39,14 @@ protocol HomeViewModelOutput {
 
 protocol HomeViewModelType {
     var inputs: HomeViewModelInput { get }
-    var outputs: HomeViewModelInput { get }
+    var outputs: HomeViewModelOutput { get }
 }
 
 class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
   
     //MARK: - Inputs & Outputs -
     var inputs: HomeViewModelInput { return self }
-    var outputs: HomeViewModelInput { return self }
+    var outputs: HomeViewModelOutput { return self }
     
     //MARK: - Input -
     let refreshProperty = BehaviorSubject<Bool>(value: true)
