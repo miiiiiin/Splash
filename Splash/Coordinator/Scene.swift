@@ -40,12 +40,43 @@ extension Scene: TargetScene {
             let tabBarController = SplashTapBarController()
             
             //MARK: - Home View Controller -
-            var homeVC = HomeViewController()
+            var homeVC = HomeViewController(collectionViewLayout: PinterestLayout(numberOfColumns: 1))
             let homeViewModel = HomeViewModel()
-            let rootVC = UINavigationController(rootViewController: homeVC)
-//            homeVC.bind(homeViewModel)
+            let rootHomeVC = UINavigationController(rootViewController: homeVC)
+            homeVC.bind(to: homeViewModel)
             
-            break
+            let photosTapBarItem = UITabBarItem (
+                title: "Photos",
+                image: Splash.Style.Icon.arrowUpRight,
+                tag: 0
+            )
+            
+            let collectionsTabBarItem = UITabBarItem (
+                title: "collectionsTabBarItem",
+                image: Splash.Style.Icon.arrowUpRight,
+                tag: 1
+            )
+            
+            let searchTabBarItem = UITabBarItem (
+                title: "Search",
+                image: Splash.Style.Icon.arrowUpRight,
+                tag: 2
+            )
+            
+            collectionsTabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
+            photosTapBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
+            searchTabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
+            
+            rootHomeVC.tabBarItem = photosTapBarItem
+//            rootCollectionVC.tabBarItem = collectionsTabBarItem
+//            rootSearchVC.tabBarItem = searchTabBarItem
+            tabBarController.viewControllers = [
+                rootHomeVC
+//                rootCollectionVC,
+//                rootSearchVC //fixme
+            ]
+            
+            return .tabBar(tabBarController)
         case .login:
             break
         case .alert:

@@ -12,7 +12,7 @@ import RxDataSources
 import RxCocoa
 import VanillaConstraints
 
-class HomeViewController: UIViewController, BindableType {    
+class HomeViewController: UIViewController, BindableType {
     
     //MARK: - RxDataSources Model -
     typealias HomeSectionModel = SectionModel<String, HomeViewCellModelType>
