@@ -12,6 +12,7 @@ struct PhotoCollection: Codable {
     let id: Int?
     let title: String?
     let publishedAt: String?
+    let isPrivate: Bool?
     let updatedAt: String?
     let coverPhoto: Photo?
     let user: User?
@@ -23,5 +24,6 @@ struct PhotoCollection: Codable {
         case updatedAt = "updated_at"
         case coverPhoto = "cover_photo"
         case user
+        case isPrivate = "private"
     }
 }

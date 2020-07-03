@@ -26,7 +26,7 @@ struct CollectionService: CollectionServiceType {
             .asObservable()
     }
     
-    func collection(withUserName username: String) -> Observable<Result<[PhotoCollection], Splash.Error>> {
+    func collections(withUserName username: String) -> Observable<Result<[PhotoCollection], Splash.Error>> {
         return self.splash.rx.request(resource: .userCollections(username: username, page: 1, perPage: 20))
             .map(to: [PhotoCollection].self)
             .asObservable()

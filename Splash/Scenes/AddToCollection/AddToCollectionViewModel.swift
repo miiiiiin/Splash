@@ -49,6 +49,8 @@ final class AddToCollectionViewModel: AddToCollectionViewModelInput, AddToCollec
         CocoaAction { [unowned self] _ in
 //            let viewModel = createcollection
 //            return self.sceneCoordinator.transition(to: Scene.createCollection(viewModel))//FIXME
+            
+            
             return
         }
     }()
@@ -62,7 +64,6 @@ final class AddToCollectionViewModel: AddToCollectionViewModelInput, AddToCollec
 //                collections.map { PhotoCollectionCellModel(photo: photo, photoCollection: $0) }
 //            }
 //    }() //FIXME
-    
     
     lazy var alertAction: Action<Splash.Error, Void> = {
         Action<Splash.Error, Void> { [unowned self] error in

@@ -21,6 +21,8 @@
 		7DA5423724AEDE5C002C5EE1 /* AddToCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5423624AEDE5C002C5EE1 /* AddToCollectionViewModel.swift */; };
 		7DA5423C24AEE101002C5EE1 /* CollectionServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5423B24AEE101002C5EE1 /* CollectionServiceType.swift */; };
 		7DA5423E24AEF2F9002C5EE1 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5423D24AEF2F9002C5EE1 /* CollectionService.swift */; };
+		7DA5424124AEF58C002C5EE1 /* PhotoCollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5424024AEF58C002C5EE1 /* PhotoCollectionCellModel.swift */; };
+		7DA5424324AF0DBB002C5EE1 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5424224AF0DBB002C5EE1 /* PhotoCollectionViewCell.swift */; };
 		7DD09E042485FF7E00FA0006 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD09E032485FF7E00FA0006 /* SceneCoordinator.swift */; };
 		7DD98E0824403CAC0051809A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98E0724403CAC0051809A /* AppDelegate.swift */; };
 		7DD98E0A24403CAC0051809A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98E0924403CAC0051809A /* SceneDelegate.swift */; };
@@ -102,6 +104,8 @@
 		7DA5423624AEDE5C002C5EE1 /* AddToCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCollectionViewModel.swift; sourceTree = "<group>"; };
 		7DA5423B24AEE101002C5EE1 /* CollectionServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionServiceType.swift; sourceTree = "<group>"; };
 		7DA5423D24AEF2F9002C5EE1 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
+		7DA5424024AEF58C002C5EE1 /* PhotoCollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCellModel.swift; sourceTree = "<group>"; };
+		7DA5424224AF0DBB002C5EE1 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DD09E032485FF7E00FA0006 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		7DD98E0424403CAC0051809A /* Splash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DD98E0724403CAC0051809A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 		7DA5423524AEDE4B002C5EE1 /* AddToCollection */ = {
 			isa = PBXGroup;
 			children = (
+				7DA5423F24AEF582002C5EE1 /* Cell */,
 				7DA5423624AEDE5C002C5EE1 /* AddToCollectionViewModel.swift */,
 			);
 			path = AddToCollection;
@@ -249,6 +254,15 @@
 				7DA5423D24AEF2F9002C5EE1 /* CollectionService.swift */,
 			);
 			path = CollectionService;
+			sourceTree = "<group>";
+		};
+		7DA5423F24AEF582002C5EE1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7DA5424024AEF58C002C5EE1 /* PhotoCollectionCellModel.swift */,
+				7DA5424224AF0DBB002C5EE1 /* PhotoCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7DD98DFB24403CAC0051809A = {
@@ -723,9 +737,11 @@
 				7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */,
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
 				7D8CD8B9249C6B7F00F3929C /* UserService.swift in Sources */,
+				7DA5424124AEF58C002C5EE1 /* PhotoCollectionCellModel.swift in Sources */,
 				7D8CD8B6249C68ED00F3929C /* Extensions+Int.swift in Sources */,
 				7DED449024760F4A0049E205 /* Exif.swift in Sources */,
 				7DED44B024768C490049E205 /* HomeViewModel.swift in Sources */,
+				7DA5424324AF0DBB002C5EE1 /* PhotoCollectionViewCell.swift in Sources */,
 				7DD09E042485FF7E00FA0006 /* SceneCoordinator.swift in Sources */,
 				7D8CD8B0249C5BE600F3929C /* HomeViewCellFooter.swift in Sources */,
 				7DED44C0247DF8E70049E205 /* HomeViewCellHeaderModel.swift in Sources */,
