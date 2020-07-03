@@ -13,7 +13,6 @@ import Nuke
 
 class HomeViewCellFooter: UIView {
     
-    
     private lazy var stackViewContainer: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal

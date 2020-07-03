@@ -52,10 +52,10 @@ enum UnSplash {
 //        orderBy: OrderBy?)
 //
 //    /// List a user’s collections
-//    case userCollections(
-//        username:String,
-//        page: Int?,
-//        perPage: Int?)
+    case userCollections(
+        username:String,
+        page: Int?,
+        perPage: Int?)
 //
 //    /// Get a user’s statistics
 //    case userStatistics(
@@ -133,7 +133,7 @@ enum UnSplash {
 //        perPage: Int?)
 //
 //    /// Retrieve a collection
-//    case collection(id: Int)
+    case collection(id: Int)
 //
 //    /// Retrieve a related collection
 //    case relatedCollections(id: Int)
