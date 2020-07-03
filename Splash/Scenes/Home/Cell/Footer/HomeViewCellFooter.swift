@@ -11,7 +11,12 @@ import RxSwift
 import VanillaConstraints
 import Nuke
 
-class HomeViewCellFooter: UIView {
+class HomeViewCellFooter: UIView, BindableType {
+    var viewModel: HomeViewCellFooterModelType! {
+        didSet {
+            configureUI()
+        }
+    }
     
     private lazy var stackViewContainer: UIStackView = {
         let stackView = UIStackView()
@@ -54,9 +59,7 @@ class HomeViewCellFooter: UIView {
     
     private lazy var leftViewContainer: UIView = {
         let view = UIView()
-        
-        
-        
+        //fixme
         return view
     }()
     
@@ -69,65 +72,66 @@ class HomeViewCellFooter: UIView {
     private let disposeBag = DisposeBag()
     private let dummyImageView = UIImageView()
     
-    
     private func configureUI() {
         stackViewContainer.add(to: self).pinToEdges()
     }
-}
-
-
-var viewModel: HomeViewCellFooterModelType! {
-    didSet {
-        configureUI()
-    }
-}
-
-
- // MARK: Private
-    private static let imagePipeline = Nuke.ImagePipeline.shared
-    private var disposeBag = DisposeBag()
-    private let dummyImageView = UIImageView()
-
+    
     func bindViewModel() {
         let inputs = viewModel.inputs
         let outputs = viewModel.outputs
-
+        
         inputs.downloadPhotoAction.elements
             .subscribe { [unowned self] result in
                 guard let linkString = result.element, let url = URL(string: linkString) else { return }
-                Nuke.loadImage(with: url, into: self.dummyImageView) { result in
-                    guard case let .success(response) = result else { return }
-                    inputs.writeImageToPhotosAlbumAction.execute(response.image)
-                }
-            }
-            .disposed(by: disposeBag)
-
-        Observable.combineLatest(outputs.isLikedByUser, outputs.photo)
-            .bind { [weak self] in
-                self?.likeButton.rx.bind(to: $0 ? inputs.unlikePhotoAction: inputs.likePhotoAction, input: $1)
-            }
-            .disposed(by: disposeBag)
-
-        outputs.photo
-            .bind { [weak self] in
-                self?.saveButton.rx.bind(to: inputs.userCollectionsAction, input: $0)
-            }
-            .disposed(by: disposeBag)
-
-        outputs.photo
-            .bind { [weak self] in
-                self?.downloadButton.rx.bind(to: inputs.downloadPhotoAction, input: $0)
-            }
-            .disposed(by: disposeBag)
-
-        outputs.likesNumber
-            .bind(to: likesNumberLabel.rx.text)
-            .disposed(by: disposeBag)
-
-        outputs.isLikedByUser
-            .map { $0 ? Papr.Appearance.Icon.heartFillMedium : Papr.Appearance.Icon.heartMedium }
-            .bind(to: likeButton.rx.image())
-            .disposed(by: disposeBag)
+                
+        }
     }
-
+    
 }
+
+// func bindViewModel() {
+//        let inputs = viewModel.inputs
+//        let outputs = viewModel.outputs
+//
+//        inputs.downloadPhotoAction.elements
+//            .subscribe { [unowned self] result in
+//                guard let linkString = result.element, let url = URL(string: linkString) else { return }
+//                Nuke.loadImage(with: url, into: self.dummyImageView) { result in
+//                    guard case let .success(response) = result else { return }
+//                    inputs.writeImageToPhotosAlbumAction.execute(response.image)
+//                }
+//            }
+//            .disposed(by: disposeBag)
+//
+//        Observable.combineLatest(outputs.isLikedByUser, outputs.photo)
+//            .bind { [weak self] in
+//                self?.likeButton.rx.bind(to: $0 ? inputs.unlikePhotoAction: inputs.likePhotoAction, input: $1)
+//            }
+//            .disposed(by: disposeBag)
+//
+//        outputs.photo
+//            .bind { [weak self] in
+//                self?.saveButton.rx.bind(to: inputs.userCollectionsAction, input: $0)
+//            }
+//            .disposed(by: disposeBag)
+//
+//        outputs.photo
+//            .bind { [weak self] in
+//                self?.downloadButton.rx.bind(to: inputs.downloadPhotoAction, input: $0)
+//            }
+//            .disposed(by: disposeBag)
+//
+//        outputs.likesNumber
+//            .bind(to: likesNumberLabel.rx.text)
+//            .disposed(by: disposeBag)
+//
+//        outputs.isLikedByUser
+//            .map { $0 ? Papr.Appearance.Icon.heartFillMedium : Papr.Appearance.Icon.heartMedium }
+//            .bind(to: likeButton.rx.image())
+//            .disposed(by: disposeBag)
+//    }
+//
+//    private func configureUI() {
+//        stackViewContainer.add(to: self).pinToEdges()
+//    }
+//}
