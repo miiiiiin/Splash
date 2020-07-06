@@ -9,23 +9,26 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxNuke
+import Nuke
+import Hero
 
-class HomeViewCell: UICollectionViewCell {
+class HomeViewCell: UICollectionViewCell, BindableType {
     
     //MARK: - ViewModel -
-    var viewModel: HomeViewCellModelType {
+    var viewModel: HomeViewCellModelType! {
         didSet {
             configureUI()
         }
     }
     
     private let stackView = UIStackView()
-    private let headerVie = HomeViewCellHeader()
+    private var headerView = HomeViewCellHeader()
     private var photoButton = UIButton()
     private let photoImageView = UIImageView()
-//    private let footerView = homeviewcellfooter()
+    private var footerView = HomeViewCellFooter()
     
-//    private static let imagePipeline = Nuke.imagepipeline.shared
+    private static let imagePipeline = Nuke.ImagePipeline.shared
     private var disposeBag = DisposeBag()
     
     override func prepareForReuse() {
@@ -41,23 +44,31 @@ class HomeViewCell: UICollectionViewCell {
         let outputs = viewModel.outputs
         let this = HomeViewCell.self
         
-//        headerview.bind
-//        footerview.bind
+        headerView.bind(to: outputs.headerViewModelType)
+        footerView.bind(to: outputs.footerViewModelType)
         
         outputs.photoStream
             .map { $0.id }
-        .unwrap()
-//            .bind(to: photoImageView.rx.alpha)
-            .disposed(by: disposeBag)
-        
-        outputs.photoStream
-            .bind { [weak self] in
-                self?.photoButton.rx.bind(to: inputs.photoDetailsAction, input: $0)
+            .unwrap()
+//            .bind(to: photoImageView.rx.heroId)//fixme
+            
+        outputs.photoStream.bind { [weak self] in
+            self?.photoButton.rx.bind(to: inputs.photoDetailsAction, input: $0)
         }.disposed(by: disposeBag)
-//
-//        Observable.combineLatest(outputs.smallPhotoUrl, outputs.regularPhotoUrl, outputs.fullPhotoUrl).flatMap { smallPhotoUrl, regularPhotoUrl, fullPhotoUrl -> Observable<ImageResponse> in
-//            return Observable.concat(this.imagepipeline.rx.loadimage(width: ))
-//        }
+        
+        Observable.combineLatest(outputs.smallPhotoUrl,
+                                 outputs.regularPhotoUrl,
+                                 outputs.fullPhotoUrl)
+            .flatMap { smallPhotoURL, regularPhotoURL, fullPhotoURL -> Observable<ImageResponse> in
+                return Observable.concat(
+                    this.imagePipeline.rx.loadImage(with: smallPhotoURL).asObservable(),
+                    this.imagePipeline.rx.loadImage(with: regularPhotoURL).asObservable(),
+                    this.imagePipeline.rx.loadImage(with: fullPhotoURL).asObservable()
+                )
+            }.orEmpty()
+            .map { $0.image }
+            .bind(to: photoImageView.rx.image)
+            .disposed(by: disposeBag)
     }
     
     private func configureUI() {
@@ -71,6 +82,20 @@ class HomeViewCell: UICollectionViewCell {
             .bottom(to: \.bottomAnchor, constant: footerViewHeight)
             .left(to: \.leftAnchor)
             .right(to: \.rightAnchor)
+        
+        headerView.height(headerViewHeight)
+        footerView.height(footerViewHeight)
+
+        photoButton.isExclusiveTouch = true
+
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 0.0
+
+        stackView.addArrangedSubview(headerView)
+        stackView.addArrangedSubview(photoImageView)
+        stackView.addArrangedSubview(footerView)
         
     }
 }

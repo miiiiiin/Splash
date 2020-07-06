@@ -21,7 +21,7 @@ target 'Splash' do
   pod 'VanillaConstraints'
 
   #Image Caching
-  pod 'Nuke'
+  pod 'RxNuke'
 
   # Pods for Splash
 

@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import Nuke
+import RxNuke
 
 class HomeViewCellHeader: UIView, BindableType {
     
@@ -52,9 +53,8 @@ class HomeViewCellHeader: UIView, BindableType {
         let outputs = viewModel.outputs
         let this = HomeViewCellHeader.self
 
-        //FIXME
         outputs.profileImageURL
-            .flatMap { this.imagePipeline.rx.loadImage(with: $0)}
+            .flatMap { this.imagePipeLine.rx.loadImage(with: $0)}
             .orEmpty()
             .map { $0.image }
             .bind(to: profileImageView.rx.image)

@@ -29,20 +29,6 @@ class HomeViewCellFooter: UIView, BindableType {
         return stackView
     }()
     
-    private lazy var likeButton: UIButton = {
-        let button = UIButton()
-        button.tintColor = .black
-        return button
-    }()
-    
-    private lazy var saveButton: UIButton = {
-        let button = UIButton()
-        button.tintColor = .black
-        button.setImage(Splash.Style.Icon.bookmark, for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        return button
-    }()
-    
     private lazy var downloadButton: UIButton = {
         let button = UIButton()
         button.tintColor = .black
@@ -59,22 +45,66 @@ class HomeViewCellFooter: UIView, BindableType {
     
     private lazy var leftViewContainer: UIView = {
         let view = UIView()
+        
         //fixme
+        
         return view
     }()
     
     private lazy var rightViewContainer: UIView = {
         let view = UIView()
+        //fixme
         return view
     }()
+    
+    private lazy var likeButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .black
+        return button
+    }()
+    
+    private lazy var saveButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .black
+        button.setImage(Splash.Style.Icon.bookmark, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        return button
+    }()
+    
+//    private lazy var leftViewContainer: UIView = {
+//           let view = UIView()
+//
+//           likeButton.add(to: view)
+//               .left(to: \.leftAnchor, constant: 16.0)
+//               .centerY(to: \.centerYAnchor)
+//               .size(CGSize(width: 30.0, height: 30.0))
+//
+//           likesNumberLabel.add(to: view)
+//               .left(to: \.rightAnchor, of: likeButton, constant: 4.0)
+//               .centerY(to: \.centerYAnchor)
+//
+//           return view
+//       }()
+//
+//       private lazy var rightViewContainer: UIView = {
+//           let view = UIView()
+//
+//           saveButton.add(to: view)
+//               .right(to: \.rightAnchor, constant: 16.0)
+//               .centerY(to: \.centerYAnchor)
+//               .size(CGSize(width: 30.0, height: 30.0))
+//
+//           downloadButton.add(to: view)
+//               .right(to: \.leftAnchor, of: saveButton, constant: 16.0)
+//               .centerY(to: \.centerYAnchor)
+//               .size(CGSize(width: 30.0, height: 30.0))
+//
+//           return view
+//       }()
     
     private static let imagePipeline = Nuke.ImagePipeline.shared
     private let disposeBag = DisposeBag()
     private let dummyImageView = UIImageView()
-    
-    private func configureUI() {
-        stackViewContainer.add(to: self).pinToEdges()
-    }
     
     func bindViewModel() {
         let inputs = viewModel.inputs
@@ -83,55 +113,39 @@ class HomeViewCellFooter: UIView, BindableType {
         inputs.downloadPhotoAction.elements
             .subscribe { [unowned self] result in
                 guard let linkString = result.element, let url = URL(string: linkString) else { return }
-                
-        }
+                Nuke.loadImage(with: url, into: self.dummyImageView) { result in
+                    guard case let .success(response) = result else { return }
+                    inputs.writeImageToPhotosAlbumAction.execute(response.image)
+                }
+        }.disposed(by: disposeBag)
+        
+    
+        Observable.combineLatest(outputs.isLikedByUser, outputs.photo)
+            .bind { [weak self] in
+                self?.likeButton.rx.bind(to: $0 ? inputs.unlikePhotoAction : inputs.likePhotoAction, input: $1)
+        }.disposed(by: disposeBag)
+        
+        outputs.photo
+            .bind { [weak self] in
+                self?.saveButton.rx.bind(to: inputs.userCollectionsAction, input: $0)
+        }.disposed(by: disposeBag)
+        
+        outputs.photo
+            .bind { [weak self] in
+                self?.downloadButton.rx.bind(to: inputs.downloadPhotoAction, input: $0)
+        }.disposed(by: disposeBag)
+        
+        outputs.likesNumber
+            .bind(to: likesNumerLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        outputs.isLikedByUser
+            .map { $0 ? Splash.Style.Icon.arrowUpRight : Splash.Style.Icon.bookmark }
+            .bind(to: likeButton.rx.image())
+            .disposed(by: disposeBag)
     }
     
+    private func configureUI() {
+        stackViewContainer.add(to: self).pinToEdges()
+    }
 }
-
-// func bindViewModel() {
-//        let inputs = viewModel.inputs
-//        let outputs = viewModel.outputs
-//
-//        inputs.downloadPhotoAction.elements
-//            .subscribe { [unowned self] result in
-//                guard let linkString = result.element, let url = URL(string: linkString) else { return }
-//                Nuke.loadImage(with: url, into: self.dummyImageView) { result in
-//                    guard case let .success(response) = result else { return }
-//                    inputs.writeImageToPhotosAlbumAction.execute(response.image)
-//                }
-//            }
-//            .disposed(by: disposeBag)
-//
-//        Observable.combineLatest(outputs.isLikedByUser, outputs.photo)
-//            .bind { [weak self] in
-//                self?.likeButton.rx.bind(to: $0 ? inputs.unlikePhotoAction: inputs.likePhotoAction, input: $1)
-//            }
-//            .disposed(by: disposeBag)
-//
-//        outputs.photo
-//            .bind { [weak self] in
-//                self?.saveButton.rx.bind(to: inputs.userCollectionsAction, input: $0)
-//            }
-//            .disposed(by: disposeBag)
-//
-//        outputs.photo
-//            .bind { [weak self] in
-//                self?.downloadButton.rx.bind(to: inputs.downloadPhotoAction, input: $0)
-//            }
-//            .disposed(by: disposeBag)
-//
-//        outputs.likesNumber
-//            .bind(to: likesNumberLabel.rx.text)
-//            .disposed(by: disposeBag)
-//
-//        outputs.isLikedByUser
-//            .map { $0 ? Papr.Appearance.Icon.heartFillMedium : Papr.Appearance.Icon.heartMedium }
-//            .bind(to: likeButton.rx.image())
-//            .disposed(by: disposeBag)
-//    }
-//
-//    private func configureUI() {
-//        stackViewContainer.add(to: self).pinToEdges()
-//    }
-//}

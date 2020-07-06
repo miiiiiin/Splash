@@ -21,6 +21,8 @@ protocol HomeViewCellModelOutput {
     var fullPhotoUrl: Observable<URL> { get }
     var photoSize: Observable<(Double, Double)> { get }
     var extraHeight: Observable<Double> { get }
+    var headerViewModelType: HomeViewCellHeaderModelType { get }
+    var footerViewModelType: HomeViewCellFooterModelType { get }
 }
 
 protocol HomeViewCellModelType {
@@ -29,6 +31,10 @@ protocol HomeViewCellModelType {
 }
 
 class HomeViewCellModel: HomeViewCellModelType, HomeViewCellModelInput, HomeViewCellModelOutput {
+    var headerViewModelType: HomeViewCellHeaderModelType
+    
+    var footerViewModelType: HomeViewCellFooterModelType
+    
 
     // MARK: Inputs & Outputs
     var inputs: HomeViewCellModelInput { return self }
