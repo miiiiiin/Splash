@@ -64,28 +64,28 @@ enum UnSplash {
 //        quantity: Int?)
 //
 //    /// Get the list of all photos
-//    case photos(
-//        page: Int?,
-//        perPage: Int?,
-//        orderBy: OrderBy?)
+    case photos(
+        page: Int?,
+        perPage: Int?,
+        orderBy: OrderBy?)
 //
 //    /// Retrieve a single photo.
-//    case photo(
-//        id: String,
-//        width: Int?,
-//        height: Int?,
-//        rect: [Int]?)
-//
+    case photo(
+        id: String,
+        width: Int?,
+        height: Int?,
+        rect: [Int]?)
+
 //    /// Get a random photo
-//    case randomPhoto(
-//        collections: [String]?,
-//        isFeatured: Bool?,
-//        username: String?,
-//        query: String?,
-//        width: Int?,
-//        height: Int?,
-//        orientation: Orientation?,
-//        count: Int?)
+    case randomPhoto(
+        collections: [String]?,
+        isFeatured: Bool?,
+        username: String?,
+        query: String?,
+        width: Int?,
+        height: Int?,
+        orientation: Orientation?,
+        count: Int?)
 //
 //    /// Get a photo’s statistics
 //    case photoStatistics(
@@ -94,13 +94,13 @@ enum UnSplash {
 //        quantity: Int?)
 //
 //    /// Retrieve a single photo’s download link
-//    case photoDownloadLink(id: String)
+    case photoDownloadLink(id: String)
 //
 //    /// Like a photo on behalf of the logged-in user
-//    case likePhoto(id: String)
+    case likePhoto(id: String)
 //
 //    /// Remove a user’s like of a photo.
-//    case unlikePhoto(id: String)
+    case unlikePhoto(id: String)
 //
 //    /// Get photo results for a query
 //    case searchPhotos(
@@ -203,8 +203,8 @@ extension UnSplash: Resource {
 //            return .get(path: "/users/\(param.username)/collections")
 //        case let .userStatistics(param):
 //            return .get(path: "/users/\(param.username)/statistics")
-//        case .photos:
-//            return .get(path: "/photos")
+        case .photos:
+            return .get(path: "/photos")
 //        case let .photo(param):
 //            return .get(path: "/photos/\(param.id)")
 //        case .randomPhoto:
