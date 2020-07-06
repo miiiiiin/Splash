@@ -139,10 +139,10 @@ enum UnSplash {
 //    case relatedCollections(id: Int)
 //
 //    /// Retrieve a collection’s photos
-//    case collectionPhotos(
-//        id: Int,
-//        page: Int?,
-//        perPage: Int?)
+    case collectionPhotos(
+        id: Int,
+        page: Int?,
+        perPage: Int?)
 //
 //    /// Create a new collection
 //    case createCollection(
@@ -231,8 +231,8 @@ extension UnSplash: Resource {
 //            return .get(path: "/collections/featured")
         case let .collection(id):
             return .get(path: "/collections/\(id)")
-//        case let .collectionPhotos(params):
-//            return .get(path: "/collections/\(params.id)/photos")
+        case let .collectionPhotos(params):
+            return .get(path: "/collections/\(params.id)/photos")
 //        case let .relatedCollections(id):
 //            return .get(path: "/collections/\(id)/related")
 //        case let .updateCollection(params):

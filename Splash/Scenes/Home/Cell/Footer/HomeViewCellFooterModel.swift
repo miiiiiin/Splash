@@ -140,13 +140,13 @@ class HomeViewCellFooterModel: HomeViewCellFooterModelInput, HomeViewCellFooterM
     
     //FIXME
     private lazy var alertAction: Action<(title: String, message: String), Void> = {
-        Action<(title: String, message: String), Void> { [unowend self] (title, message) in
+        Action<(title: String, message: String), Void> { [unowned self] (title, message) in
 //            let alertViewModel = AlertViewModel(
             //                title: title,
             //                message: message,
             //                mode: .ok)
             //            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
-            
+            return self.sceneCoordinator.transition(to: Scene.alert)
         }
     }()
     
@@ -156,11 +156,19 @@ class HomeViewCellFooterModel: HomeViewCellFooterModelInput, HomeViewCellFooterM
 //            let viewModel = LoginViewModel()
             //            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
             //FIXME
-            break
+            return self.sceneCoordinator.transition(to: Scene.login)
         }
     }()
     
-    init(photo: Photo, cache: Cache = Cache.shared, userService: UserServiceType = USRSERV(), photoService: PhotoServiceType = photoService(), photoLibrary: PHPhotoLibrary = PHPhotoLibrary.shared(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
+//    private lazy var navigateToLogin: CocoaAction = {
+//        CocoaAction { [unowned self] message in
+//            let viewModel = LoginViewModel()
+//            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
+//        }
+//    }()
+    
+    
+    init(photo: Photo, cache: Cache = Cache.shared, userService: UserServiceType = UserService(), photoService: PhotoServiceType = PhotoService(), photoLibrary: PHPhotoLibrary = PHPhotoLibrary.shared(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
         
         self.cache = cache
         self.photoService = photoService

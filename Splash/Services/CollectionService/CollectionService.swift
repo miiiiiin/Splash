@@ -40,10 +40,13 @@ struct CollectionService: CollectionServiceType {
 //        //fixme
 //    }
 //
-//    func photos(fromCollectionId id: Int, pageNumber: Int) -> Observable<[Photo]> {
-//        //fixme
-//    }
-//
+    func photos(fromCollectionId id: Int, pageNumber: Int) -> Observable<[Photo]> {
+        return splash.rx.request(resource: .collectionPhotos(id: id, page: pageNumber, perPage: 10))
+            .map(to: [Photo].self)
+            .asObservable()
+            .execute { self.cache.set(values: $0) } //populate the cache
+    }
+    
     func addPhotoToCollection(withId id: Int, photoId: String) -> Observable<Result<Photo, Splash.Error>> {
         return splash.rx
             .request(resource: .addPhotoToCollection(collectionID: id, photoID: photoId))

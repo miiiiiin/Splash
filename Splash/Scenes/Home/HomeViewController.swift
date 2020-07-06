@@ -42,7 +42,9 @@ class HomeViewController: UIViewController, BindableType {
     }
     
     init(collectionViewLayout: UICollectionViewLayout) {
-        //fixme
+        self.collectionLayout = collectionViewLayout
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {

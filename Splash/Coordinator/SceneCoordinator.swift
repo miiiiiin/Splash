@@ -27,6 +27,7 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
     }
     
     required init(window: UIWindow) {
+        self.window = window
         currentVC = window.rootViewController!
     }
     
