@@ -37,9 +37,9 @@ struct CollectionService: CollectionServiceType {
     }
     
 //    func collection(byPageNumber page: Int) -> Observable<Result<[PhotoCollection], Splash.Error>> {
-//        //fixme
+        //fixme
 //    }
-//
+
     func photos(fromCollectionId id: Int, pageNumber: Int) -> Observable<[Photo]> {
         return splash.rx.request(resource: .collectionPhotos(id: id, page: pageNumber, perPage: 10))
             .map(to: [Photo].self)
@@ -64,12 +64,10 @@ struct CollectionService: CollectionServiceType {
         return splash.rx.request(resource: .removePhotoFromCollection(collectionID: id, photoID: photoId))
             .map(to: CollectionResponse.self)
             .map { $0.photo }
-        .asObservable()
-        .unwrap()
+            .asObservable()
+            .unwrap()
             .map(Result.success)
-            .catchError { _ in
-                .just(.failure(.other(message: "Failed to remove photo from the collection")))
-        }
+            .catchError { _ in .just(.failure(.other(message: "Failed to remove photo from the collection"))) }
     }
 
 //

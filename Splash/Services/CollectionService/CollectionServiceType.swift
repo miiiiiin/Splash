@@ -15,7 +15,7 @@ protocol CollectionServiceType {
     func collections(withUserName username: String) -> Observable<Result<[PhotoCollection], Splash.Error>>
     
 //    func collection(byPageNumber page: Int) -> Observable<Result<[PhotoCollection], Splash.Error>>
-//
+
     func photos(fromCollectionId id: Int, pageNumber: Int) -> Observable<[Photo]>
 //
     func addPhotoToCollection(withId id: Int, photoId: String) -> Observable<Result<Photo, Splash.Error>>

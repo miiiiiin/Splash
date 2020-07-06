@@ -47,11 +47,12 @@ class HomeViewCell: UICollectionViewCell, BindableType {
         headerView.bind(to: outputs.headerViewModelType)
         footerView.bind(to: outputs.footerViewModelType)
         
-//        outputs.photoStream
-//            .map { $0.id }
-//            .unwrap()//fixme
-//            .bind(to: photoImageView.rx.heroId)//fixme
-            
+        outputs.photoStream
+            .map { $0.id }
+            .unwrap()
+            .bind(to: photoImageView.rx.heroId)
+            .disposed(by: disposeBag)
+        
         outputs.photoStream.bind { [weak self] in
             self?.photoButton.rx.bind(to: inputs.photoDetailsAction, input: $0)
         }.disposed(by: disposeBag)
