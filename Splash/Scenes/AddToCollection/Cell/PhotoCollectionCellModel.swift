@@ -65,21 +65,22 @@ final class PhotoCollectionCellModel: PhotoCollectionCellModelInput, PhotoCollec
         }
     }()
     
-    lazy var removeAction: CocoaAction = {
-        return CocoaAction {
-            guard let collectionID = self.photoCollection.id, let photoID = self.photo.id else { return Observable.empty() }
-            return self.service.removePhotoFromCollection(withId: collectionID, photoId: photoID)
-            .flatMap { result -> Observable<Void> in
-                switch result {
-                case let .success(photo):
-                    self.photoProperty.onNext(photo)
-                case let .failure(error):
-                    break
-                    //                        self.alertAction.execute(error)//fixme
-                }
-            }
-        }
-    }()
+    var removeAction: CocoaAction
+//    lazy var removeAction: CocoaAction = {
+//        return CocoaAction {
+//            guard let collectionID = self.photoCollection.id, let photoID = self.photo.id else { return Observable.empty() }
+//            return self.service.removePhotoFromCollection(withId: collectionID, photoId: photoID)
+//            .flatMap { result -> Observable<Void> in
+//                switch result {
+//                case let .success(photo):
+//                    self.photoProperty.onNext(photo)
+//                case let .failure(error):
+//                    break
+//                    //                        self.alertAction.execute(error)//fixme
+//                }
+//            }
+//        }
+//    }()//fixme
     
     init(photo: Photo, photoCollection: PhotoCollection, service: CollectionServiceType = CollectionService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
         self.photo = photo
@@ -109,11 +110,9 @@ final class PhotoCollectionCellModel: PhotoCollectionCellModelInput, PhotoCollec
                 guard let photo = updatedPhoto else { return currentPhoto }
                 return photo
         }
-        
         .flatMap { photo in
             service.photos(fromCollectionId: photoCollection.id ?? 0, pageNumber: 1)
-
-            .map { $0.contains(photo)}
+            .map { $0.contains(photo) }
         }
         .catchErrorJustReturn(false)
     }

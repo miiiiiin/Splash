@@ -36,23 +36,32 @@ struct CollectionService: CollectionServiceType {
         }
     }
     
-    func collection(byPageNumber page: Int) -> Observable<Result<[PhotoCollection], Splash.Error>> {
-        //fixme
-    }
-    
-    func photos(fromCollectionId id: Int, pageNumber: Int) -> Observable<[Photo]> {
-        //fixme
-    }
-    
+//    func collection(byPageNumber page: Int) -> Observable<Result<[PhotoCollection], Splash.Error>> {
+//        //fixme
+//    }
+//
+//    func photos(fromCollectionId id: Int, pageNumber: Int) -> Observable<[Photo]> {
+//        //fixme
+//    }
+//
     func addPhotoToCollection(withId id: Int, photoId: String) -> Observable<Result<Photo, Splash.Error>> {
-        //fixme
+        return splash.rx
+            .request(resource: .addPhotoToCollection(collectionID: id, photoID: photoId))
+            .map(to: CollectionResponse.self)
+            .map { $0.photo }
+        .asObservable()
+        .unwrap()
+            .map(Result.success)
+            .catchError { _ in
+                .just(.failure(.other(message: "Failed to add photo to the collection")))
+        }
     }
     
-    func removePhotoFromCollection(withId id: Int, photoId: String) -> Observable<Result<Photo, Splash.Error>> {
-        //fixme
-    }
-    
-    func createCollection(with title: String, description: String, isPrivate: Bool) -> Observable<Result<PhotoCollection, Splash.Error>> {
-        //fixme
-    }
+//    func removePhotoFromCollection(withId id: Int, photoId: String) -> Observable<Result<Photo, Splash.Error>> {
+//        //fixme
+//    }
+//
+//    func createCollection(with title: String, description: String, isPrivate: Bool) -> Observable<Result<PhotoCollection, Splash.Error>> {
+//        //fixme
+//    }
 }

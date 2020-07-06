@@ -161,9 +161,9 @@ enum UnSplash {
 //    case deleteCollection(id: Int)
 //
 //    /// Add a photo to a collection
-//    case addPhotoToCollection(
-//        collectionID: Int,
-//        photoID: String)
+    case addPhotoToCollection(
+        collectionID: Int,
+        photoID: String)
 //
 //    /// Remove a photo from a collection
 //    case removePhotoFromCollection(
@@ -199,24 +199,24 @@ extension UnSplash: Resource {
 //            return .get(path: "/users/\(param.username)/photos")
 //        case let .userLikedPhotos(param):
 //            return .get(path: "/users/\(param.username)/likes")
-//        case let .userCollections(param):
-//            return .get(path: "/users/\(param.username)/collections")
+        case let .userCollections(param):
+            return .get(path: "/users/\(param.username)/collections")
 //        case let .userStatistics(param):
 //            return .get(path: "/users/\(param.username)/statistics")
         case .photos:
             return .get(path: "/photos")
-//        case let .photo(param):
-//            return .get(path: "/photos/\(param.id)")
-//        case .randomPhoto:
-//            return .get(path: "/photos/random")
+        case let .photo(param):
+            return .get(path: "/photos/\(param.id)")
+        case .randomPhoto:
+            return .get(path: "/photos/random")
 //        case let .photoStatistics(param):
 //            return .get(path: "/photos/\(param.id)/statistics")
-//        case let .photoDownloadLink(id):
-//            return .get(path: "/photos/\(id)/download")
-//        case let .likePhoto(id):
-//            return .post(path: "/photos/\(id)/like")
-//        case let .unlikePhoto(id):
-//            return .delete(path: "/photos/\(id)/like")
+        case let .photoDownloadLink(id):
+            return .get(path: "/photos/\(id)/download")
+        case let .likePhoto(id):
+            return .post(path: "/photos/\(id)/like")
+        case let .unlikePhoto(id):
+            return .delete(path: "/photos/\(id)/like")
 //        case .searchPhotos:
 //            return .get(path: "/search/photos")
 //        case .searchCollections:
@@ -229,8 +229,8 @@ extension UnSplash: Resource {
 //            return .post(path: "/collections")
 //        case .featuredCollections:
 //            return .get(path: "/collections/featured")
-//        case let .collection(id):
-//            return .get(path: "/collections/\(id)")
+        case let .collection(id):
+            return .get(path: "/collections/\(id)")
 //        case let .collectionPhotos(params):
 //            return .get(path: "/collections/\(params.id)/photos")
 //        case let .relatedCollections(id):
@@ -239,8 +239,8 @@ extension UnSplash: Resource {
 //            return .put(path: "/collections\(params.id)")
 //        case let .deleteCollection(id):
 //            return .delete(path: "/collections/\(id)")
-//        case let .addPhotoToCollection(params):
-//            return .post(path: "/collections/\(params.collectionID)/add")
+        case let .addPhotoToCollection(params):
+            return .post(path: "/collections/\(params.collectionID)/add")
 //        case let .removePhotoFromCollection(params):
 //            return .delete(path: "/collections/\(params.collectionID)/remove")
         }
@@ -267,35 +267,35 @@ extension UnSplash: Resource {
 
             return .requestWithParameters(params, encoding: URLEncoding())
 
-        case let .userProfile(value):
+//        case let .userProfile(value):
+//
+//            var params: [String: Any] = [:]
+//            params["w"] = value.width
+//            params["h"] = value.height
+//
+//            return .requestWithParameters(params, encoding: URLEncoding())
 
-            var params: [String: Any] = [:]
-            params["w"] = value.width
-            params["h"] = value.height
+//        case let .userPhotos(value):
+//
+//            var params: [String: Any] = [:]
+//            params["page"] = value.page
+//            params["per_page"] = value.perPage
+//            params["order_by"] = value.orderBy
+//            params["stats"] = value.showStats
+//            params["resolution"] = value.resolution?.rawValue
+//            params["quantity"] = value.quantity
+//
+//            return .requestWithParameters(params, encoding: URLEncoding())
 
-            return .requestWithParameters(params, encoding: URLEncoding())
-
-        case let .userPhotos(value):
-
-            var params: [String: Any] = [:]
-            params["page"] = value.page
-            params["per_page"] = value.perPage
-            params["order_by"] = value.orderBy
-            params["stats"] = value.showStats
-            params["resolution"] = value.resolution?.rawValue
-            params["quantity"] = value.quantity
-
-            return .requestWithParameters(params, encoding: URLEncoding())
-
-        case let .userLikedPhotos(_, pageNumber, photosPerPage, orderBy),
-             let .photos(pageNumber, photosPerPage, orderBy):
-
-            var params: [String: Any] = [:]
-            params["page"] = pageNumber
-            params["per_page"] = photosPerPage
-            params["order_by"] = orderBy
-
-            return .requestWithParameters(params, encoding: URLEncoding())
+//        case let .userLikedPhotos(_, pageNumber, photosPerPage, orderBy),
+//             let .photos(pageNumber, photosPerPage, orderBy):
+//
+//            var params: [String: Any] = [:]
+//            params["page"] = pageNumber
+//            params["per_page"] = photosPerPage
+//            params["order_by"] = orderBy
+//
+//            return .requestWithParameters(params, encoding: URLEncoding())
 
         case let .photo(value):
 
@@ -306,14 +306,14 @@ extension UnSplash: Resource {
 
             return .requestWithParameters(params, encoding: noBracketsAndLiteralBoolEncoding)
 
-        case let .userStatistics(_, resolution, quantity),
-             let .photoStatistics(_, resolution, quantity):
-
-            var params: [String: Any] = [:]
-            params["resolution"] = resolution?.rawValue
-            params["quantity"] = quantity
-
-            return .requestWithParameters(params, encoding: URLEncoding())
+//        case let .userStatistics(_, resolution, quantity),
+//             let .photoStatistics(_, resolution, quantity):
+//
+//            var params: [String: Any] = [:]
+//            params["resolution"] = resolution?.rawValue
+//            params["quantity"] = quantity
+//
+//            return .requestWithParameters(params, encoding: URLEncoding())
 
         case let .randomPhoto(value):
 
@@ -328,58 +328,58 @@ extension UnSplash: Resource {
             params["count"] = value.count
 
             return .requestWithParameters(params, encoding: noBracketsAndLiteralBoolEncoding)
-
-        case let .userCollections(_, pageNumber, photosPerPage),
-             let .collections(pageNumber, photosPerPage),
-             let .featuredCollections(pageNumber, photosPerPage),
-             let .collectionPhotos(_, pageNumber, photosPerPage):
-
-            var params: [String: Any] = [:]
-            params["page"] = pageNumber
-            params["per_page"] = photosPerPage
-
-            return .requestWithParameters(params, encoding: URLEncoding())
-
-        case let .searchCollections(value),
-             let .searchUsers(value):
-
-            var params: [String: Any] = [:]
-            params["query"] = value.query
-            params["page"] = value.page
-            params["per_page"] = value.perPage
-
-            return  .requestWithParameters(params, encoding: URLEncoding())
-
-        case let .searchPhotos(value):
-
-            var params: [String: Any] = [:]
-            params["query"] = value.query
-            params["page"] = value.page
-            params["per_page"] = value.perPage
-            params["collections"] = value.collections
-            params["orientation"] = value.orientation?.rawValue
-
-            return .requestWithParameters(params,encoding: noBracketsAndLiteralBoolEncoding)
-
-        case let .createCollection(value):
-
-            var params: [String: Any] = [:]
-            params["title"] = value.title
-            params["description"] = value.description
-            params["private"] = value.isPrivate
-
-            return .requestWithParameters(params, encoding: URLEncoding())
-
-        case let .updateCollection(value):
-
-            var params: [String: Any] = [:]
-            params["title"] = value.title
-            params["description"] = value.description
-            params["private"] = value.isPrivate
-
-            return .requestWithParameters(params, encoding: URLEncoding())
-        case let .addPhotoToCollection(value),
-             let .removePhotoFromCollection(value):
+//
+//        case let .userCollections(_, pageNumber, photosPerPage),
+//             let .collections(pageNumber, photosPerPage),
+//             let .featuredCollections(pageNumber, photosPerPage),
+//             let .collectionPhotos(_, pageNumber, photosPerPage):
+//
+//            var params: [String: Any] = [:]
+//            params["page"] = pageNumber
+//            params["per_page"] = photosPerPage
+//
+//            return .requestWithParameters(params, encoding: URLEncoding())
+//
+//        case let .searchCollections(value),
+//             let .searchUsers(value):
+//
+//            var params: [String: Any] = [:]
+//            params["query"] = value.query
+//            params["page"] = value.page
+//            params["per_page"] = value.perPage
+//
+//            return  .requestWithParameters(params, encoding: URLEncoding())
+//
+//        case let .searchPhotos(value):
+//
+//            var params: [String: Any] = [:]
+//            params["query"] = value.query
+//            params["page"] = value.page
+//            params["per_page"] = value.perPage
+//            params["collections"] = value.collections
+//            params["orientation"] = value.orientation?.rawValue
+//
+//            return .requestWithParameters(params,encoding: noBracketsAndLiteralBoolEncoding)
+//
+//        case let .createCollection(value):
+//
+//            var params: [String: Any] = [:]
+//            params["title"] = value.title
+//            params["description"] = value.description
+//            params["private"] = value.isPrivate
+//
+//            return .requestWithParameters(params, encoding: URLEncoding())
+//
+//        case let .updateCollection(value):
+//
+//            var params: [String: Any] = [:]
+//            params["title"] = value.title
+//            params["description"] = value.description
+//            params["private"] = value.isPrivate
+//
+//            return .requestWithParameters(params, encoding: URLEncoding())
+        case let .addPhotoToCollection(value)://,
+//             let .removePhotoFromCollection(value)://fixme
 
             var params: [String: Any] = [:]
             params["photo_id"] = value.photoID
@@ -391,7 +391,7 @@ extension UnSplash: Resource {
     }
 
     var headers: [String : String] {
-        let clientID = Papr.Unsplash.clientID
+        let clientID = Constants.Splash.clientID
         guard let token = UserDefaults.standard.string(forKey: clientID) else {
             return ["Authorization": "Client-ID \(clientID)"]
         }
