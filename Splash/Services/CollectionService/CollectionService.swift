@@ -32,8 +32,8 @@ struct CollectionService: CollectionServiceType {
             .asObservable()
             .map(Result.success)
             .catchError {
-            .just(.failure(.other(message: $0.localizedDescription)))
-        }
+                .just(.failure(.other(message: $0.localizedDescription)))
+            }
     }
     
 //    func collection(byPageNumber page: Int) -> Observable<Result<[PhotoCollection], Splash.Error>> {

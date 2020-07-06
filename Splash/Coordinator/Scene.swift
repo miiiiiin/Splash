@@ -81,12 +81,11 @@ extension Scene: TargetScene {
             //fixme
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)
+            
         case let .alert(viewModel):
-            //fixme\
-//            var vc = AlertViewController(title: nil, message: nil, preferredStyle: .alert)
-//                       vc.bind(to: viewModel)
-//                       return .alert(vc)
-            break
+            var vc = AlertViewController(title: nil, message: nil, preferredStyle: .alert)
+            vc.bind(to: viewModel)
+            return.alert(vc)
             
         case .activity(_):
             //fixme

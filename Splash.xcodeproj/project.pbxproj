@@ -35,6 +35,7 @@
 		7DD98E2A24403CAE0051809A /* SplashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98E2924403CAE0051809A /* SplashUITests.swift */; };
 		7DDCB98E24B2EA0E006C6D63 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB98D24B2EA0E006C6D63 /* AlertViewModel.swift */; };
 		7DDCB99024B2ED20006C6D63 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB98F24B2ED20006C6D63 /* AlertViewController.swift */; };
+		7DDCB99224B2F146006C6D63 /* UIAlertController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB99124B2F146006C6D63 /* UIAlertController+Rx.swift */; };
 		7DED447A2473E48E0049E205 /* SceneTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44792473E48E0049E205 /* SceneTransitionType.swift */; };
 		7DED447C2473E5580049E205 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */; };
 		7DED447E2473E5C50049E205 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447D2473E5C50049E205 /* Scene.swift */; };
@@ -127,6 +128,7 @@
 		7DD98E2B24403CAE0051809A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DDCB98D24B2EA0E006C6D63 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
 		7DDCB98F24B2ED20006C6D63 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		7DDCB99124B2F146006C6D63 /* UIAlertController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Rx.swift"; sourceTree = "<group>"; };
 		7DED44792473E48E0049E205 /* SceneTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionType.swift; sourceTree = "<group>"; };
 		7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		7DED447D2473E5C50049E205 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */,
+				7DDCB99124B2F146006C6D63 /* UIAlertController+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				7D1951922490E66800A9C0A2 /* HomeViewCellHeader.swift in Sources */,
 				7DDCB98E24B2EA0E006C6D63 /* AlertViewModel.swift in Sources */,
 				7D1951942491B83400A9C0A2 /* Extensions+UIView.swift in Sources */,
+				7DDCB99224B2F146006C6D63 /* UIAlertController+Rx.swift in Sources */,
 				7DED44822473E96E0049E205 /* Constants.swift in Sources */,
 				7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */,
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
