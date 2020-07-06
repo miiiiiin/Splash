@@ -25,11 +25,11 @@ enum Scene {
     case activity([Any])
     case photoDetails
     case addToCollection(AddToCollectionViewModel)
-    case createCollection
-    case searchPhotos
-    case searchCollections
-    case searchUsers
-    case userProfile
+//    case createCollection
+//    case searchPhotos
+//    case searchCollections
+//    case searchUsers
+//    case userProfile
     
 }
 
@@ -78,30 +78,40 @@ extension Scene: TargetScene {
             
             return .tabBar(tabBarController)
         case .login:
-            break
+            //fixme
+            let tabBarController = SplashTapBarController()
+            return .tabBar(tabBarController)
         case .alert:
-            break
+            //fixme
+            let tabBarController = SplashTapBarController()
+            return .tabBar(tabBarController)
         case .activity(_):
-            break
+            //fixme
+            let tabBarController = SplashTapBarController()
+            return .tabBar(tabBarController)
         case .photoDetails:
-            break
+            //fixme
+            let tabBarController = SplashTapBarController()
+            return .tabBar(tabBarController)
+            
         case .addToCollection:
 //            var vc = AddToCollectionViewController.initFromNib()
 //            let rootViewController = UINavigationController(rootViewController: vc)
 //            vc.bind(to: viewModel)
 //            return .present(rootViewController)//FIXME
-            break
             
-        case .createCollection:
-            break
-        case .searchPhotos:
-            break
-        case .searchCollections:
-            break
-        case .searchUsers:
-            break
-        case .userProfile:
-            break
+            let tabBarController = SplashTapBarController()
+            return .tabBar(tabBarController)
+//        case .createCollection:
+//            break
+//        case .searchPhotos:
+//            break
+//        case .searchCollections:
+//            break
+//        case .searchUsers:
+//            break
+//        case .userProfile:
+//            break
         }
     }
 }

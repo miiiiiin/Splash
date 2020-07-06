@@ -95,7 +95,7 @@ final class AddToCollectionViewModel: AddToCollectionViewModelInput, AddToCollec
                 }
                 return myCollections
                 
-            case let .failure(error):
+            case let .failure:
 //                    self.alertAction.execute(error)//fixme
                 return myCollections
             }

@@ -47,9 +47,9 @@ class HomeViewCell: UICollectionViewCell, BindableType {
         headerView.bind(to: outputs.headerViewModelType)
         footerView.bind(to: outputs.footerViewModelType)
         
-        outputs.photoStream
-            .map { $0.id }
-            .unwrap()
+//        outputs.photoStream
+//            .map { $0.id }
+//            .unwrap()//fixme
 //            .bind(to: photoImageView.rx.heroId)//fixme
             
         outputs.photoStream.bind { [weak self] in

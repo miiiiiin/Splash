@@ -31,17 +31,30 @@ protocol HomeViewCellModelType {
 }
 
 class HomeViewCellModel: HomeViewCellModelType, HomeViewCellModelInput, HomeViewCellModelOutput {
-    var headerViewModelType: HomeViewCellHeaderModelType
-    
-    var footerViewModelType: HomeViewCellFooterModelType
-    
 
+    lazy var headerViewModelType: HomeViewCellHeaderModelType = {
+        return HomeViewCellHeaderModel(photo: photo)
+    }()
+    
+    lazy var footerViewModelType: HomeViewCellFooterModelType = {
+        return HomeViewCellFooterModel(photo: photo)
+    }()
+    
     // MARK: Inputs & Outputs
     var inputs: HomeViewCellModelInput { return self }
     var outputs: HomeViewCellModelOutput { return self }
     
     // MARK: Inputs
-    var photoDetailsAction: Action<Photo, Photo>
+    lazy var photoDetailsAction: Action<Photo, Photo> = {
+        Action<Photo, Photo> { [unowned self] photo in
+//            let viewModel = PhotoDetailsViewModel(photo: photo)
+            //            self.sceneCoordinator.transition(to: Scene.photoDetails(viewModel))
+            //            return .just(photo)
+            
+            self.sceneCoordinator.transition(to: Scene.login) //fixme
+            return .just(photo)
+        }
+    }()
     
     // MARK: Output
     var photoStream: Observable<Photo>

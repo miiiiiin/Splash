@@ -60,9 +60,18 @@ struct CollectionService: CollectionServiceType {
         }
     }
     
-//    func removePhotoFromCollection(withId id: Int, photoId: String) -> Observable<Result<Photo, Splash.Error>> {
-//        //fixme
-//    }
+    func removePhotoFromCollection(withId id: Int, photoId: String) -> Observable<Result<Photo, Splash.Error>> {
+        return splash.rx.request(resource: .removePhotoFromCollection(collectionID: id, photoID: photoId))
+            .map(to: CollectionResponse.self)
+            .map { $0.photo }
+        .asObservable()
+        .unwrap()
+            .map(Result.success)
+            .catchError { _ in
+                .just(.failure(.other(message: "Failed to remove photo from the collection")))
+        }
+    }
+
 //
 //    func createCollection(with title: String, description: String, isPrivate: Bool) -> Observable<Result<PhotoCollection, Splash.Error>> {
 //        //fixme

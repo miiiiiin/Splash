@@ -65,22 +65,22 @@ final class PhotoCollectionCellModel: PhotoCollectionCellModelInput, PhotoCollec
         }
     }()
     
-    var removeAction: CocoaAction
-//    lazy var removeAction: CocoaAction = {
-//        return CocoaAction {
-//            guard let collectionID = self.photoCollection.id, let photoID = self.photo.id else { return Observable.empty() }
-//            return self.service.removePhotoFromCollection(withId: collectionID, photoId: photoID)
-//            .flatMap { result -> Observable<Void> in
-//                switch result {
-//                case let .success(photo):
-//                    self.photoProperty.onNext(photo)
-//                case let .failure(error):
-//                    break
-//                    //                        self.alertAction.execute(error)//fixme
-//                }
-//            }
-//        }
-//    }()//fixme
+    lazy var removeAction: CocoaAction = {
+        return CocoaAction {
+            guard let collectionID = self.photoCollection.id, let photoID = self.photo.id else { return Observable.empty() }
+            return self.service.removePhotoFromCollection(withId: collectionID, photoId: photoID)
+                .flatMap { result -> Observable<Void> in
+                    switch result {
+                    case let .success(photo):
+                        self.photoProperty.onNext(photo)
+                    case let .failure(error):
+                    //   self.alertAction.execute(error)
+                        break
+                    }
+                    return .empty()
+            }
+        }
+    }()//fixme
     
     init(photo: Photo, photoCollection: PhotoCollection, service: CollectionServiceType = CollectionService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
         self.photo = photo

@@ -166,9 +166,9 @@ enum UnSplash {
         photoID: String)
 //
 //    /// Remove a photo from a collection
-//    case removePhotoFromCollection(
-//        collectionID: Int,
-//        photoID: String)
+    case removePhotoFromCollection(
+        collectionID: Int,
+        photoID: String)
 
     // MARK: - TODO: Support these cases
     // id(required)
@@ -241,8 +241,8 @@ extension UnSplash: Resource {
 //            return .delete(path: "/collections/\(id)")
         case let .addPhotoToCollection(params):
             return .post(path: "/collections/\(params.collectionID)/add")
-//        case let .removePhotoFromCollection(params):
-//            return .delete(path: "/collections/\(params.collectionID)/remove")
+        case let .removePhotoFromCollection(params):
+            return .delete(path: "/collections/\(params.collectionID)/remove")
         }
     }
 
