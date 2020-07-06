@@ -63,18 +63,12 @@ final class AddToCollectionViewModel: AddToCollectionViewModelInput, AddToCollec
         }
     }()
     
-//    lazy var alertAction: Action<Splash.Error, Void> = {
-//        Action<Splash.Error, Void> { [unowned self] error in
-//            let alertViewModel = AlertViewModel(
-            //                title: "Upsss...",
-            //                message: error.errorDescription,
-            //                mode: .ok)
-            //            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
-            //        }
-            //FIXME
-//
-//        }
-//    }()
+    lazy var alertAction: Action<Splash.Error, Void> = {
+        Action<Splash.Error, Void> { [unowned self] error in
+            let alertViewModel = AlertViewModel(title: "Upsss...", message: error.errorDescription, mode: .ok)
+            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
+        }
+    }()
     
     init(loggedInUser: User, photo: Photo, service: CollectionServiceType = CollectionService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
         self.loggedInUser = loggedInUser

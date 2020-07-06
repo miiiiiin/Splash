@@ -21,7 +21,7 @@ protocol TargetScene {
 enum Scene {
     case splash
     case login
-    case alert
+    case alert(AlertViewModel)
     case activity([Any])
     case photoDetails
     case addToCollection(AddToCollectionViewModel)
@@ -81,10 +81,13 @@ extension Scene: TargetScene {
             //fixme
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)
-        case .alert:
-            //fixme
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)
+        case let .alert(viewModel):
+            //fixme\
+//            var vc = AlertViewController(title: nil, message: nil, preferredStyle: .alert)
+//                       vc.bind(to: viewModel)
+//                       return .alert(vc)
+            break
+            
         case .activity(_):
             //fixme
             let tabBarController = SplashTapBarController()

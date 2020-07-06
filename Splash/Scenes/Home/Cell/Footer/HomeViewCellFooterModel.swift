@@ -141,12 +141,11 @@ class HomeViewCellFooterModel: HomeViewCellFooterModelInput, HomeViewCellFooterM
     //FIXME
     private lazy var alertAction: Action<(title: String, message: String), Void> = {
         Action<(title: String, message: String), Void> { [unowned self] (title, message) in
-//            let alertViewModel = AlertViewModel(
-            //                title: title,
-            //                message: message,
-            //                mode: .ok)
-            //            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
-            return self.sceneCoordinator.transition(to: Scene.alert)
+            let alertViewModel = AlertViewModel(
+                            title: title,
+                            message: message,
+                            mode: .ok)
+            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
         }
     }()
     
