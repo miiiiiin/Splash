@@ -38,6 +38,7 @@
 		7DDCB99224B2F146006C6D63 /* UIAlertController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB99124B2F146006C6D63 /* UIAlertController+Rx.swift */; };
 		7DDCB99424B2F543006C6D63 /* Hero+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB99324B2F543006C6D63 /* Hero+Rx.swift */; };
 		7DDCB99724B58CD9006C6D63 /* CreateCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB99624B58CD9006C6D63 /* CreateCollectionViewModel.swift */; };
+		7DDCB99924B59828006C6D63 /* SplashNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB99824B59828006C6D63 /* SplashNavigationController.swift */; };
 		7DED447A2473E48E0049E205 /* SceneTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44792473E48E0049E205 /* SceneTransitionType.swift */; };
 		7DED447C2473E5580049E205 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */; };
 		7DED447E2473E5C50049E205 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447D2473E5C50049E205 /* Scene.swift */; };
@@ -133,6 +134,7 @@
 		7DDCB99124B2F146006C6D63 /* UIAlertController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Rx.swift"; sourceTree = "<group>"; };
 		7DDCB99324B2F543006C6D63 /* Hero+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hero+Rx.swift"; sourceTree = "<group>"; };
 		7DDCB99624B58CD9006C6D63 /* CreateCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCollectionViewModel.swift; sourceTree = "<group>"; };
+		7DDCB99824B59828006C6D63 /* SplashNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigationController.swift; sourceTree = "<group>"; };
 		7DED44792473E48E0049E205 /* SceneTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionType.swift; sourceTree = "<group>"; };
 		7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		7DED447D2473E5C50049E205 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */,
+				7DDCB99824B59828006C6D63 /* SplashNavigationController.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -799,6 +802,7 @@
 				7DED4498247641E10049E205 /* SearchResults.swift in Sources */,
 				7DDCB99024B2ED20006C6D63 /* AlertViewController.swift in Sources */,
 				7DED44C9247E06820049E205 /* Orientation.swift in Sources */,
+				7DDCB99924B59828006C6D63 /* SplashNavigationController.swift in Sources */,
 				7D8CD8B2249C5E5B00F3929C /* HomeViewCellFooterModel.swift in Sources */,
 				7D19518B24906EA500A9C0A2 /* BindableType.swift in Sources */,
 				7DED447A2473E48E0049E205 /* SceneTransitionType.swift in Sources */,
