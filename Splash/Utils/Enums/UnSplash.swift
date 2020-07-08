@@ -128,9 +128,9 @@ enum UnSplash {
 //        perPage: Int?)
 //
 //    /// Get a list of featured collections
-//    case featuredCollections(
-//        page: Int?,
-//        perPage: Int?)
+    case featuredCollections(
+        page: Int?,
+        perPage: Int?)
 //
 //    /// Retrieve a collection
     case collection(id: Int)
@@ -145,10 +145,10 @@ enum UnSplash {
         perPage: Int?)
 //
 //    /// Create a new collection
-//    case createCollection(
-//        title: String,
-//        description: String?,
-//        isPrivate: Bool?)
+    case createCollection(
+        title: String,
+        description: String?,
+        isPrivate: Bool?)
 //
 //    /// Update an existing collection
 //    case updateCollection(
@@ -225,10 +225,10 @@ extension UnSplash: Resource {
 //            return .get(path: "/search/users")
 //        case .collections:
 //            return .get(path: "/collections")
-//        case .createCollection:
-//            return .post(path: "/collections")
-//        case .featuredCollections:
-//            return .get(path: "/collections/featured")
+        case .createCollection:
+            return .post(path: "/collections")
+        case .featuredCollections:
+            return .get(path: "/collections/featured")
         case let .collection(id):
             return .get(path: "/collections/\(id)")
         case let .collectionPhotos(params):
@@ -361,14 +361,14 @@ extension UnSplash: Resource {
 //
 //            return .requestWithParameters(params,encoding: noBracketsAndLiteralBoolEncoding)
 //
-//        case let .createCollection(value):
-//
-//            var params: [String: Any] = [:]
-//            params["title"] = value.title
-//            params["description"] = value.description
-//            params["private"] = value.isPrivate
-//
-//            return .requestWithParameters(params, encoding: URLEncoding())
+        case let .createCollection(value):
+
+            var params: [String: Any] = [:]
+            params["title"] = value.title
+            params["description"] = value.description
+            params["private"] = value.isPrivate
+
+            return .requestWithParameters(params, encoding: URLEncoding())
 //
 //        case let .updateCollection(value):
 //

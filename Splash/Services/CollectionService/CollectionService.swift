@@ -36,9 +36,17 @@ struct CollectionService: CollectionServiceType {
             }
     }
     
-//    func collection(byPageNumber page: Int) -> Observable<Result<[PhotoCollection], Splash.Error>> {
-        //fixme
-//    }
+    func collection(byPageNumber page: Int) -> Observable<Result<[PhotoCollection], Splash.Error>> {
+        let collections: UnSplash = .featuredCollections(page: page, perPage: 20)
+        
+        return splash.rx.request(resource: collections)
+            .map(to: [PhotoCollection].self)
+            .asObservable()
+            .map(Result.success)
+            .catchError {
+                .just(.failure(.other(message: $0.localizedDescription)))
+        }
+    }
 
     func photos(fromCollectionId id: Int, pageNumber: Int) -> Observable<[Photo]> {
         return splash.rx.request(resource: .collectionPhotos(id: id, page: pageNumber, perPage: 10))
@@ -70,8 +78,14 @@ struct CollectionService: CollectionServiceType {
             .catchError { _ in .just(.failure(.other(message: "Failed to remove photo from the collection"))) }
     }
 
-//
-//    func createCollection(with title: String, description: String, isPrivate: Bool) -> Observable<Result<PhotoCollection, Splash.Error>> {
-//        //fixme
-//    }
+    func createCollection(with title: String, description: String, isPrivate: Bool) -> Observable<Result<PhotoCollection, Splash.Error>> {
+        
+        return splash.rx.request(resource: .createCollection(title: title, description: description, isPrivate: isPrivate))
+            .map(to: PhotoCollection.self)
+            .asObservable()
+            .map(Result.success)
+            .catchError { _ in
+                .just(.failure(.other(message: "Failed to create the collection")))
+        }
+    }
 }
