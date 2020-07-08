@@ -25,7 +25,7 @@ enum Scene {
     case activity([Any])
     case photoDetails
     case addToCollection(AddToCollectionViewModel)
-//    case createCollection
+    case createCollection(CreateCollectionViewModel)
 //    case searchPhotos
 //    case searchCollections
 //    case searchUsers
@@ -103,9 +103,10 @@ extension Scene: TargetScene {
 //            return .present(rootViewController)//FIXME
             
             let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)
-//        case .createCollection:
-//            break
+            return .tabBar(tabBarController)//fixme
+        case .createCollection:
+            let tabBarController = SplashTapBarController()
+            return .tabBar(tabBarController)//fixme
 //        case .searchPhotos:
 //            break
 //        case .searchCollections:

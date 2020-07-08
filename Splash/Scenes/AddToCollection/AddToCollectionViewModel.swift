@@ -47,9 +47,8 @@ final class AddToCollectionViewModel: AddToCollectionViewModelInput, AddToCollec
     
     lazy var navigateToCreateCollectionAction: CocoaAction = {
         CocoaAction { [unowned self] _ in
-//            let viewModel = createcollection
-//            return self.sceneCoordinator.transition(to: Scene.createCollection(viewModel))//FIXME
-            return
+            let viewModel = CreateCollectionViewModel(photo: self.photo)
+            return self.sceneCoordinator.transition(to: Scene.createCollection(viewModel))
         }
     }()
     
