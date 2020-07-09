@@ -40,6 +40,8 @@
 		7DDCB99724B58CD9006C6D63 /* CreateCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB99624B58CD9006C6D63 /* CreateCollectionViewModel.swift */; };
 		7DDCB99924B59828006C6D63 /* SplashNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB99824B59828006C6D63 /* SplashNavigationController.swift */; };
 		7DDCB99D24B6A7F8006C6D63 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB99C24B6A7F8006C6D63 /* UserProfileViewModel.swift */; };
+		7DDCB99F24B6AB38006C6D63 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB99E24B6AB38006C6D63 /* UserProfileViewController.swift */; };
+		7DDCB9A224B6B3AA006C6D63 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDCB9A124B6B3AA006C6D63 /* LoginViewModel.swift */; };
 		7DED447A2473E48E0049E205 /* SceneTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44792473E48E0049E205 /* SceneTransitionType.swift */; };
 		7DED447C2473E5580049E205 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */; };
 		7DED447E2473E5C50049E205 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447D2473E5C50049E205 /* Scene.swift */; };
@@ -137,6 +139,8 @@
 		7DDCB99624B58CD9006C6D63 /* CreateCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCollectionViewModel.swift; sourceTree = "<group>"; };
 		7DDCB99824B59828006C6D63 /* SplashNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigationController.swift; sourceTree = "<group>"; };
 		7DDCB99C24B6A7F8006C6D63 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		7DDCB99E24B6AB38006C6D63 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		7DDCB9A124B6B3AA006C6D63 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7DED44792473E48E0049E205 /* SceneTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionType.swift; sourceTree = "<group>"; };
 		7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		7DED447D2473E5C50049E205 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -375,8 +379,17 @@
 			isa = PBXGroup;
 			children = (
 				7DDCB99C24B6A7F8006C6D63 /* UserProfileViewModel.swift */,
+				7DDCB99E24B6AB38006C6D63 /* UserProfileViewController.swift */,
 			);
 			path = "User Profile";
+			sourceTree = "<group>";
+		};
+		7DDCB9A024B6B39B006C6D63 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7DDCB9A124B6B3AA006C6D63 /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		7DED44782473E4780049E205 /* Coordinator */ = {
@@ -442,6 +455,7 @@
 		7DED44A924768B2B0049E205 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7DDCB9A024B6B39B006C6D63 /* Login */,
 				7DDCB99B24B6A7ED006C6D63 /* User Profile */,
 				7DDCB99524B58CCD006C6D63 /* Create Collection */,
 				7DDCB98C24B2E9FE006C6D63 /* Alert */,
@@ -760,6 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DED449C2476446E0049E205 /* UserAuthToken.swift in Sources */,
+				7DDCB99F24B6AB38006C6D63 /* UserProfileViewController.swift in Sources */,
 				7DED44CB247E06B60049E205 /* OrderBy.swift in Sources */,
 				7DED448C24760DC90049E205 /* Tag.swift in Sources */,
 				7DA5423E24AEF2F9002C5EE1 /* CollectionService.swift in Sources */,
@@ -803,6 +818,7 @@
 				7DED44B024768C490049E205 /* HomeViewModel.swift in Sources */,
 				7DA5424324AF0DBB002C5EE1 /* PhotoCollectionViewCell.swift in Sources */,
 				7DD09E042485FF7E00FA0006 /* SceneCoordinator.swift in Sources */,
+				7DDCB9A224B6B3AA006C6D63 /* LoginViewModel.swift in Sources */,
 				7DDCB99D24B6A7F8006C6D63 /* UserProfileViewModel.swift in Sources */,
 				7DDCB99424B2F543006C6D63 /* Hero+Rx.swift in Sources */,
 				7D8CD8B0249C5BE600F3929C /* HomeViewCellFooter.swift in Sources */,

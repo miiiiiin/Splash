@@ -101,7 +101,6 @@ extension Scene: TargetScene {
 //            let rootViewController = UINavigationController(rootViewController: vc)
 //            vc.bind(to: viewModel)
 //            return .present(rootViewController)//FIXME
-            
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)//fixme
         case .createCollection:
