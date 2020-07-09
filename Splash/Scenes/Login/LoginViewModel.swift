@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import Action
 import RxCocoa
+import AuthenticationServices
 
 enum LoginState {
     case idle
@@ -63,8 +64,30 @@ final class LoginViewMode: NSObject, LoginViewModelInput, LoginViewModelOutput, 
     private let photoService: PhotoServiceType
     private let sceneCoordinator: SceneCoordinatorType
     private var _authSession: Any?
+    
+    private var authSession: ASWebAuthenticationSession? {
+        get {
+            return _authSession as? ASWebAuthenticationSession
+        }
+        set {
+            _authSession = newValue
+        }
+    }
+    
+    private let buttonNameProperty = BehaviorSubject<String>(value: "Login with Splash")
+    private let loginStateProperty = BehaviorSubject<LoginState>(value: .idle)
+    
+    //MARK: Init
+    init(userService: UserServiceType = UserService(), photoService: PhotoServiceType = PhotoService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared, authManager: splashAuthManager = splashAuthmanager.shared) {
+        self.userService = userService
+        self.photoService = photoService
+        self.sceneCoordinator = sceneCoordinator
+        self.authManager = authManager
+        
+        loginState = loginStateProperty.asObservable()
+        buttonName = buttonNameProperty.asObservable()
+    }
 }
-
 
 //    lazy var closeAction: CocoaAction = {
 //        return CocoaAction { [unowned self] _ in
@@ -72,21 +95,70 @@ final class LoginViewMode: NSObject, LoginViewModelInput, LoginViewModelOutput, 
 //        }
 //    }()
 
-
-
-
-
-
-//
-//    // MARK: Output
-//    let buttonName: Observable<String>
-//    let loginState: Observable<LoginState>
-//    let randomPhotos: Observable<[Photo]>
-//
-//    // MARK: Private
+//  // MARK: Private
 //    fileprivate let authManager: UnsplashAuthManager
 //    private let userService: UserServiceType
 //    private let photoService: PhotoServiceType
 //    private let sceneCoordinator: SceneCoordinatorType
 //    private var _authSession: Any?
 //
+//
+//    private let buttonNameProperty = BehaviorSubject<String>(value: "Login with Unsplash")
+//    private let loginStateProperty = BehaviorSubject<LoginState>(value: .idle)
+//
+//    // MARK: Init
+//    init(userService: UserServiceType = UserService(),
+//         photoService: PhotoServiceType = PhotoService(),
+//         sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared,
+//         authManager: UnsplashAuthManager = UnsplashAuthManager.shared) {
+//
+//        self.userService = userService
+//        self.photoService = photoService
+//        self.sceneCoordinator = sceneCoordinator
+//        self.authManager = authManager
+//
+//        loginState = loginStateProperty.asObservable()
+//        buttonName = buttonNameProperty.asObservable()
+//
+//        // ⛓ 446755: https://unsplash.com/collections/446755/baby-its-cold-outside
+//        randomPhotos = photoService.randomPhotos(from: ["446755"], isFeatured: true, orientation: .portrait)
+//
+//        super.init()
+//
+//        self.authManager.delegate = self
+//    }
+//
+//    // MARK: Private
+//
+//    private lazy var navigateToTabBarAction: CocoaAction = {
+//        return CocoaAction { [unowned self] _ in
+//            return self.sceneCoordinator.transition(to: Scene.papr)
+//        }
+//    }()
+//
+//    private lazy var alertAction: Action<Papr.Error, Void> = {
+//        Action<Papr.Error, Void> { [unowned self] error in
+//            let alertViewModel = AlertViewModel(
+//                title: "Upsss...",
+//                message: error.errorDescription,
+//                mode: .ok)
+//            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
+//        }
+//    }()
+//
+//
+//    private func authenticate() -> Observable<Void> {
+//        self.authSession = ASWebAuthenticationSession(
+//            url: authManager.authURL,
+//            callbackURLScheme: Papr.Unsplash.callbackURLScheme,
+//            completionHandler: { [weak self] (callbackUrl, error) in
+//            guard let callbackUrl = callbackUrl else { return }
+//            self?.authManager.receivedCodeRedirect(url: callbackUrl)
+//        })
+//        if #available(iOS 13.0, *) {
+//            self.authSession?.presentationContextProvider = self
+//        }
+//        self.authSession?.start()
+//        return .empty()
+//    }
+//}

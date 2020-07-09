@@ -14,6 +14,11 @@
 		7D1951902490A62600A9C0A2 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518F2490A62600A9C0A2 /* HomeViewCell.swift */; };
 		7D1951922490E66800A9C0A2 /* HomeViewCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1951912490E66800A9C0A2 /* HomeViewCellHeader.swift */; };
 		7D1951942491B83400A9C0A2 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1951932491B83400A9C0A2 /* Extensions+UIView.swift */; };
+		7D81BA7524B6BC7E00384D5F /* SplashAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81BA7424B6BC7E00384D5F /* SplashAuthManager.swift */; };
+		7D81BA7724B7013D00384D5F /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81BA7624B7013D00384D5F /* Scope.swift */; };
+		7D81BA7924B7019200384D5F /* Extensions+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81BA7824B7019200384D5F /* Extensions+URL.swift */; };
+		7D81BA7B24B7032D00384D5F /* SplashAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81BA7A24B7032D00384D5F /* SplashAccessToken.swift */; };
+		7D81BA7D24B703CD00384D5F /* SplashAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81BA7C24B703CD00384D5F /* SplashAuthError.swift */; };
 		7D8CD8B0249C5BE600F3929C /* HomeViewCellFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8CD8AF249C5BE600F3929C /* HomeViewCellFooter.swift */; };
 		7D8CD8B2249C5E5B00F3929C /* HomeViewCellFooterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8CD8B1249C5E5B00F3929C /* HomeViewCellFooterModel.swift */; };
 		7D8CD8B4249C63C000F3929C /* UserServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8CD8B3249C63C000F3929C /* UserServiceType.swift */; };
@@ -107,6 +112,11 @@
 		7D19518F2490A62600A9C0A2 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		7D1951912490E66800A9C0A2 /* HomeViewCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellHeader.swift; sourceTree = "<group>"; };
 		7D1951932491B83400A9C0A2 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		7D81BA7424B6BC7E00384D5F /* SplashAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAuthManager.swift; sourceTree = "<group>"; };
+		7D81BA7624B7013D00384D5F /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
+		7D81BA7824B7019200384D5F /* Extensions+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+URL.swift"; sourceTree = "<group>"; };
+		7D81BA7A24B7032D00384D5F /* SplashAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAccessToken.swift; sourceTree = "<group>"; };
+		7D81BA7C24B703CD00384D5F /* SplashAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAuthError.swift; sourceTree = "<group>"; };
 		7D8CD8AF249C5BE600F3929C /* HomeViewCellFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellFooter.swift; sourceTree = "<group>"; };
 		7D8CD8B1249C5E5B00F3929C /* HomeViewCellFooterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCellFooterModel.swift; sourceTree = "<group>"; };
 		7D8CD8B3249C63C000F3929C /* UserServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceType.swift; sourceTree = "<group>"; };
@@ -246,6 +256,7 @@
 				7D19518A24906EA500A9C0A2 /* BindableType.swift */,
 				7D1951932491B83400A9C0A2 /* Extensions+UIView.swift */,
 				7D8CD8B5249C68ED00F3929C /* Extensions+Int.swift */,
+				7D81BA7824B7019200384D5F /* Extensions+URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +269,14 @@
 				7DDCB99324B2F543006C6D63 /* Hero+Rx.swift */,
 			);
 			path = Rx;
+			sourceTree = "<group>";
+		};
+		7D81BA7324B6BC6E00384D5F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7D81BA7424B6BC7E00384D5F /* SplashAuthManager.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		7D8CD8B7249C6B7000F3929C /* UserService */ = {
@@ -420,6 +439,8 @@
 				7DED4499247642FE0049E205 /* PhotoStatistics.swift */,
 				7DED449B2476446E0049E205 /* UserAuthToken.swift */,
 				7DED449D247645270049E205 /* AuthError.swift */,
+				7D81BA7A24B7032D00384D5F /* SplashAccessToken.swift */,
+				7D81BA7C24B703CD00384D5F /* SplashAuthError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,6 +459,7 @@
 		7DED449F247645AF0049E205 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7D81BA7324B6BC6E00384D5F /* Authentication */,
 				7DED44C7247E067C0049E205 /* Enums */,
 				7DED44A024764A600049E205 /* Cache */,
 			);
@@ -530,6 +552,7 @@
 				7DED44C8247E06820049E205 /* Orientation.swift */,
 				7DED44CA247E06B60049E205 /* OrderBy.swift */,
 				7DED44CC247F47FD0049E205 /* UnSplash.swift */,
+				7D81BA7624B7013D00384D5F /* Scope.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -777,6 +800,7 @@
 				7DDCB99F24B6AB38006C6D63 /* UserProfileViewController.swift in Sources */,
 				7DED44CB247E06B60049E205 /* OrderBy.swift in Sources */,
 				7DED448C24760DC90049E205 /* Tag.swift in Sources */,
+				7D81BA7524B6BC7E00384D5F /* SplashAuthManager.swift in Sources */,
 				7DA5423E24AEF2F9002C5EE1 /* CollectionService.swift in Sources */,
 				7DD98E0C24403CAC0051809A /* ViewController.swift in Sources */,
 				7DED448E24760E170049E205 /* PhotoCollection.swift in Sources */,
@@ -811,10 +835,12 @@
 				7DED44822473E96E0049E205 /* Constants.swift in Sources */,
 				7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */,
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
+				7D81BA7D24B703CD00384D5F /* SplashAuthError.swift in Sources */,
 				7D8CD8B9249C6B7F00F3929C /* UserService.swift in Sources */,
 				7DA5424124AEF58C002C5EE1 /* PhotoCollectionCellModel.swift in Sources */,
 				7D8CD8B6249C68ED00F3929C /* Extensions+Int.swift in Sources */,
 				7DED449024760F4A0049E205 /* Exif.swift in Sources */,
+				7D81BA7724B7013D00384D5F /* Scope.swift in Sources */,
 				7DED44B024768C490049E205 /* HomeViewModel.swift in Sources */,
 				7DA5424324AF0DBB002C5EE1 /* PhotoCollectionViewCell.swift in Sources */,
 				7DD09E042485FF7E00FA0006 /* SceneCoordinator.swift in Sources */,
@@ -831,7 +857,9 @@
 				7DDCB99024B2ED20006C6D63 /* AlertViewController.swift in Sources */,
 				7DED44C9247E06820049E205 /* Orientation.swift in Sources */,
 				7DDCB99924B59828006C6D63 /* SplashNavigationController.swift in Sources */,
+				7D81BA7B24B7032D00384D5F /* SplashAccessToken.swift in Sources */,
 				7D8CD8B2249C5E5B00F3929C /* HomeViewCellFooterModel.swift in Sources */,
+				7D81BA7924B7019200384D5F /* Extensions+URL.swift in Sources */,
 				7D19518B24906EA500A9C0A2 /* BindableType.swift in Sources */,
 				7DED447A2473E48E0049E205 /* SceneTransitionType.swift in Sources */,
 			);
