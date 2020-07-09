@@ -129,7 +129,7 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
         
         return source
         .take(1)
-//        .ignoreElements()
+//        .ignoreElements() //fixme
     }
 }
 

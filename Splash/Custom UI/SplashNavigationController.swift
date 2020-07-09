@@ -32,12 +32,12 @@ class SplashNavigationController: UINavigationController {
         }
     }()
     
-//    private lazy var showUserProfileAction: CocoaAction = {
-//          let viewModel = UserProfileViewModel()
-//          return CocoaAction { [unowned self] in
-//              self.sceneCoordiantor.transition(to: Scene.userProfile(viewModel))
-//          }
-//      }()
+    private lazy var showUserProfileAction: CocoaAction = {
+          let viewModel = UserProfileViewModel()
+          return CocoaAction { [unowned self] in
+              self.sceneCoordiantor.transition(to: Scene.userProfile(viewModel))
+          }
+      }()
 
 
     // MARK: Init
