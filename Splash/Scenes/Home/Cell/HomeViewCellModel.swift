@@ -51,7 +51,8 @@ class HomeViewCellModel: HomeViewCellModelType, HomeViewCellModelInput, HomeView
             //            self.sceneCoordinator.transition(to: Scene.photoDetails(viewModel))
             //            return .just(photo)
             
-            self.sceneCoordinator.transition(to: Scene.login) //fixme
+            let viewModel = PhotoDetailsViewModel(photo: photo)
+            self.sceneCoordinator.transition(to: Scene.activity(<#T##[Any]#>)) //fixme
             return .just(photo)
         }
     }()
