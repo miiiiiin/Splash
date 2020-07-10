@@ -47,6 +47,7 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
         return controller
     }
     
+    @discardableResult
     func transition(to scene: TargetScene) -> Observable<Void> {
         let subject = PublishSubject<Void>()
         

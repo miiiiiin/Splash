@@ -13,7 +13,7 @@ import RxNuke
 import Nuke
 import Hero
 
-class HomeViewCell: UICollectionViewCell, BindableType {
+class HomeViewCell: UICollectionViewCell, BindableType, ClassIdentifiable {
     
     //MARK: - ViewModel -
     var viewModel: HomeViewCellModelType! {
