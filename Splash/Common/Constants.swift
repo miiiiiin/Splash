@@ -17,6 +17,7 @@ extension Constants {
         static let clientID = ClientAuth.clientId
         static let clientSecret = ClientAuth.secret
         static let redirectURL = "splash://unsplash"
+        static let callbackURLScheme = "splash://"
     }
 }
 

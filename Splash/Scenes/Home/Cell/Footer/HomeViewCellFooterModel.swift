@@ -151,21 +151,17 @@ class HomeViewCellFooterModel: HomeViewCellFooterModelInput, HomeViewCellFooterM
     
     private lazy var navigateToLogin: CocoaAction = { //FIXME
         CocoaAction { [unowned self] message in
-//            let viewModel =
-//            let viewModel = LoginViewModel()
-            //            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
-            //FIXME
-            return self.sceneCoordinator.transition(to: Scene.login)
+            let viewModel = LoginViewModel()
+            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
         }
     }()
     
-//    private lazy var navigateToLogin: CocoaAction = {
-//        CocoaAction { [unowned self] message in
-//            let viewModel = LoginViewModel()
-//            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
-//        }
-//    }()
-    
+    private lazy var navigateToLogin: CocoaAction = {
+        CocoaAction { [unowned self] message in
+            let viewModel = LoginViewModel()
+            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
+        }
+    }()    
     
     init(photo: Photo, cache: Cache = Cache.shared, userService: UserServiceType = UserService(), photoService: PhotoServiceType = PhotoService(), photoLibrary: PHPhotoLibrary = PHPhotoLibrary.shared(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
         

@@ -20,7 +20,7 @@ protocol TargetScene {
 
 enum Scene {
     case splash
-    case login
+    case login(LoginViewModel)
     case alert(AlertViewModel)
     case activity([Any])
     case photoDetails

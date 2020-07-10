@@ -34,7 +34,7 @@ protocol LoginViewModelType {
     var outputs: LoginViewModelOutput { get }
 }
 
-final class LoginViewMode: NSObject, LoginViewModelInput, LoginViewModelOutput, LoginViewModelType {
+final class LoginViewModel: NSObject, LoginViewModelInput, LoginViewModelOutput, LoginViewModelType {
     
     //MARK: Inputs&Outputs
     var inputs: LoginViewModelInput { return self }
@@ -43,13 +43,13 @@ final class LoginViewMode: NSObject, LoginViewModelInput, LoginViewModelOutput, 
     //MARK: Input
     lazy var loginAction: CocoaAction = {
         return CocoaAction { [unowned self] _ in
-//            self.auteh
+            self.authenticate()
         }
     }()
     
     lazy var closeAction: CocoaAction = {
         return CocoaAction { [unowned self] _ in
-//            self.accessibilityScroll(<#T##direction: UIAccessibilityScrollDirection##UIAccessibilityScrollDirection#>)
+            self.sceneCoordinator.pop(animated: true)
         }
     }()
     
@@ -59,7 +59,7 @@ final class LoginViewMode: NSObject, LoginViewModelInput, LoginViewModelOutput, 
     let loginState: Observable<LoginState>
     let randomPhotos: Observable<[Photo]>
     
-    fileprivate let authManager: unsplashAuthManager
+    fileprivate let authManager: SplashAuthManager
     private let userService: UserServiceType
     private let photoService: PhotoServiceType
     private let sceneCoordinator: SceneCoordinatorType
@@ -78,7 +78,8 @@ final class LoginViewMode: NSObject, LoginViewModelInput, LoginViewModelOutput, 
     private let loginStateProperty = BehaviorSubject<LoginState>(value: .idle)
     
     //MARK: Init
-    init(userService: UserServiceType = UserService(), photoService: PhotoServiceType = PhotoService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared, authManager: splashAuthManager = splashAuthmanager.shared) {
+    init(userService: UserServiceType = UserService(), photoService: PhotoServiceType = PhotoService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared, authManager: SplashAuthManager = SplashAuthManager.shared) {
+       
         self.userService = userService
         self.photoService = photoService
         self.sceneCoordinator = sceneCoordinator
@@ -86,79 +87,58 @@ final class LoginViewMode: NSObject, LoginViewModelInput, LoginViewModelOutput, 
         
         loginState = loginStateProperty.asObservable()
         buttonName = buttonNameProperty.asObservable()
+        
+        randomPhotos = photoService.randomPhotos(from: ["446755"], isFeatured: true, orientation: .portrait)
+        
+        super.init()
+        self.authManager.delegate = self
+    }
+    
+    private lazy var navigateToTabBarAction: CocoaAction = {
+        return CocoaAction { [unowned self] _ in
+            return self.sceneCoordinator.transition(to: Scene.splash)
+        }
+    }()
+    
+    private lazy var alertAction: Action<Splash.Error, Void> = {
+        Action<Splash.Error, Void> { [unowned self] error in
+            let alertViewModel = AlertViewModel(title: "Upsss..", message: error.errorDescription, mode: .ok)
+            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
+            
+        }
+    }()
+    
+    private func authenticate() -> Observable<Void> {
+        self.authSession = ASWebAuthenticationSession(url: authManager.authURL, callbackURLScheme: Constants.Splash.callbackURLScheme, completionHandler: { [weak self] (callbackUrl, error) in
+            guard let callbackUrl = callbackUrl else { return }
+            self?.authManager.receivedCodeRedirect(url: callbackUrl)
+        })
+        
+        if #available(iOS 13.0, *) {
+            self.authSession?.presentationContextProvider = self //fixme
+        }
+        self.authSession?.start()
+        return .empty()
     }
 }
 
-//    lazy var closeAction: CocoaAction = {
-//        return CocoaAction { [unowned self] _ in
-//            self.sceneCoordinator.pop(animated: true)
-//        }
-//    }()
+extension LoginViewModel: ASWebAuthenticationPresentationContextProviding {
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return ASPresentationAnchor()
+    }
+}
 
-//  // MARK: Private
-//    fileprivate let authManager: UnsplashAuthManager
-//    private let userService: UserServiceType
-//    private let photoService: PhotoServiceType
-//    private let sceneCoordinator: SceneCoordinatorType
-//    private var _authSession: Any?
-//
-//
-//    private let buttonNameProperty = BehaviorSubject<String>(value: "Login with Unsplash")
-//    private let loginStateProperty = BehaviorSubject<LoginState>(value: .idle)
-//
-//    // MARK: Init
-//    init(userService: UserServiceType = UserService(),
-//         photoService: PhotoServiceType = PhotoService(),
-//         sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared,
-//         authManager: UnsplashAuthManager = UnsplashAuthManager.shared) {
-//
-//        self.userService = userService
-//        self.photoService = photoService
-//        self.sceneCoordinator = sceneCoordinator
-//        self.authManager = authManager
-//
-//        loginState = loginStateProperty.asObservable()
-//        buttonName = buttonNameProperty.asObservable()
-//
-//        // ⛓ 446755: https://unsplash.com/collections/446755/baby-its-cold-outside
-//        randomPhotos = photoService.randomPhotos(from: ["446755"], isFeatured: true, orientation: .portrait)
-//
-//        super.init()
-//
-//        self.authManager.delegate = self
-//    }
-//
-//    // MARK: Private
-//
-//    private lazy var navigateToTabBarAction: CocoaAction = {
-//        return CocoaAction { [unowned self] _ in
-//            return self.sceneCoordinator.transition(to: Scene.papr)
-//        }
-//    }()
-//
-//    private lazy var alertAction: Action<Papr.Error, Void> = {
-//        Action<Papr.Error, Void> { [unowned self] error in
-//            let alertViewModel = AlertViewModel(
-//                title: "Upsss...",
-//                message: error.errorDescription,
-//                mode: .ok)
-//            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
-//        }
-//    }()
-//
-//
-//    private func authenticate() -> Observable<Void> {
-//        self.authSession = ASWebAuthenticationSession(
-//            url: authManager.authURL,
-//            callbackURLScheme: Papr.Unsplash.callbackURLScheme,
-//            completionHandler: { [weak self] (callbackUrl, error) in
-//            guard let callbackUrl = callbackUrl else { return }
-//            self?.authManager.receivedCodeRedirect(url: callbackUrl)
-//        })
-//        if #available(iOS 13.0, *) {
-//            self.authSession?.presentationContextProvider = self
-//        }
-//        self.authSession?.start()
-//        return .empty()
-//    }
-//}
+extension LoginViewModel: SplashSessionListener {
+    func didReceiveRedirect(code: String) {
+        loginStateProperty.onNext(.tokenIsFetched)
+        buttonNameProperty.onNext("Please wait...")
+        self.authManager.accessToken(with: code) { [unowned self] result in
+            switch result {
+            case .success:
+                self.navigateToTabBarAction.execute(())
+            case let .failure(error):
+                self.alertAction.execute(error)
+            }
+        }
+    }
+}

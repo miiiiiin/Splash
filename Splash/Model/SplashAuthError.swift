@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SplashAuthError {
+struct SplashAuthError: Decodable {
     let error: String
     let errorDescription: String
     
