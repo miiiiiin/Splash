@@ -139,51 +139,37 @@ final class PhotoDetailsViewModel: PhotoDetailsViewModelInput, PhotoDetailsViewM
         
         let cachedPhotoStream = cache.getObject(ofType: Photo.self, withId: photo.id ?? "").unwrap()
         
+        photoStream = Observable.just(phto)
+        
+        regularPhotoURL = photoStream
+            .map { $0.urls?.regular
+            .unwrap()
+            .mapToURL()
+            
+                
+            photoSize = Observable.combineLatest {
+                photoStream.map { $0.width }.unwrap().map { Double($0) }
+            }
+                
+            totalLikes = photoStream.merge(width: cachedPhotoStream)
+                .map { $0.likes?.abbreviated }
+            .unwrap()
+            
+            likedByUser = photoStream.merge(widht: cachedPhotoStream)
+                .map { $0.likedByUser }
+                .unwrap()
+        
+            let photo = photoService.photo(withId: photo.id ?? "").share()
+            
+            totalViews = photo
+                .map { $0.views?.abbreviated }
+            .unwrap()
+            .catchErrorJustReturn("0")
+            
+            totalDownloads = photo
+                .map { $0.downloads?.abbreviated }
+            .unwrap()
+            .catchErrorJustReturn("0")
+        }
     }
 }
-
-//
-//  init(photo: Photo,
-//        cache: Cache = Cache.shared,
-//        photoService: PhotoServiceType = PhotoService(),
-//        sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
-//
-//        self.cache = cache
-//        self.photoService = photoService
-//        self.sceneCoordinator = sceneCoordinator
-//
-//        let cachedPhotoStream = cache.getObject(ofType: Photo.self, withId: photo.id ?? "").unwrap()
-//
-//        photoStream = Observable.just(photo)
-//
-//        regularPhotoURL = photoStream
-//            .map { $0.urls?.regular }
-//            .unwrap()
-//            .mapToURL()
-//
-//        photoSize = Observable.combineLatest(
-//            photoStream.map { $0.width }.unwrap().map { Double($0) },
-//            photoStream.map { $0.height }.unwrap().map { Double($0) }
-//        )
-//
-//        totalLikes = photoStream.merge(with: cachedPhotoStream)
-//            .map { $0.likes?.abbreviated }
-//            .unwrap()
-//
-//        likedByUser = photoStream.merge(with: cachedPhotoStream)
-//            .map { $0.likedByUser }
-//            .unwrap()
-//
-//        let photo = photoService.photo(withId: photo.id ?? "").share()
-//
-//        totalViews = photo
-//            .map { $0.views?.abbreviated }
-//            .unwrap()
-//            .catchErrorJustReturn("0")
-//
-//        totalDownloads = photo
-//            .map { $0.downloads?.abbreviated }
-//            .unwrap()
-//            .catchErrorJustReturn("0")
-//    }
-//}
