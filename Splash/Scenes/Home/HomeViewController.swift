@@ -27,16 +27,16 @@ class HomeViewController: UIViewController, BindableType {
     private var refreshControl: UIRefreshControl!
     private var rightBarButtonItem: UIBarButtonItem!
     private var collectionViewDataSource: CollectionViewSectionedDataSource<HomeSectionModel>.ConfigureCell {
-        return { _, collectionView, IndexPath, cellModel in
-            var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeViewCell", for: IndexPath)//fixme
-//            cell.bind(to: cellModel)//fixme
-//
-//            if let pinterestLayout = collectionView.collectionViewLayout as? PinterestLayout {
-//                cellModel.outputs.photoSize
-//                    .map { CGSize(width: $0, height: $1) }
-//                    .bind(to: pinterestLayout.rx.updateSize(IndexPath))
-//                    .disposed(by: self.disposeBag)
-//            }//fixme
+        return { _, collectionView, indexPath, cellModel in
+            var cell = collectionView.dequeueReusableCell(withCellType: HomeViewCell.self, forIndexPath: indexPath)
+            cell.bind(to: cellModel)
+            
+            if let pinterestLayout = collectionView.collectionViewLayout as? PinterestLayout {
+                cellModel.outputs.photoSize
+                    .map { CGSize(width: $0, height: $1) }
+                    .bind(to: pinterestLayout.rx.updateSize(indexPath))
+                    .disposed(by: self.disposeBag)
+            }
             return cell
         }
     }
@@ -49,6 +49,14 @@ class HomeViewController: UIViewController, BindableType {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureNavigationController()
+        configureCollectionView()
+        configureRefreshControl()
     }
     
     func bindViewModel() {
