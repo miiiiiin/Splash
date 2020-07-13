@@ -15,21 +15,22 @@ class SearchViewController: UIViewController, BindableType {
     typealias SearchSectionModel = SectionModel<String, SearchResultCellModelType>
     
     //MARK: - ViewModel -
-    var viewModel: SearchResultModelType!
+    var viewModel: SearchViewModelType!
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var noResultView: UIView!
     
     private var searchBar: UISearchBar!
     private var datasource: RxTableViewSectionedReloadDataSource<SearchSectionModel>!
     private var tableViewDataSource: RxTableViewSectionedReloadDataSource<SearchSectionModel>.ConfigureCell {
         return { _, tableView, indexPath, cellModel in
-//            var cell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.self, for: indexPath)
-//              cell.accessoryType = .disclosureIndicator
-//            cell.bind(to: cellModel)
-//
-//            return cell
+            var cell = tableView.dequeueResuableCell(withCellType: SearchResultCell.self, forIndexPath: indexPath)
+            cell.accessoryType = .disclosureIndicator
+            cell.bind(to: cellModel)
+            return cell
         }
     }
+    
     private let disposeBag = DisposeBag()
     
     
