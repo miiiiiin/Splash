@@ -45,6 +45,13 @@ extension Scene: TargetScene {
             let rootHomeVC = UINavigationController(rootViewController: homeVC)
             homeVC.bind(to: homeViewModel)
             
+            //MARK: - SearchViewController -
+            var searchVC =
+            //                       var searchVC = SearchViewController.initFromNib()
+            //                       let searchViewModel = SearchViewModel()
+            //                       let rootSearchVC = PaprNavigationController(rootViewController: searchVC)
+            //                       searchVC.bind(to: searchViewModel)
+            
             let photosTapBarItem = UITabBarItem (
                 title: "Photos",
                 image: Splash.Style.Icon.arrowUpRight,
@@ -76,7 +83,53 @@ extension Scene: TargetScene {
 //                rootSearchVC //fixme
             ]
             
+            
             return .tabBar(tabBarController)
+            
+//                       //SearchViewController
+//                       var searchVC = SearchViewController.initFromNib()
+//                       let searchViewModel = SearchViewModel()
+//                       let rootSearchVC = PaprNavigationController(rootViewController: searchVC)
+//                       searchVC.bind(to: searchViewModel)
+//
+//                       //CollectionsViewController
+//                       var collectionsVC = CollectionsViewController()
+//                       let collectionViewModel = CollectionsViewModel()
+//                       let rootCollectionVC = PaprNavigationController(rootViewController: collectionsVC)
+//                       collectionsVC.bind(to: collectionViewModel)
+//
+//                       let photosTabBarItem = UITabBarItem(
+//                           title: "Photos",
+//                           image: Papr.Appearance.Icon.photo,
+//                           tag: 0
+//                       )
+//                       let collectionsTabBarItem = UITabBarItem(
+//                           title: "Collections",
+//                           image: Papr.Appearance.Icon.rectangleGrid2x2Fill,
+//                           tag: 1
+//                       )
+//                       let searchTabBarItem = UITabBarItem(
+//                           title: "Search",
+//                           image: Papr.Appearance.Icon.magnifyingGlass,
+//                           tag: 2
+//                       )
+//
+//                       collectionsTabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
+//                       photosTabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
+//                       searchTabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
+//
+//                       rootHomeVC.tabBarItem = photosTabBarItem
+//                       rootCollectionVC.tabBarItem = collectionsTabBarItem
+//                       rootSearchVC.tabBarItem = searchTabBarItem
+//
+//                       paprTabBarController.viewControllers = [
+//                           rootHomeVC,
+//                           rootCollectionVC,
+//                           rootSearchVC
+//                       ]
+//
+//                       return .tabBar(paprTabBarController)
+//                   case let .login(viewModel):
         case .login:
             //fixme
             let tabBarController = SplashTapBarController()
