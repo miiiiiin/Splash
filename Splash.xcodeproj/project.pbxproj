@@ -25,6 +25,7 @@
 		7D8CD8B9249C6B7F00F3929C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8CD8B8249C6B7F00F3929C /* UserService.swift */; };
 		7D923CE924BC0ECB0088B5BF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D923CE824BC0ECB0088B5BF /* SearchViewController.swift */; };
 		7D923CEC24BC22B40088B5BF /* SearchResultCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D923CEB24BC22B40088B5BF /* SearchResultCellModel.swift */; };
+		7D923CEE24BC249E0088B5BF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D923CED24BC249E0088B5BF /* SearchViewModel.swift */; };
 		7DA5423724AEDE5C002C5EE1 /* AddToCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5423624AEDE5C002C5EE1 /* AddToCollectionViewModel.swift */; };
 		7DA5423C24AEE101002C5EE1 /* CollectionServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5423B24AEE101002C5EE1 /* CollectionServiceType.swift */; };
 		7DA5423E24AEF2F9002C5EE1 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5423D24AEF2F9002C5EE1 /* CollectionService.swift */; };
@@ -121,6 +122,7 @@
 		7D8CD8B8249C6B7F00F3929C /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7D923CE824BC0ECB0088B5BF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7D923CEB24BC22B40088B5BF /* SearchResultCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCellModel.swift; sourceTree = "<group>"; };
+		7D923CED24BC249E0088B5BF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		7DA5423624AEDE5C002C5EE1 /* AddToCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCollectionViewModel.swift; sourceTree = "<group>"; };
 		7DA5423B24AEE101002C5EE1 /* CollectionServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionServiceType.swift; sourceTree = "<group>"; };
 		7DA5423D24AEF2F9002C5EE1 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				7D923CEA24BC22AE0088B5BF /* Cell */,
 				7D923CE824BC0ECB0088B5BF /* SearchViewController.swift */,
+				7D923CED24BC249E0088B5BF /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				7DED44822473E96E0049E205 /* Constants.swift in Sources */,
 				7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */,
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
+				7D923CEE24BC249E0088B5BF /* SearchViewModel.swift in Sources */,
 				7D8CD8B9249C6B7F00F3929C /* UserService.swift in Sources */,
 				7DA5424124AEF58C002C5EE1 /* PhotoCollectionCellModel.swift in Sources */,
 				7D8CD8B6249C68ED00F3929C /* Extensions+Int.swift in Sources */,

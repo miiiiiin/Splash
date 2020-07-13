@@ -12,7 +12,7 @@ import RxCocoa
 import RxDataSources
 class SearchViewController: UIViewController, BindableType {
     
-    typealias SearchSectionModel = SectionModel<String, SearchResultModelType>
+    typealias SearchSectionModel = SectionModel<String, SearchResultCellModelType>
     
     //MARK: - ViewModel -
     var viewModel: SearchResultModelType!

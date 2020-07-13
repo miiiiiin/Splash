@@ -34,12 +34,12 @@ protocol SearchResultCellModelOutput {
     var searchResult: Observable<SearchResult> { get }
 }
 
-protocol SearchResultModelType {
+protocol SearchResultCellModelType {
     var inputs: SearchResultCellModelInput { get }
     var outputs: SearchResultCellModelOutput { get }
 }
 
-final class SearchResultCellModel: SearchResultCellModelOutput, SearchResultCellModelInput, SearchResultModelType {
+final class SearchResultCellModel: SearchResultCellModelOutput, SearchResultCellModelInput, SearchResultCellModelType {
     
     //MARK: Inputs&Outputs
     var inputs: SearchResultCellModelInput { return self }
