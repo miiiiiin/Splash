@@ -50,6 +50,13 @@ extension Scene: TargetScene {
             let rootSearchVC = SplashNavigationController(rootViewController: searchVC)
             searchVC.bind(to: searchViewModel)
             
+            
+            //MARK: - CollectionsViewController -
+            var collectionVC = CollectionsViewController()
+            let collectionViewModel = CollectionsViewModel()
+            let rootCollectionVC = SplashNavigationController(rootViewController: collectionVC)
+//            collectionVC.bind(to: collectionViewModel)
+            
             let photosTapBarItem = UITabBarItem (
                 title: "Photos",
                 image: Splash.Style.Icon.arrowUpRight,

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		29112690B364F192C4FCFF18 /* Pods_Splash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BCC9D6591F79F8FAD62804 /* Pods_Splash.framework */; };
 		7D09A7E624BD86E300683FB4 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D09A7E524BD86E300683FB4 /* SearchViewController.xib */; };
+		7D09A7E924BD8C6900683FB4 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7E824BD8C6900683FB4 /* CollectionsViewController.swift */; };
+		7D09A7EB24BD8CF900683FB4 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7EA24BD8CF900683FB4 /* CollectionsViewModel.swift */; };
+		7D09A7EE24BD91E700683FB4 /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7ED24BD91E700683FB4 /* CollectionCellViewModel.swift */; };
 		7D165A4824AF2FFC007C8F6D /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */; };
 		7D19518B24906EA500A9C0A2 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518A24906EA500A9C0A2 /* BindableType.swift */; };
 		7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */; };
@@ -109,6 +112,9 @@
 		5E543ACB27EAE1EA25556950 /* Pods-SplashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplashTests.release.xcconfig"; path = "Target Support Files/Pods-SplashTests/Pods-SplashTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D446D6023B04AA8D94E8538 /* Pods-Splash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.debug.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.debug.xcconfig"; sourceTree = "<group>"; };
 		7D09A7E524BD86E300683FB4 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		7D09A7E824BD8C6900683FB4 /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
+		7D09A7EA24BD8CF900683FB4 /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
+		7D09A7ED24BD91E700683FB4 /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
 		7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		7D19518A24906EA500A9C0A2 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+ObservableType.swift"; sourceTree = "<group>"; };
@@ -242,6 +248,24 @@
 				570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D09A7E724BD8C5F00683FB4 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				7D09A7EC24BD91E200683FB4 /* Cell */,
+				7D09A7E824BD8C6900683FB4 /* CollectionsViewController.swift */,
+				7D09A7EA24BD8CF900683FB4 /* CollectionsViewModel.swift */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+		7D09A7EC24BD91E200683FB4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7D09A7ED24BD91E700683FB4 /* CollectionCellViewModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7D165A4624AF2FEA007C8F6D /* Custom UI */ = {
@@ -485,6 +509,7 @@
 		7DED44A924768B2B0049E205 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7D09A7E724BD8C5F00683FB4 /* Collections */,
 				7D923CE724BC0EC10088B5BF /* Search */,
 				7DDCB99524B58CCD006C6D63 /* Create Collection */,
 				7DDCB98C24B2E9FE006C6D63 /* Alert */,
@@ -815,6 +840,7 @@
 				7DED4496247641250049E205 /* LikeUnlike.swift in Sources */,
 				7DED448A24760CF30049E205 /* Location.swift in Sources */,
 				7DA5423724AEDE5C002C5EE1 /* AddToCollectionViewModel.swift in Sources */,
+				7D09A7E924BD8C6900683FB4 /* CollectionsViewController.swift in Sources */,
 				7D1951902490A62600A9C0A2 /* HomeViewCell.swift in Sources */,
 				7DD98E0824403CAC0051809A /* AppDelegate.swift in Sources */,
 				7D78196224B84EDD005DF56D /* PinterestLayout+Rx.swift in Sources */,
@@ -835,6 +861,7 @@
 				7DED44862474CBB90049E205 /* ProfileImage.swift in Sources */,
 				7DED44842474BC820049E205 /* User.swift in Sources */,
 				7DED449A247642FE0049E205 /* PhotoStatistics.swift in Sources */,
+				7D09A7EB24BD8CF900683FB4 /* CollectionsViewModel.swift in Sources */,
 				7DDCB99724B58CD9006C6D63 /* CreateCollectionViewModel.swift in Sources */,
 				7D1951922490E66800A9C0A2 /* HomeViewCellHeader.swift in Sources */,
 				7DDCB98E24B2EA0E006C6D63 /* AlertViewModel.swift in Sources */,
@@ -863,6 +890,7 @@
 				7DED4498247641E10049E205 /* SearchResults.swift in Sources */,
 				7DDCB99024B2ED20006C6D63 /* AlertViewController.swift in Sources */,
 				7D923CE924BC0ECB0088B5BF /* SearchViewController.swift in Sources */,
+				7D09A7EE24BD91E700683FB4 /* CollectionCellViewModel.swift in Sources */,
 				7DED44C9247E06820049E205 /* Orientation.swift in Sources */,
 				7DDCB99924B59828006C6D63 /* SplashNavigationController.swift in Sources */,
 				7D923CEC24BC22B40088B5BF /* SearchResultCellModel.swift in Sources */,
