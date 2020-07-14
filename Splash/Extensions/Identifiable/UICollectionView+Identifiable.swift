@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UICollectionView {
-    func regiter<C: UICollectionViewCell>(cellType: C.Type) where C: ClassIdentifiable {
+    func register<C: UICollectionViewCell>(cellType: C.Type) where C: ClassIdentifiable {
         register(cellType.self, forCellWithReuseIdentifier: cellType.reuseId)
     }
     

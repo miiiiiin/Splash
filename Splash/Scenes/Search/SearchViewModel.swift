@@ -49,16 +49,16 @@ final class SearchViewModel: SearchViewModelType, SearchViewModelInput, SearchVi
             case 0:
 //                 let viewModel = SearchPhotosViewModel(type: .searchPhotos(searchQuery: query, searchService: SearchService()))
                 //                return self.sceneCoordinator.transition(to: Scene.searchPhotos(viewModel))
-                break
+                return .empty()
             case 1:
-                break
+                return .empty()
                 //                let viewModel = SearchCollectionsViewModel()
                 //                return self.sceneCoordinator.transition(to: Scene.searchCollections(viewModel))
             case 2:
             //                let viewModel = SearchUsersViewModel(searchQuery: query)
             //                return self.sceneCoordinator.transition(to: Scene.searchUsers(viewModel))
             //            default: return .empty()
-                break
+                return .empty()
             default:
                 return .empty()
             }

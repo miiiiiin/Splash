@@ -30,7 +30,6 @@ enum Scene {
 //    case searchCollections
 //    case searchUsers
 //    case userProfile
-    
 }
 
 extension Scene: TargetScene {
@@ -42,15 +41,14 @@ extension Scene: TargetScene {
             //MARK: - Home View Controller -
             var homeVC = HomeViewController(collectionViewLayout: PinterestLayout(numberOfColumns: 1))
             let homeViewModel = HomeViewModel()
-            let rootHomeVC = UINavigationController(rootViewController: homeVC)
+            let rootHomeVC = SplashNavigationController(rootViewController: homeVC)
             homeVC.bind(to: homeViewModel)
             
             //MARK: - SearchViewController -
-            var searchVC =
-            //                       var searchVC = SearchViewController.initFromNib()
-            //                       let searchViewModel = SearchViewModel()
-            //                       let rootSearchVC = PaprNavigationController(rootViewController: searchVC)
-            //                       searchVC.bind(to: searchViewModel)
+            var searchVC = SearchViewController.initFromNib()
+            let searchViewModel = SearchViewModel()
+            let rootSearchVC = SplashNavigationController(rootViewController: searchVC)
+            searchVC.bind(to: searchViewModel)
             
             let photosTapBarItem = UITabBarItem (
                 title: "Photos",
@@ -76,11 +74,11 @@ extension Scene: TargetScene {
             
             rootHomeVC.tabBarItem = photosTapBarItem
 //            rootCollectionVC.tabBarItem = collectionsTabBarItem
-//            rootSearchVC.tabBarItem = searchTabBarItem
+            rootSearchVC.tabBarItem = searchTabBarItem
             tabBarController.viewControllers = [
-                rootHomeVC
+                rootHomeVC,
 //                rootCollectionVC,
-//                rootSearchVC //fixme
+                rootSearchVC //fixme
             ]
             
             

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29112690B364F192C4FCFF18 /* Pods_Splash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BCC9D6591F79F8FAD62804 /* Pods_Splash.framework */; };
+		7D09A7E624BD86E300683FB4 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D09A7E524BD86E300683FB4 /* SearchViewController.xib */; };
 		7D165A4824AF2FFC007C8F6D /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */; };
 		7D19518B24906EA500A9C0A2 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518A24906EA500A9C0A2 /* BindableType.swift */; };
 		7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */; };
@@ -107,6 +108,7 @@
 		570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SplashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E543ACB27EAE1EA25556950 /* Pods-SplashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplashTests.release.xcconfig"; path = "Target Support Files/Pods-SplashTests/Pods-SplashTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D446D6023B04AA8D94E8538 /* Pods-Splash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.debug.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.debug.xcconfig"; sourceTree = "<group>"; };
+		7D09A7E524BD86E300683FB4 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		7D19518A24906EA500A9C0A2 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+ObservableType.swift"; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				7D923CEA24BC22AE0088B5BF /* Cell */,
 				7D923CE824BC0ECB0088B5BF /* SearchViewController.swift */,
 				7D923CED24BC249E0088B5BF /* SearchViewModel.swift */,
+				7D09A7E524BD86E300683FB4 /* SearchViewController.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 			files = (
 				7DD98E1424403CAD0051809A /* LaunchScreen.storyboard in Resources */,
 				7DD98E1124403CAD0051809A /* Assets.xcassets in Resources */,
+				7D09A7E624BD86E300683FB4 /* SearchViewController.xib in Resources */,
 				7DD98E0F24403CAC0051809A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
