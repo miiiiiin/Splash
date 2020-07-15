@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Splash" customModuleProvider="target">
+            <connections>
+                <outlet property="noResultView" destination="jNN-bx-c7C" id="m5U-QQ-NA1"/>
+                <outlet property="tableView" destination="uGD-5v-KL6" id="naR-Yl-XjW"/>
+                <outlet property="view" destination="mJa-oy-CvS" id="N2e-bC-vYg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="mJa-oy-CvS">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uGD-5v-KL6">
+                    <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="opk-cK-QBS"/>
+                    </constraints>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNN-bx-c7C">
+                    <rect key="frame" x="132" y="353" width="150" height="200"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="5yv-1F-lWP"/>
+                        <constraint firstAttribute="width" constant="150" id="lG1-YK-AoU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="uGD-5v-KL6" firstAttribute="top" secondItem="iNX-we-M7w" secondAttribute="top" id="Rc8-el-Hc2"/>
+                <constraint firstItem="jNN-bx-c7C" firstAttribute="centerX" secondItem="iNX-we-M7w" secondAttribute="centerX" id="Sgh-pv-Ect"/>
+                <constraint firstItem="jNN-bx-c7C" firstAttribute="centerY" secondItem="iNX-we-M7w" secondAttribute="centerY" id="Y4X-uW-CtX"/>
+                <constraint firstItem="uGD-5v-KL6" firstAttribute="leading" secondItem="iNX-we-M7w" secondAttribute="leading" id="gdD-r1-7ZB"/>
+                <constraint firstItem="iNX-we-M7w" firstAttribute="trailing" secondItem="uGD-5v-KL6" secondAttribute="trailing" id="pJ4-Ls-YXM"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="iNX-we-M7w"/>
+            <point key="canvasLocation" x="114" y="-210"/>
+        </view>
+    </objects>
+</document>

@@ -117,7 +117,7 @@ class HomeViewController: UIViewController, BindableType {
     private func configureCollectionView() {
         collectionView.backgroundColor = .white
         collectionView.add(to: view).pinToEdges()
-//        collectionView.register(cellType: HomeViewCell.self)//fixme
+        collectionView.register(cellType: HomeViewCell.self)
         datasource = RxCollectionViewSectionedReloadDataSource<HomeSectionModel>(configureCell: collectionViewDataSource)
     }
     
