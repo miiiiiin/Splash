@@ -14,6 +14,7 @@
 		7D09A7EE24BD91E700683FB4 /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7ED24BD91E700683FB4 /* CollectionCellViewModel.swift */; };
 		7D09A7F024BE8F9A00683FB4 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7EF24BE8F9A00683FB4 /* CollectionCell.swift */; };
 		7D09A7F224BE956300683FB4 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7F124BE956300683FB4 /* Extensions+UIColor.swift */; };
+		7D09A7F624BE9C5200683FB4 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7F524BE9C5200683FB4 /* UIScrollView+Rx.swift */; };
 		7D165A4824AF2FFC007C8F6D /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */; };
 		7D19518B24906EA500A9C0A2 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518A24906EA500A9C0A2 /* BindableType.swift */; };
 		7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */; };
@@ -119,6 +120,7 @@
 		7D09A7ED24BD91E700683FB4 /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
 		7D09A7EF24BE8F9A00683FB4 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		7D09A7F124BE956300683FB4 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
+		7D09A7F524BE9C5200683FB4 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
 		7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		7D19518A24906EA500A9C0A2 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+ObservableType.swift"; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				7DDCB99124B2F146006C6D63 /* UIAlertController+Rx.swift */,
 				7DDCB99324B2F543006C6D63 /* Hero+Rx.swift */,
 				7D78196124B84EDD005DF56D /* PinterestLayout+Rx.swift */,
+				7D09A7F524BE9C5200683FB4 /* UIScrollView+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				7DED449C2476446E0049E205 /* UserAuthToken.swift in Sources */,
 				7DED44CB247E06B60049E205 /* OrderBy.swift in Sources */,
 				7DED448C24760DC90049E205 /* Tag.swift in Sources */,
+				7D09A7F624BE9C5200683FB4 /* UIScrollView+Rx.swift in Sources */,
 				7D09A7F224BE956300683FB4 /* Extensions+UIColor.swift in Sources */,
 				7DA5423E24AEF2F9002C5EE1 /* CollectionService.swift in Sources */,
 				7DD98E0C24403CAC0051809A /* ViewController.swift in Sources */,
