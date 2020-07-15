@@ -12,6 +12,8 @@
 		7D09A7E924BD8C6900683FB4 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7E824BD8C6900683FB4 /* CollectionsViewController.swift */; };
 		7D09A7EB24BD8CF900683FB4 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7EA24BD8CF900683FB4 /* CollectionsViewModel.swift */; };
 		7D09A7EE24BD91E700683FB4 /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7ED24BD91E700683FB4 /* CollectionCellViewModel.swift */; };
+		7D09A7F024BE8F9A00683FB4 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7EF24BE8F9A00683FB4 /* CollectionCell.swift */; };
+		7D09A7F224BE956300683FB4 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09A7F124BE956300683FB4 /* Extensions+UIColor.swift */; };
 		7D165A4824AF2FFC007C8F6D /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */; };
 		7D19518B24906EA500A9C0A2 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518A24906EA500A9C0A2 /* BindableType.swift */; };
 		7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */; };
@@ -115,6 +117,8 @@
 		7D09A7E824BD8C6900683FB4 /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
 		7D09A7EA24BD8CF900683FB4 /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
 		7D09A7ED24BD91E700683FB4 /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
+		7D09A7EF24BE8F9A00683FB4 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		7D09A7F124BE956300683FB4 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		7D19518A24906EA500A9C0A2 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		7D19518D2490725800A9C0A2 /* Extensions+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+ObservableType.swift"; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				7D09A7ED24BD91E700683FB4 /* CollectionCellViewModel.swift */,
+				7D09A7EF24BE8F9A00683FB4 /* CollectionCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				7D19518A24906EA500A9C0A2 /* BindableType.swift */,
 				7D1951932491B83400A9C0A2 /* Extensions+UIView.swift */,
 				7D8CD8B5249C68ED00F3929C /* Extensions+Int.swift */,
+				7D09A7F124BE956300683FB4 /* Extensions+UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -831,6 +837,7 @@
 				7DED449C2476446E0049E205 /* UserAuthToken.swift in Sources */,
 				7DED44CB247E06B60049E205 /* OrderBy.swift in Sources */,
 				7DED448C24760DC90049E205 /* Tag.swift in Sources */,
+				7D09A7F224BE956300683FB4 /* Extensions+UIColor.swift in Sources */,
 				7DA5423E24AEF2F9002C5EE1 /* CollectionService.swift in Sources */,
 				7DD98E0C24403CAC0051809A /* ViewController.swift in Sources */,
 				7DED448E24760E170049E205 /* PhotoCollection.swift in Sources */,
@@ -856,6 +863,7 @@
 				7DED44AE24768BC60049E205 /* HomeViewController.swift in Sources */,
 				7DA5423C24AEE101002C5EE1 /* CollectionServiceType.swift in Sources */,
 				7D78195E24B84C1F005DF56D /* ClassIdentifiable.swift in Sources */,
+				7D09A7F024BE8F9A00683FB4 /* CollectionCell.swift in Sources */,
 				7DED4494247610470049E205 /* Links.swift in Sources */,
 				7DED44882474CC010049E205 /* Photo.swift in Sources */,
 				7DED44862474CBB90049E205 /* ProfileImage.swift in Sources */,

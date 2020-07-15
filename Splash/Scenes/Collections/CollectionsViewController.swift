@@ -12,22 +12,80 @@ import RxCocoa
 import RxDataSources
 
 class CollectionsViewController: UIViewController, BindableType {
-    typealias CollectionsSectionModel = SectionModel<String, Void>
+    typealias CollectionsSectionModel = SectionModel<String, CollectionCellViewModelType>
     
     //MARK: ViewModel
-    var viewModel: ViewModelType!
+    var viewModel: CollectionsViewModelType!
     
-    private var colletionView: UICollectionView!
-    private var datasource: RxCollectionViewSectionedReloadDataSource<HomeViewCellModel>!//fixme
+    private var collectionView: UICollectionView!
+    private var datasource: RxCollectionViewSectionedReloadDataSource<CollectionsSectionModel>!
     private var refreshControl: UIRefreshControl!
     private let disposeBag = DisposeBag()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        
     }
+    
+    func bindViewModel() {
+        <#code#>
+    }
+    
+    private func configureCollectionView() {
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.backgroundColor = .white
+        collectionView.add(to: view).pinToEdges()
+        
+        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        
+        let spacing = (1 / UIScreen.main.scale) + 16
+        let cellWidth = (UIScreen.main.bounds.width / 2) - spacing
+        
+        flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        flowLayout.sectionInset = UIEdgeInsets(top: 16.0, left: 8.0, bottom: 0, right: 8.0)
+        collectionView.register(cellType: collectionCell)
+    }
+    
 }
 
+// private func configureCollectionView() {
+//        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+//        collectionView.backgroundColor = .white
+//        collectionView.add(to: view).pinToEdges()
+//
+//        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+//
+//        let spacing = (1 / UIScreen.main.scale) + 16
+//        let cellWidth = (UIScreen.main.bounds.width / 2) - spacing
+//
+//        flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+//        flowLayout.sectionInset = UIEdgeInsets(top: 16.0, left: 8.0, bottom: 0, right: 8.0)
+//        flowLayout.minimumLineSpacing = spacing
+//
+//        collectionView.register(cellType: CollectionCell.self)
+//        dataSource = RxCollectionViewSectionedReloadDataSource<CollectionsSectionModel>(
+//            configureCell:  collectionViewDataSource
+//        )
+//    }
+//
+//    private func configureRefreshControl() {
+//        refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+//        collectionView.addSubview(refreshControl)
+//    }
+//
+//    @objc private func refresh() {
+//        viewModel.input.refresh()
+//    }
+//
+//    private var collectionViewDataSource: CollectionViewSectionedDataSource<CollectionsSectionModel>.ConfigureCell {
+//        return { _, tableView, indexPath, cellModel in
+//            var cell: CollectionCell = self.collectionView.dequeueReusableCell(forIndexPath: indexPath)
+//            cell.bind(to: cellModel)
+//            return cell
+//        }
+//    }
 
 //typealias CollectionsSectionModel = SectionModel<String, CollectionCellViewModelType>
 //
@@ -78,41 +136,5 @@ class CollectionsViewController: UIViewController, BindableType {
 //            .disposed(by: disposeBag)
 //    }
 //
-//    private func configureCollectionView() {
-//        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-//        collectionView.backgroundColor = .white
-//        collectionView.add(to: view).pinToEdges()
 //
-//        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-//
-//        let spacing = (1 / UIScreen.main.scale) + 16
-//        let cellWidth = (UIScreen.main.bounds.width / 2) - spacing
-//
-//        flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
-//        flowLayout.sectionInset = UIEdgeInsets(top: 16.0, left: 8.0, bottom: 0, right: 8.0)
-//        flowLayout.minimumLineSpacing = spacing
-//
-//        collectionView.register(cellType: CollectionCell.self)
-//        dataSource = RxCollectionViewSectionedReloadDataSource<CollectionsSectionModel>(
-//            configureCell:  collectionViewDataSource
-//        )
-//    }
-//
-//    private func configureRefreshControl() {
-//        refreshControl = UIRefreshControl()
-//        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-//        collectionView.addSubview(refreshControl)
-//    }
-//
-//    @objc private func refresh() {
-//        viewModel.input.refresh()
-//    }
-//
-//    private var collectionViewDataSource: CollectionViewSectionedDataSource<CollectionsSectionModel>.ConfigureCell {
-//        return { _, tableView, indexPath, cellModel in
-//            var cell: CollectionCell = self.collectionView.dequeueReusableCell(forIndexPath: indexPath)
-//            cell.bind(to: cellModel)
-//            return cell
-//        }
-//    }
 //}
