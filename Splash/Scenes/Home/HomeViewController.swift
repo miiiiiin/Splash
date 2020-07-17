@@ -52,8 +52,7 @@ class HomeViewController: UIViewController, BindableType {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
         configureNavigationController()
         configureCollectionView()
         configureRefreshControl()
@@ -77,30 +76,30 @@ class HomeViewController: UIViewController, BindableType {
             .bind(to: inputs.refreshProperty)
         .disposed(by: disposeBag)
         
-//        collectionView.rx.reachedBottom()
-//            .bind(to: inputs.loadMoreProperty)
-//            .disposed(by: disposeBag)//fixme
+        collectionView.rx.reachedBottom()
+            .bind(to: inputs.loadMoreProperty)
+            .disposed(by: disposeBag)
         
         outputs.isOrderBy
             .map { $0 == .popular ? Splash.Style.Icon.bookmark : Splash.Style.Icon.arrowUpRight }
-//            .bind(to: rightBarButtonItem.rx.image)//fixme
-//        .disposed(by: disposeBag)
+            .bind(to: rightBarButtonItem.rx.image)
+            .disposed(by: disposeBag)
         
         outputs.isFirstPageRequested
-//        .negate()//fixme
+            .negate()
             .bind(to: inputs.refreshProperty)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         
         outputs.isRefreshing
             .merge(with: outputs.isLoadingMore)
-//        .negate()//fixme
+            .negate()
             .bind(to: rightBarButtonItem.rx.isEnabled)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         
-//        outputs.isRefreshing
-//            .bind(to: refreshControl.rx.isRefreshing(in: collectionView))//fixme
-//        .disposed(by: disposeBag)
-            
+        outputs.isRefreshing
+            .bind(to: refreshControl.rx.isRefreshing(in: collectionView))
+            .disposed(by: disposeBag)
+        
         outputs.homeViewCellModelTypes
             .map { [HomeSectionModel(model: "", items: $0)]}
             .bind(to: collectionView.rx.items(dataSource: datasource))

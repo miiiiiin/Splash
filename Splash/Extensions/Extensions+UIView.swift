@@ -12,12 +12,12 @@ extension UIView {
 
     func dim(withAlpha alpha: CGFloat) {
         DispatchQueue.main.async { [weak self] in
-            guard let `self = self else { return }
+            guard let `self` = self else { return }
             let coverLayer = CALayer()
-            coverLayer.frame = self?.bounds
+            coverLayer.frame = self.bounds
             coverLayer.backgroundColor = UIColor.black.cgColor
             coverLayer.opacity = Float(alpha)
-            self?.layer.addSublayer(coverLayer)
+            self.layer.addSublayer(coverLayer)
         }
     }
     
