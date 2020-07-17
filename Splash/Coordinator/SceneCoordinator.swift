@@ -139,7 +139,6 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
 //Cannot declare conformance to 'NSObjectProtocol' in Swift; 'SceneCoordinator' should inherit 'NSObject' instead
 extension SceneCoordinator: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        print("navigationController check")
         currentVC = SceneCoordinator.actualViewController(for: viewController)
     }
 }
