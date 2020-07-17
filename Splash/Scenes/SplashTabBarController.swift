@@ -12,8 +12,7 @@ import UIKit
 class SplashTapBarController: UITabBarController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
         tabBar.tintColor = .white
         tabBar.barTintColor = .black
         tabBar.backgroundColor = .black

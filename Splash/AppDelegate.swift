@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let sceneCoordinator = SceneCoordinator(window: window!)
         SceneCoordinator.shared = sceneCoordinator
-         sceneCoordinator.transition(to: Scene.splash)
+        sceneCoordinator.transition(to: Scene.splash)
         return true
     }
 

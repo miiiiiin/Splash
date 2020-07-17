@@ -37,7 +37,6 @@ extension Scene: TargetScene {
         switch self {
         case .splash:
             let tabBarController = SplashTapBarController()
-            
             //MARK: - Home View Controller -
             var homeVC = HomeViewController(collectionViewLayout: PinterestLayout(numberOfColumns: 1))
             let homeViewModel = HomeViewModel()
@@ -50,12 +49,11 @@ extension Scene: TargetScene {
             let rootSearchVC = SplashNavigationController(rootViewController: searchVC)
             searchVC.bind(to: searchViewModel)
             
-            
             //MARK: - CollectionsViewController -
             var collectionVC = CollectionsViewController()
             let collectionViewModel = CollectionsViewModel()
             let rootCollectionVC = SplashNavigationController(rootViewController: collectionVC)
-//            collectionVC.bind(to: collectionViewModel)
+            collectionVC.bind(to: collectionViewModel)
             
             let photosTapBarItem = UITabBarItem (
                 title: "Photos",
@@ -80,61 +78,16 @@ extension Scene: TargetScene {
             searchTabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
             
             rootHomeVC.tabBarItem = photosTapBarItem
-//            rootCollectionVC.tabBarItem = collectionsTabBarItem
+            rootCollectionVC.tabBarItem = collectionsTabBarItem
             rootSearchVC.tabBarItem = searchTabBarItem
             tabBarController.viewControllers = [
                 rootHomeVC,
-//                rootCollectionVC,
-                rootSearchVC //fixme
+                rootCollectionVC,
+                rootSearchVC
             ]
-            
-            
+                
             return .tabBar(tabBarController)
-            
-//                       //SearchViewController
-//                       var searchVC = SearchViewController.initFromNib()
-//                       let searchViewModel = SearchViewModel()
-//                       let rootSearchVC = PaprNavigationController(rootViewController: searchVC)
-//                       searchVC.bind(to: searchViewModel)
-//
-//                       //CollectionsViewController
-//                       var collectionsVC = CollectionsViewController()
-//                       let collectionViewModel = CollectionsViewModel()
-//                       let rootCollectionVC = PaprNavigationController(rootViewController: collectionsVC)
-//                       collectionsVC.bind(to: collectionViewModel)
-//
-//                       let photosTabBarItem = UITabBarItem(
-//                           title: "Photos",
-//                           image: Papr.Appearance.Icon.photo,
-//                           tag: 0
-//                       )
-//                       let collectionsTabBarItem = UITabBarItem(
-//                           title: "Collections",
-//                           image: Papr.Appearance.Icon.rectangleGrid2x2Fill,
-//                           tag: 1
-//                       )
-//                       let searchTabBarItem = UITabBarItem(
-//                           title: "Search",
-//                           image: Papr.Appearance.Icon.magnifyingGlass,
-//                           tag: 2
-//                       )
-//
-//                       collectionsTabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
-//                       photosTabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
-//                       searchTabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 2)
-//
-//                       rootHomeVC.tabBarItem = photosTabBarItem
-//                       rootCollectionVC.tabBarItem = collectionsTabBarItem
-//                       rootSearchVC.tabBarItem = searchTabBarItem
-//
-//                       paprTabBarController.viewControllers = [
-//                           rootHomeVC,
-//                           rootCollectionVC,
-//                           rootSearchVC
-//                       ]
-//
-//                       return .tabBar(paprTabBarController)
-//                   case let .login(viewModel):
+
         case .login:
             //fixme
             let tabBarController = SplashTapBarController()

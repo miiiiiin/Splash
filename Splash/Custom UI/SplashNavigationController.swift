@@ -57,7 +57,8 @@ class SplashNavigationController: UINavigationController {
 
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
-        
+     
+        configureNavigationBar()
     }
     
     private func configureNavigationBar() {
