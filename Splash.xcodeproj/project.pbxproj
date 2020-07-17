@@ -564,14 +564,11 @@
 		7DED44A924768B2B0049E205 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				7D2FFAF324B809B100AAAEDC /* Photo Details */,
 				7DDCB9A024B6B39B006C6D63 /* Login */,
 				7DDCB99B24B6A7ED006C6D63 /* User Profile */,
-=======
 				7D09A7E724BD8C5F00683FB4 /* Collections */,
 				7D923CE724BC0EC10088B5BF /* Search */,
->>>>>>> ui
 				7DDCB99524B58CCD006C6D63 /* Create Collection */,
 				7DDCB98C24B2E9FE006C6D63 /* Alert */,
 				7DA5423524AEDE4B002C5EE1 /* AddToCollection */,
@@ -934,11 +931,8 @@
 				7DED44822473E96E0049E205 /* Constants.swift in Sources */,
 				7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */,
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
-<<<<<<< HEAD
 				7D81BA7D24B703CD00384D5F /* SplashAuthError.swift in Sources */,
-=======
 				7D923CEE24BC249E0088B5BF /* SearchViewModel.swift in Sources */,
->>>>>>> ui
 				7D8CD8B9249C6B7F00F3929C /* UserService.swift in Sources */,
 				7D2FFAF524B809BA00AAAEDC /* PhotoDetailsViewModel.swift in Sources */,
 				7DA5424124AEF58C002C5EE1 /* PhotoCollectionCellModel.swift in Sources */,
@@ -965,11 +959,8 @@
 				7D09A7EE24BD91E700683FB4 /* CollectionCellViewModel.swift in Sources */,
 				7DED44C9247E06820049E205 /* Orientation.swift in Sources */,
 				7DDCB99924B59828006C6D63 /* SplashNavigationController.swift in Sources */,
-<<<<<<< HEAD
 				7D81BA7B24B7032D00384D5F /* SplashAccessToken.swift in Sources */,
-=======
 				7D923CEC24BC22B40088B5BF /* SearchResultCellModel.swift in Sources */,
->>>>>>> ui
 				7D8CD8B2249C5E5B00F3929C /* HomeViewCellFooterModel.swift in Sources */,
 				7D81BA7924B7019200384D5F /* Extensions+URL.swift in Sources */,
 				7D19518B24906EA500A9C0A2 /* BindableType.swift in Sources */,
