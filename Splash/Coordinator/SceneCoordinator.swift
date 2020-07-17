@@ -32,12 +32,13 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
     }
     
     static func actualViewController(for viewController: UIViewController) -> UIViewController {
-     
         var controller = viewController
         if let tabBarController = controller as? UITabBarController {
-            guard let selectedViewContrller = tabBarController.selectedViewController else {
+            guard let selectedController = tabBarController.selectedViewController else {
                 return tabBarController
             }
+            controller = selectedController
+            return actualViewController(for: controller)
         }
         
         if let navigationController = viewController as? UINavigationController {
@@ -69,12 +70,13 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
                 fatalError("can't push a view contrller without a current navigation controller")
             }
             
-          _ = navigationController.rx.delegate
-                    .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
-//                        .bind(to: subject)
-//                    .ignoreElements()
+            _ = navigationController.rx.delegate
+                .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
+                .ignoreAll()
+                .bind(to: subject)
             
             navigationController.pushViewController(SceneCoordinator.actualViewController(for: viewController), animated: true)
+            
         case let .present(viewController):
             viewController.modalPresentationStyle = .fullScreen
             currentVC.present(viewController, animated: true) {
@@ -88,13 +90,13 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
         }
         
         return subject
-        .asObservable()
-        .take(1)
+            .asObservable()
+            .take(1)
     }
     
     func pop(animated: Bool) -> Observable<Void> {
         var isDisposed = false
-        var currentObserver: AnyObserver<Void>?
+        var currentObserver: AnyObserver<Void>!
         let source = Observable<Void>.create { observer in
             currentObserver = observer
             return Disposables.create {
@@ -114,8 +116,8 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
                 .rx
                 .delegate
                 .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
-//                .bind(to: currentObserver!)
-            //                .ignoreElements()
+                .ignoreAll()
+                .bind(to: currentObserver)
             
             guard navigationController.popViewController(animated: animated) != nil else {
                 fatalError("can't navigate back from \(currentVC)")
@@ -130,7 +132,7 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
         
         return source
         .take(1)
-//        .ignoreElements() //fixme
+        .ignoreAll()
     }
 }
 

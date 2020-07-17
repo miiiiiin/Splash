@@ -57,6 +57,12 @@ extension Observable where Element == Data {
     }
 }
 
+extension Observable where Element == Bool {
+    func negate() -> Observable<Bool> {
+        return map { !$0 }
+    }
+}
+
 extension ObservableType where Element: Collection {
     func mapMany<T>(_ transform: @escaping (Self.Element.Element) -> T) -> Observable<[T]> {
          print("transform: \(transform)")
