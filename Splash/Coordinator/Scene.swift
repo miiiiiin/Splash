@@ -29,12 +29,6 @@ enum Scene {
 //    case searchPhotos
 //    case searchCollections
 //    case searchUsers
-<<<<<<< HEAD
-    case userProfile(UserProfileViewModel)
-    
-=======
-//    case userProfile
->>>>>>> ui
 }
 
 extension Scene: TargetScene {
@@ -128,9 +122,9 @@ extension Scene: TargetScene {
 //            break
 //        case .searchUsers:
 //            break
-        case .userProfile:
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)//fixme
+//        case .userProfile:
+//            let tabBarController = SplashTapBarController()
+//            return .tabBar(tabBarController)//fixme
         }
     }
 }
