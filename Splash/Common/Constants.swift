@@ -12,12 +12,10 @@ enum Constants {}
 
 extension Constants {
     enum Splash {
-        static let host = "unsplash.com"
         static let baseurl = "https://api.unsplash.com/"
         static let clientID = ClientAuth.clientId
         static let clientSecret = ClientAuth.secret
-        static let redirectURL = "splash://unsplash"
-        static let callbackURLScheme = "splash://"
+        
     }
 }
 

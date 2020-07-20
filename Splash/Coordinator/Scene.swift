@@ -20,15 +20,16 @@ protocol TargetScene {
 
 enum Scene {
     case splash
-    case login(LoginViewModel)
+    case login
     case alert(AlertViewModel)
     case activity([Any])
-    case photoDetails(PhotoDetailsViewModel)
+    case photoDetails
     case addToCollection(AddToCollectionViewModel)
     case createCollection(CreateCollectionViewModel)
 //    case searchPhotos
 //    case searchCollections
 //    case searchUsers
+//    case userProfile
 }
 
 extension Scene: TargetScene {
@@ -111,6 +112,7 @@ extension Scene: TargetScene {
 //            let rootViewController = UINavigationController(rootViewController: vc)
 //            vc.bind(to: viewModel)
 //            return .present(rootViewController)//FIXME
+            
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)//fixme
         case .createCollection:
@@ -123,8 +125,7 @@ extension Scene: TargetScene {
 //        case .searchUsers:
 //            break
 //        case .userProfile:
-//            let tabBarController = SplashTapBarController()
-//            return .tabBar(tabBarController)//fixme
+//            break
         }
     }
 }

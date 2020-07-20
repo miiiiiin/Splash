@@ -20,12 +20,25 @@ class SplashNavigationController: UINavigationController {
     private var service: UserServiceType!
     private var sceneCoordinator: SceneCoordinatorType!
     
-    private lazy var showUserProfileAction: CocoaAction = {
-          let viewModel = UserProfileViewModel()
-          return CocoaAction { [unowned self] in
-              self.sceneCoordinator.transition(to: Scene.userProfile(viewModel))
-          }
-      }()
+    private lazy var showUserProfilAction: CocoaAction = {
+//       let viewModel = userprofile
+//        let viewModel = UserProfileViewModel()
+        //         return CocoaAction { [unowned self] in
+        //             self.sceneCoordiantor.transition(to: Scene.userProfile(viewModel))
+        //         }//fixme
+        
+        return CocoaAction { [unowned self] in
+            self.sceneCoordinator.transition(to: Scene.login)
+        }
+    }()
+    
+//    private lazy var showUserProfileAction: CocoaAction = {
+//          let viewModel = UserProfileViewModel()
+//          return CocoaAction { [unowned self] in
+//              self.sceneCoordiantor.transition(to: Scene.userProfile(viewModel))
+//          }
+//      }()
+
 
     // MARK: Init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -60,7 +73,7 @@ class SplashNavigationController: UINavigationController {
         button.add(to: profileImage).size(profileImage.frame.size).pinToEdges()
         
         let profileImageBarButtonItem = UIBarButtonItem(customView: profileImage)
-        button.rx.action = showUserProfileAction
+        button.rx.action = showUserProfilAction
         
         topViewController?.navigationItem.leftBarButtonItem = profileImageBarButtonItem
         topViewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)

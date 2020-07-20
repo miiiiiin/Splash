@@ -47,8 +47,7 @@ final class CollectionsViewModel: CollectionsViewModelOutput, CollectionsViewMod
     var isRefreshing: Observable<Bool>
       
     lazy var collectionCellsModelType: Observable<[CollectionCellViewModelType]> = {
-        return photoCollections.mapMany { CollectionCellVieModel(photoCollection: $0
-            )}
+        return photoCollections.mapMany { CollectionCellVieModel(photoCollection: $0 )}
     }()
     
     lazy var collectionDetailsAction: Action<PhotoCollection, Void> = {

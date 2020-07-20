@@ -25,12 +25,10 @@ extension Splash.Style {
     
     enum Icon {
         
-        @available(iOS 13.0, *)
         private static var symbolConfigurationMedium: UIImage.SymbolConfiguration {
             return UIImage.SymbolConfiguration(pointSize: 24, weight: .regular, scale: .medium)
         }
         
-        @available(iOS 13.0, *)
         private static var symbolConfigurationSmall: UIImage.SymbolConfiguration {
             return UIImage.SymbolConfiguration(pointSize: 24, weight: .medium, scale: .small)
         }
