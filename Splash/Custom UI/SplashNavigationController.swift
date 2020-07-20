@@ -21,24 +21,11 @@ class SplashNavigationController: UINavigationController {
     private var sceneCoordinator: SceneCoordinatorType!
     
     private lazy var showUserProfilAction: CocoaAction = {
-//       let viewModel = userprofile
-//        let viewModel = UserProfileViewModel()
-        //         return CocoaAction { [unowned self] in
-        //             self.sceneCoordiantor.transition(to: Scene.userProfile(viewModel))
-        //         }//fixme
-        
+        let viewModel = UserProfileViewModel()
         return CocoaAction { [unowned self] in
-            self.sceneCoordinator.transition(to: Scene.login)
+            self.sceneCoordinator.transition(to: Scene.userProfile(viewModel))
         }
     }()
-    
-//    private lazy var showUserProfileAction: CocoaAction = {
-//          let viewModel = UserProfileViewModel()
-//          return CocoaAction { [unowned self] in
-//              self.sceneCoordiantor.transition(to: Scene.userProfile(viewModel))
-//          }
-//      }()
-
 
     // MARK: Init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
