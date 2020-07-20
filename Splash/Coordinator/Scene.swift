@@ -23,7 +23,7 @@ enum Scene {
     case login
     case alert(AlertViewModel)
     case activity([Any])
-    case photoDetails
+    case photoDetails(PhotoDetailsViewModel)
     case addToCollection(AddToCollectionViewModel)
     case createCollection(CreateCollectionViewModel)
 //    case searchPhotos

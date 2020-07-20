@@ -72,11 +72,10 @@ struct PhotoService: PhotoServiceType {
             }
     }
     
-//    func statistics(of photo: Photo) -> Observable<PhotoStatistics> {
-//        return splash.rx.request(resource: .getMe)
-//            .map(to: PhotoStatistics.self)
-        //fixme
-//    }
+    func statistics(of photo: Photo) -> Observable<PhotoStatistics> {
+        return splash.rx.request(resource: .getMe)
+            .map(to: PhotoStatistics.self)
+    }
     
     func photoDownloadLink(wihId id: String) -> Observable<Result<String, Splash.Error>> {
         return splash.rx.request(resource: .photoDownloadLink(id: id))
