@@ -21,6 +21,7 @@ struct Photo: Codable {
     var likedByUser: Bool?
     let description: String?
     let location: Location?
+    let views: Int?
 //    let tags: [Tag]?
     let currentUserCollections: [PhotoCollection]?
     let urls: ImageURLs?
@@ -41,6 +42,7 @@ struct Photo: Codable {
         case likedByUser = "liked_by_user"
         case description
         case location
+        case views
 //        case tags
         case currentUserCollections = "current_user_collections"
         case urls

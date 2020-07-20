@@ -33,7 +33,7 @@ struct HomeViewCellHeaderModel: HomeViewCellHeaderModelInput, HomeViewCellHeader
     let userName: Observable<String>
     let updatedTime: Observable<String>
     
-    init(photo: Photo) {//FIXME
+    init(photo: Photo) {
         let photoStream = Observable.just(photo)
         
         profileImageURL = photoStream
@@ -47,12 +47,11 @@ struct HomeViewCellHeaderModel: HomeViewCellHeaderModelInput, HomeViewCellHeader
         
         userName = photoStream
             .map { $0.user?.username ?? "" }
-//        .map { "@\($0.user?.username ?? "")" }
+//        .map { "@\($0.user?.username ?? "")" }//fixme
             .unwrap()
         
         updatedTime = photoStream
-            .map { $0.updatedAt }
-//         .map { $0.updated?.toDate?.abbreviated }
+            .map { $0.updatedAt?.toDate?.abbreviated }
             .unwrap()
     }
 }
