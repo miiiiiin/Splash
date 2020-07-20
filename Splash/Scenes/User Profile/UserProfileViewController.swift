@@ -11,7 +11,7 @@ import UIKit
 
 class UserProfileViewController: UIViewController, BindableType {
     
-    let viewModel: UserProfileViewModel!
+    var viewModel: UserProfileViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
