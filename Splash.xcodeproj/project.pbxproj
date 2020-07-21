@@ -23,6 +23,8 @@
 		7D1951942491B83400A9C0A2 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1951932491B83400A9C0A2 /* Extensions+UIView.swift */; };
 		7D1EEB6C24C59CA500BD324C /* SearchPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EEB6B24C59CA500BD324C /* SearchPhotosViewModel.swift */; };
 		7D1EEB6F24C5A0FC00BD324C /* SearchPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EEB6E24C5A0FC00BD324C /* SearchPhotosCell.swift */; };
+		7D2905A424C6F31400960A2E /* SearchPhotosCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2905A324C6F31400960A2E /* SearchPhotosCellModel.swift */; };
+		7D2905A624C6F50E00960A2E /* SearchPhotosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D2905A524C6F50E00960A2E /* SearchPhotosCell.xib */; };
 		7D78195C24B84BEC005DF56D /* UICollectionView+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D78195B24B84BEC005DF56D /* UICollectionView+Identifiable.swift */; };
 		7D78195E24B84C1F005DF56D /* ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D78195D24B84C1F005DF56D /* ClassIdentifiable.swift */; };
 		7D78196024B84C8D005DF56D /* NibIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D78195F24B84C8D005DF56D /* NibIdentifiable.swift */; };
@@ -138,6 +140,8 @@
 		7D1951932491B83400A9C0A2 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		7D1EEB6B24C59CA500BD324C /* SearchPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosViewModel.swift; sourceTree = "<group>"; };
 		7D1EEB6E24C5A0FC00BD324C /* SearchPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosCell.swift; sourceTree = "<group>"; };
+		7D2905A324C6F31400960A2E /* SearchPhotosCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosCellModel.swift; sourceTree = "<group>"; };
+		7D2905A524C6F50E00960A2E /* SearchPhotosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPhotosCell.xib; sourceTree = "<group>"; };
 		7D78195B24B84BEC005DF56D /* UICollectionView+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Identifiable.swift"; sourceTree = "<group>"; };
 		7D78195D24B84C1F005DF56D /* ClassIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassIdentifiable.swift; sourceTree = "<group>"; };
 		7D78195F24B84C8D005DF56D /* NibIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibIdentifiable.swift; sourceTree = "<group>"; };
@@ -344,6 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				7D1EEB6E24C5A0FC00BD324C /* SearchPhotosCell.swift */,
+				7D2905A324C6F31400960A2E /* SearchPhotosCellModel.swift */,
+				7D2905A524C6F50E00960A2E /* SearchPhotosCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -767,6 +773,7 @@
 			files = (
 				7D96A43824C5322000C2CCFB /* UserProfileViewController.xib in Resources */,
 				7DD98E1424403CAD0051809A /* LaunchScreen.storyboard in Resources */,
+				7D2905A624C6F50E00960A2E /* SearchPhotosCell.xib in Resources */,
 				7DD98E1124403CAD0051809A /* Assets.xcassets in Resources */,
 				7D09A7E624BD86E300683FB4 /* SearchViewController.xib in Resources */,
 				7DD98E0F24403CAC0051809A /* Main.storyboard in Resources */,
@@ -917,6 +924,7 @@
 				7DD98E0824403CAC0051809A /* AppDelegate.swift in Sources */,
 				7D78196224B84EDD005DF56D /* PinterestLayout+Rx.swift in Sources */,
 				7DED44AB24768B400049E205 /* SplashTabBarController.swift in Sources */,
+				7D2905A424C6F31400960A2E /* SearchPhotosCellModel.swift in Sources */,
 				7DED449E247645270049E205 /* AuthError.swift in Sources */,
 				7DED44A8247653C80049E205 /* SplashError.swift in Sources */,
 				7D96A43624C5317E00C2CCFB /* UserProfileViewController.swift in Sources */,
