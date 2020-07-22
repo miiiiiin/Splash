@@ -18,7 +18,7 @@ protocol PhotoServiceType {
     
     func photos(byPageNumber pgNumber: Int?, orderBy: OrderBy?) -> Observable<Result<[Photo], Splash.Error>>
     
-    func statistics(of photo: Photo) -> Observable<PhotoStatistics>
+//    func statistics(of photo: Photo) -> Observable<PhotoStatistics>
     
     func photoDownloadLink(wihId id: String) -> Observable<Result<String, Splash.Error>>
     

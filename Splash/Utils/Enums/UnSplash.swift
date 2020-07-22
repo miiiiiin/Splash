@@ -58,10 +58,10 @@ enum UnSplash {
         perPage: Int?)
 //
 //    /// Get a user’s statistics
-//    case userStatistics(
-//        username: String,
-//        resolution: Resolution?,
-//        quantity: Int?)
+    case userStatistics(
+        username: String,
+//        resolution: Resolution?,//fixme
+        quantity: Int?)
 //
 //    /// Get the list of all photos
     case photos(
@@ -88,10 +88,10 @@ enum UnSplash {
         count: Int?)
 //
 //    /// Get a photo’s statistics
-//    case photoStatistics(
-//        id: String,
-//        resolution: Resolution?,
-//        quantity: Int?)
+    case photoStatistics(
+        id: String,
+//        resolution: Resolution?,//fixme
+        quantity: Int?)
 //
 //    /// Retrieve a single photo’s download link
     case photoDownloadLink(id: String)
@@ -201,16 +201,16 @@ extension UnSplash: Resource {
 //            return .get(path: "/users/\(param.username)/likes")
         case let .userCollections(param):
             return .get(path: "/users/\(param.username)/collections")
-//        case let .userStatistics(param):
-//            return .get(path: "/users/\(param.username)/statistics")
+        case let .userStatistics(param):
+            return .get(path: "/users/\(param.username)/statistics")
         case .photos:
             return .get(path: "/photos")
         case let .photo(param):
             return .get(path: "/photos/\(param.id)")
         case .randomPhoto:
             return .get(path: "/photos/random")
-//        case let .photoStatistics(param):
-//            return .get(path: "/photos/\(param.id)/statistics")
+        case let .photoStatistics(param):
+            return .get(path: "/photos/\(param.id)/statistics")
         case let .photoDownloadLink(id):
             return .get(path: "/photos/\(id)/download")
         case let .likePhoto(id):
@@ -308,7 +308,7 @@ extension UnSplash: Resource {
 
 //        case let .userStatistics(_, resolution, quantity),
 //             let .photoStatistics(_, resolution, quantity):
-//
+////
 //            var params: [String: Any] = [:]
 //            params["resolution"] = resolution?.rawValue
 //            params["quantity"] = quantity
