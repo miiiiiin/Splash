@@ -55,7 +55,7 @@ class Cache {
             .startWith(nil)
     }
 
-    func getAllObject<T: Cacheable>(ofType type: T.Type) -> Observable<[T]> {
+    func getAllObjects<T: Cacheable>(ofType type: T.Type) -> Observable<[T]> {
         return storageStream
             .map { $0.map { $0.value as? T }.compactMap { $0 }}
             .startWith([])

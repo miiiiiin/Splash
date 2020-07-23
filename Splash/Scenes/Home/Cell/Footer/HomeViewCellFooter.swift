@@ -37,7 +37,13 @@ class HomeViewCellFooter: UIView, BindableType {
         return button
     }()
     
-    private lazy var likesNumerLabel: UILabel = {
+    private lazy var likeButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .black
+        return button
+    }()
+
+    private lazy var likesNumberLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17, weight: .regular)
         return label
@@ -45,22 +51,29 @@ class HomeViewCellFooter: UIView, BindableType {
     
     private lazy var leftViewContainer: UIView = {
         let view = UIView()
+        likeButton.add(to: view)
+            .left(to: \.leftAnchor, constant: 16.0)
+            .centerY(to: \.centerYAnchor)
+            .size(CGSize(width: 30.0, height: 30.0))
         
-        //fixme
-        
+        likesNumberLabel.add(to: view)
+            .left(to: \.rightAnchor, of: likeButton, constant: 4.0)
+            .centerY(to: \.centerYAnchor)
         return view
     }()
     
     private lazy var rightViewContainer: UIView = {
         let view = UIView()
-        //fixme
+        saveButton.add(to: view)
+            .right(to: \.rightAnchor, constant:  16.0)
+            .centerY(to: \.centerYAnchor)
+            .size(CGSize(width: 30.0, height: 30.0))
+        
+        downloadButton.add(to: view)
+            .right(to: \.leftAnchor, of: saveButton, constant: 16.0)
+            .centerY(to: \.centerYAnchor)
+            .size(CGSize(width: 30.0, height: 30.0))
         return view
-    }()
-    
-    private lazy var likeButton: UIButton = {
-        let button = UIButton()
-        button.tintColor = .black
-        return button
     }()
     
     private lazy var saveButton: UIButton = {
@@ -70,37 +83,6 @@ class HomeViewCellFooter: UIView, BindableType {
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
-    
-//    private lazy var leftViewContainer: UIView = {
-//           let view = UIView()
-//
-//           likeButton.add(to: view)
-//               .left(to: \.leftAnchor, constant: 16.0)
-//               .centerY(to: \.centerYAnchor)
-//               .size(CGSize(width: 30.0, height: 30.0))
-//
-//           likesNumberLabel.add(to: view)
-//               .left(to: \.rightAnchor, of: likeButton, constant: 4.0)
-//               .centerY(to: \.centerYAnchor)
-//
-//           return view
-//       }()
-//
-//       private lazy var rightViewContainer: UIView = {
-//           let view = UIView()
-//
-//           saveButton.add(to: view)
-//               .right(to: \.rightAnchor, constant: 16.0)
-//               .centerY(to: \.centerYAnchor)
-//               .size(CGSize(width: 30.0, height: 30.0))
-//
-//           downloadButton.add(to: view)
-//               .right(to: \.leftAnchor, of: saveButton, constant: 16.0)
-//               .centerY(to: \.centerYAnchor)
-//               .size(CGSize(width: 30.0, height: 30.0))
-//
-//           return view
-//       }()
     
     private static let imagePipeline = Nuke.ImagePipeline.shared
     private let disposeBag = DisposeBag()
@@ -136,7 +118,7 @@ class HomeViewCellFooter: UIView, BindableType {
         }.disposed(by: disposeBag)
         
         outputs.likesNumber
-            .bind(to: likesNumerLabel.rx.text)
+            .bind(to: likesNumberLabel.rx.text)
             .disposed(by: disposeBag)
         
         outputs.isLikedByUser

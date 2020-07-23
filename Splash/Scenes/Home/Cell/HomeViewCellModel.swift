@@ -47,11 +47,8 @@ class HomeViewCellModel: HomeViewCellModelType, HomeViewCellModelInput, HomeView
     // MARK: Inputs
     lazy var photoDetailsAction: Action<Photo, Photo> = {
         Action<Photo, Photo> { [unowned self] photo in
-//            let viewModel = PhotoDetailsViewModel(photo: photo)
-            //            self.sceneCoordinator.transition(to: Scene.photoDetails(viewModel))
-            //            return .just(photo)
-            
-            self.sceneCoordinator.transition(to: Scene.login) //fixme
+            let viewModel = PhotoDetailsViewModel(photo: photo)
+            self.sceneCoordinator.transition(to: Scene.photoDetails(viewModel))
             return .just(photo)
         }
     }()

@@ -117,7 +117,7 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
         isOrderBy = orderByProperty
         isFirstPageRequested = firstResult.map(to: true)
         
-        homeViewCellModelTypes = Observable.combineLatest(requestedPhotos, cache.getAllObject(ofType: Photo.self)).map { photos, cachedPhotos -> [Photo] in
+        homeViewCellModelTypes = Observable.combineLatest(requestedPhotos, cache.getAllObjects(ofType: Photo.self)).map { photos, cachedPhotos -> [Photo] in
             let cachedPhotos = cachedPhotos.filter {
                 photos.contains($0)
             }
