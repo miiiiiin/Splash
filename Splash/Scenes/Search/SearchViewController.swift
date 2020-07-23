@@ -33,7 +33,6 @@ class SearchViewController: UIViewController, BindableType {
     
     private let disposeBag = DisposeBag()
     
-    
     //MARK: Init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +46,6 @@ class SearchViewController: UIViewController, BindableType {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.searchBar.endEditing(true)
     }
-    
     
     //MARK: UI
     private func configureSearchBar() {
@@ -67,14 +65,11 @@ class SearchViewController: UIViewController, BindableType {
     }
     
     private func configureBouncyView() {
-//         let bouncyView = BouncyView(frame: noResultView.frame)
-        //        bouncyView.configure(emoji: "🏞", message: "Search Unsplash")
-        //        bouncyView.clipsToBounds = true
-        //        bouncyView.add(to: noResultView).pinToEdges()
-//        let bouncyView =
-    //fixme
+        let bouncyView = BouncyView(frame: noResultView.frame)
+        bouncyView.configure(emoji: "🏞", message: "Search Splash")
+        bouncyView.clipsToBounds = true
+        bouncyView.add(to: noResultView).pinToEdges()
     }
-    
     
     //MARK: BindableType
     func bindViewModel() {
@@ -92,7 +87,6 @@ class SearchViewController: UIViewController, BindableType {
             .bind(to: tableView.rx.isHidden)
         .disposed(by: disposeBag)
         
-        
         searchBar.rx.text
         .unwrap()
             .map { $0.count > 0 }
@@ -103,7 +97,6 @@ class SearchViewController: UIViewController, BindableType {
             .map { [SearchSectionModel(model: "", items: $0)] }
             .bind(to: tableView.rx.items(dataSource: datasource))
             .disposed(by: disposeBag)
-        
         
         tableView.rx.itemSelected
             .execute { [unowned self] _ in
