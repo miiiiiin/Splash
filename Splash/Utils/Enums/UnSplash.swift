@@ -103,18 +103,19 @@ enum UnSplash {
     case unlikePhoto(id: String)
 //
 //    /// Get photo results for a query
-//    case searchPhotos(
-//        query: String,
-//        page: Int?,
+    case searchPhotos(
+        query: String,
+        page: Int?
 //        perPage: Int?,
 //        collections: [String]?,
-//        orientation: Orientation?)
+//        orientation: Orientation?
+    )
 //
 //    /// Get collection results for a query
-//    case searchCollections(
-//        query: String,
-//        page: Int?,
-//        perPage: Int?)
+    case searchCollections(
+        query: String,
+        page: Int?,
+        perPage: Int?)
 //
 //    /// Get user results for a query
 //    case searchUsers(
@@ -217,10 +218,10 @@ extension UnSplash: Resource {
             return .post(path: "/photos/\(id)/like")
         case let .unlikePhoto(id):
             return .delete(path: "/photos/\(id)/like")
-//        case .searchPhotos:
-//            return .get(path: "/search/photos")
-//        case .searchCollections:
-//            return .get(path: "/search/collections")
+        case .searchPhotos:
+            return .get(path: "/search/photos")
+        case .searchCollections:
+            return .get(path: "/search/collections")
 //        case .searchUsers:
 //            return .get(path: "/search/users")
 //        case .collections:
@@ -340,26 +341,26 @@ extension UnSplash: Resource {
 //
 //            return .requestWithParameters(params, encoding: URLEncoding())
 //
-//        case let .searchCollections(value),
+        case let .searchCollections(value): //,
 //             let .searchUsers(value):
+
+            var params: [String: Any] = [:]
+            params["query"] = value.query
+            params["page"] = value.page
+            params["per_page"] = value.perPage
+
+            return  .requestWithParameters(params, encoding: URLEncoding())
 //
-//            var params: [String: Any] = [:]
-//            params["query"] = value.query
-//            params["page"] = value.page
-//            params["per_page"] = value.perPage
-//
-//            return  .requestWithParameters(params, encoding: URLEncoding())
-//
-//        case let .searchPhotos(value):
-//
-//            var params: [String: Any] = [:]
-//            params["query"] = value.query
-//            params["page"] = value.page
+        case let .searchPhotos(value):
+
+            var params: [String: Any] = [:]
+            params["query"] = value.query
+            params["page"] = value.page
 //            params["per_page"] = value.perPage
 //            params["collections"] = value.collections
 //            params["orientation"] = value.orientation?.rawValue
-//
-//            return .requestWithParameters(params,encoding: noBracketsAndLiteralBoolEncoding)
+
+            return .requestWithParameters(params,encoding: noBracketsAndLiteralBoolEncoding)
 //
         case let .createCollection(value):
 

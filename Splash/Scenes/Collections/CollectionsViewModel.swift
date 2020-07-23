@@ -52,18 +52,10 @@ final class CollectionsViewModel: CollectionsViewModelOutput, CollectionsViewMod
     
     lazy var collectionDetailsAction: Action<PhotoCollection, Void> = {
         return Action<PhotoCollection, Void> { [unowned self] collection in
-//            let viewModel = searchphot
-//            let viewModel = SearchPhotosViewModel(type:
-            //                .collectionPhotos(
-            //                    title: collection.title ?? "",
-            //                    collectionID: collection.id ?? 0,
-            //                    collectionService: CollectionService()
-            //                )
-            //            )
-            //            return self.sceneCoordinator.transition(to:Scene.searchPhotos(viewModel))
-            
-            self.sceneCoordinator.transition(to: Scene.login)
-            //fixme
+            let viewModel = SearchPhotosViewModel(type: .collectionPhotos(title: collection.title ?? "", collectionID: collection.id ?? 0, collectionService: CollectionService()
+                )
+            )
+            return self.sceneCoordinator.transition(to: Scene.searchPhotos(viewModel))
         }
     }()
     

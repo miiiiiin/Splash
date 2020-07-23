@@ -13,7 +13,7 @@ import RxCocoa
 
 enum SearchType {
     case collectionPhotos(title: String, collectionID: Int, collectionService: CollectionServiceType)
-//    case searchPhotos(searchQuery: String, searchService: SearchServiceType)
+    case searchPhotos(searchQuery: String, searchService: SearchServiceType)
 }
 
 protocol SearchPhotosViewModelInput {
@@ -81,7 +81,6 @@ final class SearchPhotosViewModel: SearchPhotosViewModelInput, SearchPhotosViewM
         var requestNext: Observable<[Photo]>
         
         switch type {
-//        case let .searchPhotos
         case let .collectionPhotos(title: title, collectionID: collectionID, collectionService: collectionService):
             requestFirst = collectionService.photos(fromCollectionId: collectionID, pageNumber: 1)
             
@@ -93,6 +92,32 @@ final class SearchPhotosViewModel: SearchPhotosViewModelInput, SearchPhotosViewM
             }
             
             navTitle = Observable.just(title)
+            
+        case .searchPhotos(searchQuery: let searchQuery, searchService: let searchService):
+            let searchResultsNumber = searchService
+            .searchPhotos(with: searchQuery, pageNumber: currentPageNumber)
+            .map { $0.total }
+            .unwrap()
+            
+            requestFirst = searchService
+            .searchPhotos(with: searchQuery, pageNumber: 1)
+            .map { $0.results }
+            .unwrap()
+            
+            requestNext = loadMore.asObservable()
+                .flatMapLatest { loadMore -> Observable<[Photo]> in
+                    guard loadMore else { return .empty() }
+                    currentPageNumber += 1
+                    return searchService
+                    .searchPhotos(with: searchQuery, pageNumber: currentPageNumber)
+                        .map { $0.results }
+                    .unwrap()
+            }
+            
+            navTitle = Observable.zip(Observable.just(searchQuery), searchResultsNumber)
+                .map { query, resultNumber in
+                    return "\(query): \(resultNumber) results"
+            }
         }
         
         photos = requestFirst

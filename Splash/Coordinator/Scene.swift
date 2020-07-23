@@ -26,7 +26,7 @@ enum Scene {
     case photoDetails(PhotoDetailsViewModel)
     case addToCollection(AddToCollectionViewModel)
     case createCollection(CreateCollectionViewModel)
-//    case searchPhotos
+    case searchPhotos(SearchPhotosViewModel)
 //    case searchCollections
 //    case searchUsers
     case userProfile(UserProfileViewModel)
@@ -118,8 +118,15 @@ extension Scene: TargetScene {
         case .createCollection:
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)//fixme
-//        case .searchPhotos:
-//            break
+        case let .searchPhotos(viewModel):
+//            var vc = SearchPhotosViewController(collectionViewLayout: PinterestLayout(numberOfColumns: 2))
+//            vc.bind(to: viewModel)
+            
+//            return .push(vc)
+            
+            let tabBarController = SplashTapBarController()
+            return .tabBar(tabBarController)//fixme
+            
 //        case .searchCollections:
 //            break
 //        case .searchUsers:
