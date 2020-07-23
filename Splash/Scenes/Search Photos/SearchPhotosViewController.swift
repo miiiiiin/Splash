@@ -81,7 +81,7 @@ class SearchPhotosViewController: UIViewController, BindableType {
         
         outputs.searchPhotosCellModelType
             .map { [SearchPhotosSectionModel(model: "", items: $0)] }
-            .execute { [unowned self] in
+            .execute { [unowned self] _ in
 //                self.loadingvIew.stopanimating() //fixme
         }
         .bind(to: collectionView.rx.items(dataSource: dataSource))

@@ -118,14 +118,12 @@ extension Scene: TargetScene {
         case .createCollection:
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)//fixme
+            
         case let .searchPhotos(viewModel):
-//            var vc = SearchPhotosViewController(collectionViewLayout: PinterestLayout(numberOfColumns: 2))
-//            vc.bind(to: viewModel)
+            var controller = SearchPhotosViewController(collectionViewLayout: PinterestLayout(numberOfColumns: 2))
+            controller.bind(to: viewModel)
+            return .push(controller)
             
-//            return .push(vc)
-            
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)//fixme
             
 //        case .searchCollections:
 //            break
