@@ -11,8 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol SearchServiceType {
-    func searchPhotos(with query: String, pageNumber: Int) -> Observable<PhotoResults>
-    func searchCollections(with query: String, pageNumber: Int) -> Observable<PhotoCollectionResults>
-//    func searchUsers(with query: String, pageNumber: Int) -> Observable<UserResult>
-//fixme
+    func searchPhotos(with query: String, pageNumber: Int) -> Observable<PhotoResult>
+    func searchCollections(with query: String, pageNumber: Int) -> Observable<PhotoCollectionResult>
+    func searchUsers(with query: String, pageNumber: Int) -> Observable<UserResult>
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 //MARK: - UserResults -
-struct UserResults: Decodable {
+struct UserResult: Decodable {
     let total: Int?
     let totalPages: Int?
     let results: [User]?
@@ -23,7 +23,7 @@ struct UserResults: Decodable {
 
 
 //MARK: - PhotoResults -
-struct PhotoResults: Decodable {
+struct PhotoResult: Decodable {
     let total: Int?
     let totalPages: Int?
     let results: [Photo]?
@@ -36,7 +36,7 @@ struct PhotoResults: Decodable {
 }
 
 //MARK: - PhotoCollectionResults -
-struct PhotoCollectionResults: Decodable {
+struct PhotoCollectionResult: Decodable {
     let total: Int?
     let totalPages: Int?
     let results: [PhotoCollection]?

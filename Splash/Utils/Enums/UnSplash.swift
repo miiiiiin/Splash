@@ -118,10 +118,10 @@ enum UnSplash {
         perPage: Int?)
 //
 //    /// Get user results for a query
-//    case searchUsers(
-//        query: String,
-//        page: Int?,
-//        perPage: Int?)
+    case searchUsers(
+        query: String,
+        page: Int?,
+        perPage: Int?)
 //
 //    /// Get a list of all collections
 //    case collections(
@@ -222,8 +222,8 @@ extension UnSplash: Resource {
             return .get(path: "/search/photos")
         case .searchCollections:
             return .get(path: "/search/collections")
-//        case .searchUsers:
-//            return .get(path: "/search/users")
+        case .searchUsers:
+            return .get(path: "/search/users")
 //        case .collections:
 //            return .get(path: "/collections")
         case .createCollection:
@@ -341,8 +341,8 @@ extension UnSplash: Resource {
 //
 //            return .requestWithParameters(params, encoding: URLEncoding())
 //
-        case let .searchCollections(value): //,
-//             let .searchUsers(value):
+        case let .searchCollections(value),
+             let .searchUsers(value):
 
             var params: [String: Any] = [:]
             params["query"] = value.query
