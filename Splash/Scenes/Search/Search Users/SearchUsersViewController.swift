@@ -19,7 +19,7 @@ class SearchUsersViewController: UIViewController, BindableType {
     var viewModel: SearchUsersViewModel!
     
     private var tableView: UITableView!
-//    private var loadingView: loadingview!//fixme
+    private var loadingView: LoadingView!
     private var dataSource: RxTableViewSectionedReloadDataSource<SearchUsersSectionModel>!
     private let disposeBag = DisposeBag()
     
@@ -41,21 +41,20 @@ class SearchUsersViewController: UIViewController, BindableType {
         outputs.usersViewModel
             .map { [SearchUsersSectionModel(model: "", items: $0)]}
             .execute { [unowned self] _ in
-//                self.loadinview.stopania//fixme
-                
-        }
-        .bind(to: tableView.rx.items(dataSource: dataSource))
-    .disposed(by: disposeBag)
+                self.loadingView.stopAnimating()
+            }
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
         tableView.rx.reachedBottom()
             .bind(to: inputs.loadMore)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
     
     //MARK: UI
     private func configureLoadingView() {
-//        loadingView = LoadingView(frame: tableView.frame)//fixme
-        //        loadingView.add(to: view).pinToEdges()
+        loadingView = LoadingView(frame: tableView.frame)
+        loadingView.add(to: view).pinToEdges()
     }
     
     private func configureTableView() {

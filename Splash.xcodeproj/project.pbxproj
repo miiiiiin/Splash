@@ -75,6 +75,7 @@
 		7DE1DACC24CA82B100553962 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE1DACB24CA82B100553962 /* UserCell.swift */; };
 		7DE1DACE24CAA34200553962 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DE1DACD24CAA34200553962 /* UserCell.xib */; };
 		7DE1DAD024CAA49800553962 /* SearchUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE1DACF24CAA49800553962 /* SearchUsersViewController.swift */; };
+		7DE1DAE924CADD7C00553962 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE1DAE824CADD7C00553962 /* LoadingView.swift */; };
 		7DED447A2473E48E0049E205 /* SceneTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED44792473E48E0049E205 /* SceneTransitionType.swift */; };
 		7DED447C2473E5580049E205 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */; };
 		7DED447E2473E5C50049E205 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED447D2473E5C50049E205 /* Scene.swift */; };
@@ -208,6 +209,7 @@
 		7DE1DACB24CA82B100553962 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7DE1DACD24CAA34200553962 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		7DE1DACF24CAA49800553962 /* SearchUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUsersViewController.swift; sourceTree = "<group>"; };
+		7DE1DAE824CADD7C00553962 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		7DED44792473E48E0049E205 /* SceneTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionType.swift; sourceTree = "<group>"; };
 		7DED447B2473E5580049E205 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		7DED447D2473E5C50049E205 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				7D165A4724AF2FFC007C8F6D /* PinterestLayout.swift */,
 				7DDCB99824B59828006C6D63 /* SplashNavigationController.swift */,
 				7D63EFDB24C94FE7006B886B /* BouncyView.swift */,
+				7DE1DAE824CADD7C00553962 /* LoadingView.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -1012,6 +1015,7 @@
 				7D09A7EB24BD8CF900683FB4 /* CollectionsViewModel.swift in Sources */,
 				7DDCB99724B58CD9006C6D63 /* CreateCollectionViewModel.swift in Sources */,
 				7D1951922490E66800A9C0A2 /* HomeViewCellHeader.swift in Sources */,
+				7DE1DAE924CADD7C00553962 /* LoadingView.swift in Sources */,
 				7DE1DACA24CA7CEF00553962 /* UserCellModel.swift in Sources */,
 				7D7D4F2A24C13BB10036D847 /* UIRefreshControl+Rx.swift in Sources */,
 				7DDCB98E24B2EA0E006C6D63 /* AlertViewModel.swift in Sources */,
