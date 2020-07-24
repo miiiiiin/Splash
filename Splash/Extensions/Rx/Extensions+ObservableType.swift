@@ -33,6 +33,16 @@ extension ObservableType {
         return Observable.merge(self.asObservable(), other)
     }
     
+    func count() -> Observable<(Element, Int)> {
+        var numberOfTimeCalled = 0
+        let result = map { _ -> Int in
+            numberOfTimeCalled += 1
+            return numberOfTimeCalled
+        }
+        
+        return Observable.combineLatest(self, result)
+    }
+    
     func map<T>(to value: T) -> Observable<T> {
         print("map to value : \(value)")
         return map { _ in value }

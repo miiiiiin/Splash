@@ -19,18 +19,26 @@ struct SearchService: SearchServiceType {
         self.cache = cache
     }
     
-    func searchPhotos(with query: String, pageNumber: Int) -> Observable<PhotoResults> {
+    func searchPhotos(with query: String, pageNumber: Int) -> Observable<PhotoResult> {
         return splash.rx.request(resource: .searchPhotos(query: query, page:
-            pageNumber))
-            .map(to: PhotoResults.self)
+            pageNumber)
+        )
+        .map(to: PhotoResult.self)
         .asObservable()
-            .execute { self.cache.set(values: $0.results ?? []) }
+        .execute { self.cache.set(values: $0.results ?? []) }
     }
     
-    func searchCollections(with query: String, pageNumber: Int) -> Observable<PhotoCollectionResults> {
+    func searchCollections(with query: String, pageNumber: Int) -> Observable<PhotoCollectionResult> {
         return splash.rx.request(resource: .searchCollections(query: query, page: pageNumber, perPage: 10)
         )
-        .map(to: PhotoCollectionResults.self)
+        .map(to: PhotoCollectionResult.self)
+        .asObservable()
+    }
+    
+    func searchUsers(with query: String, pageNumber: Int) -> Observable<UserResult> {
+        return splash.rx.request(resource: .searchUsers(query: query, page: pageNumber, perPage: 10)
+        )
+        .map(to: UserResult.self)
         .asObservable()
     }
 }
