@@ -16,7 +16,7 @@ protocol SearchUsersViewModelInput {
 protocol SearchUsersViewModelOutput {
     var searchQuery: Observable<String> { get }
     var totalResults: Observable<Int> { get }
-//    var usersViewModel: Observable<[usercellmodeltype]> { get }
+    var usersViewModel: Observable<[UserCellModelType]> { get }
     var navTitle: Observable<String> { get }
 }
 
@@ -28,8 +28,8 @@ protocol SearchUsersViewModelType {
 final class SearchUsersViewModel: SearchUsersViewModelInput, SearchUsersViewModelOutput, SearchUsersViewModelType {
     
     //MARK: Input&Output
-    var inputs: SearchUsersViewModelInput { return self }
-    var outputs: SearchUsersViewModelOutput { return self }
+    var input: SearchUsersViewModelInput { return self }
+    var output: SearchUsersViewModelOutput { return self }
     
     //MARK: Inputs
     let loadMore = BehaviorSubject<Bool>(value: false)
@@ -38,6 +38,14 @@ final class SearchUsersViewModel: SearchUsersViewModelInput, SearchUsersViewMode
     let searchQuery: Observable<String>
     let totalResults: Observable<Int>
     let navTitle: Observable<String>
+    
+    lazy var usersViewModel: Observable<[UserCellModelType]> = {
+        return Observable.combineLatest(users, searchQuery)
+            .map { users, searchQuery in
+                users.map { UserCellModel.init(user: $0, searchQuery: searchQuery)
+            }
+        }
+    }()
     
     private var users: Observable<[User]>!
     private var service: SearchServiceType
@@ -84,11 +92,3 @@ final class SearchUsersViewModel: SearchUsersViewModelInput, SearchUsersViewMode
         
     }
 }
-
-//    lazy var usersViewModel: Observable<[UserCellModelType]> = {
-//        return Observable.combineLatest(users, searchQuery)
-//            .map { users, searchQuery in
-//                users.map { UserCellModel.init(user: $0, searchQuery: searchQuery) }
-//            }
-//    }()
-//

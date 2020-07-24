@@ -23,7 +23,6 @@ protocol UserCellModelType {
 
 final class UserCellModel: UserCellModelInput, UserCellModelOutput, UserCellModelType {
     
-    
     //MARK: Input&Output
     var inputs: UserCellModelInput { return self }
     var outputs: UserCellModelOutput { return self }
