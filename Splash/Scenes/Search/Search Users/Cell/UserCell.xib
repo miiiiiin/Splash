@@ -43,7 +43,7 @@
             </constraints>
             <connections>
                 <outlet property="fullNameLbl" destination="lhy-7z-qnX" id="YsC-W1-oWn"/>
-                <outlet property="profilePhotoImageView" destination="rJy-Yo-e27" id="Ng8-fb-qwk"/>
+                <outlet property="profilePhotoImageView" destination="rJy-Yo-e27" id="YVU-37-wKw"/>
             </connections>
             <point key="canvasLocation" x="77" y="53"/>
         </tableViewCell>

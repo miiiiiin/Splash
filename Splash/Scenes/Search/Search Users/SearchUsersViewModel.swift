@@ -21,12 +21,12 @@ protocol SearchUsersViewModelOutput {
 }
 
 protocol SearchUsersViewModelType {
-    var inputs: SearchUsersViewModelInput { get }
-    var outputs: SearchUsersViewModelOutput { get }
+    var input: SearchUsersViewModelInput { get }
+    var output: SearchUsersViewModelOutput { get }
 }
 
 final class SearchUsersViewModel: SearchUsersViewModelInput, SearchUsersViewModelOutput, SearchUsersViewModelType {
-    
+  
     //MARK: Input&Output
     var input: SearchUsersViewModelInput { return self }
     var output: SearchUsersViewModelOutput { return self }
