@@ -57,8 +57,7 @@ final class PhotoCollectionCellModel: PhotoCollectionCellModelInput, PhotoCollec
                 case let .success(photo):
                     self.photoProperty.onNext(photo)
                 case let .failure(error):
-                    break
-//                        self.alertAction.execute(error)//fixme
+                    self.alertAction.execute(error)
                 }
                 return .empty()
             }
@@ -74,13 +73,12 @@ final class PhotoCollectionCellModel: PhotoCollectionCellModelInput, PhotoCollec
                     case let .success(photo):
                         self.photoProperty.onNext(photo)
                     case let .failure(error):
-                    //   self.alertAction.execute(error)
-                        break
+                        self.alertAction.execute(error)
                     }
                     return .empty()
             }
         }
-    }()//fixme
+    }()
     
     init(photo: Photo, photoCollection: PhotoCollection, service: CollectionServiceType = CollectionService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
         self.photo = photo
@@ -116,4 +114,11 @@ final class PhotoCollectionCellModel: PhotoCollectionCellModelInput, PhotoCollec
         }
         .catchErrorJustReturn(false)
     }
+    
+    private lazy var alertAction: Action<Splash.Error, Void> = {
+        Action<Splash.Error, Void> { [unowned self] error in
+            let alertViewModel = AlertViewModel(title: "Upsss...", message: error.errorDescription, mode: .ok)
+            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
+        }
+    }()
 }
