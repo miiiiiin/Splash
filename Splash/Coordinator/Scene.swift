@@ -27,7 +27,8 @@ enum Scene {
     case addToCollection(AddToCollectionViewModel)
     case createCollection(CreateCollectionViewModel)
     case searchPhotos(SearchPhotosViewModel)
-//    case searchCollections
+    case searchUsers(SearchUsersViewModel)
+    case searchCollections(SearchCollectionsViewModel)
 //    case searchUsers
     case userProfile(UserProfileViewModel)
 }
@@ -124,11 +125,16 @@ extension Scene: TargetScene {
             controller.bind(to: viewModel)
             return .push(controller)
             
+        case let .searchCollections(viewModel):
+            var controller = SearchCollectionsViewController.initFromNib()
+            controller.bind(to: viewModel)
+            return .push(controller)
             
-//        case .searchCollections:
-//            break
-//        case .searchUsers:
-//            break
+        case let .searchUsers(viewModel):
+            var controller = SearchUsersViewController()
+            controller.bind(to: viewModel)
+            return .push(controller)
+            
         case .userProfile:
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)//fixme

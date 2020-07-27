@@ -99,8 +99,12 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
             case let .success(photos):
                 return photos
             case let .failure(error):
-                //FIXME: show alert
-                return nil
+                let alertViewModel = AlertViewModel(
+                    title: "Upsss...",
+                    message: error.errorDescription,
+                    mode: .ok)
+                sceneCoordinator.transition(to: Scene.alert(alertViewModel))
+                return nil//fixme
             }
         }
         .unwrap()
