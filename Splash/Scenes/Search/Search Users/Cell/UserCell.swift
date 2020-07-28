@@ -14,17 +14,18 @@ class UserCell: UITableViewCell, BindableType, NibIdentifiable & ClassIdentifiab
     
     var viewModel: UserCellModelType!
 
-    @IBOutlet var profilePhotoImageView: UIImageView!
+    @IBOutlet weak var profilePhotoImageView: UIImageView!
     @IBOutlet var fullNameLbl: UILabel!
     
     private static let imagePipeLine = Nuke.ImagePipeline.shared
     private var disposeBag = DisposeBag()
     
-    override class func awakeFromNib() {
-        profilePhotoImageView.roundCorners(withRadius: Splash.Style.Layer.imageCornersRadius)
+    override func awakeFromNib() {
         super.awakeFromNib()
-    }
 
+        profilePhotoImageView.roundCorners(withRadius: Splash.Style.Layer.imageCornersRadius)
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         profilePhotoImageView.image = nil
