@@ -12,7 +12,8 @@ import Action
 import Nuke
 
 class PhotoCollectionViewCell: UICollectionViewCell, BindableType, NibIdentifiable & ClassIdentifiable {
-   
+
+   //MARK: IBOUTLETS
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var addToCollectionButton: UIButton!
     @IBOutlet weak var collectionCoverImageView: UIButton!
@@ -21,10 +22,6 @@ class PhotoCollectionViewCell: UICollectionViewCell, BindableType, NibIdentifiab
     //MARK: ViewModel
     var viewModel: PhotoCollectionCellModelType!
     
-    //MARK: IBOUTLETS
-    
-    
-    //MARK: Private
     private static let imagePipeline = Nuke.ImagePipeline.shared
     private var disposeBag = DisposeBag()
     
