@@ -25,6 +25,9 @@
 		7D1EEB6F24C5A0FC00BD324C /* SearchPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1EEB6E24C5A0FC00BD324C /* SearchPhotosCell.swift */; };
 		7D2905A424C6F31400960A2E /* SearchPhotosCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2905A324C6F31400960A2E /* SearchPhotosCellModel.swift */; };
 		7D2905A624C6F50E00960A2E /* SearchPhotosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D2905A524C6F50E00960A2E /* SearchPhotosCell.xib */; };
+		7D3FDF1724D2BF4800B45643 /* UnSplashAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3FDF1624D2BF4800B45643 /* UnSplashAuthManager.swift */; };
+		7D3FDF1924D2C26100B45643 /* Extensions+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3FDF1824D2C26100B45643 /* Extensions+URL.swift */; };
+		7D3FDF1B24D2C31700B45643 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3FDF1A24D2C31700B45643 /* Scope.swift */; };
 		7D512D7324CE9A8600531F48 /* SearchCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D512D7224CE9A8600531F48 /* SearchCollectionsViewController.swift */; };
 		7D512D7524CEB0F700531F48 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D512D7424CEB0F700531F48 /* PhotoCollectionViewCell.xib */; };
 		7D512D7C24D0231300531F48 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D512D7B24D0231300531F48 /* LoginViewModel.swift */; };
@@ -156,6 +159,9 @@
 		7D1EEB6E24C5A0FC00BD324C /* SearchPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosCell.swift; sourceTree = "<group>"; };
 		7D2905A324C6F31400960A2E /* SearchPhotosCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosCellModel.swift; sourceTree = "<group>"; };
 		7D2905A524C6F50E00960A2E /* SearchPhotosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPhotosCell.xib; sourceTree = "<group>"; };
+		7D3FDF1624D2BF4800B45643 /* UnSplashAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashAuthManager.swift; sourceTree = "<group>"; };
+		7D3FDF1824D2C26100B45643 /* Extensions+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+URL.swift"; sourceTree = "<group>"; };
+		7D3FDF1A24D2C31700B45643 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
 		7D512D7224CE9A8600531F48 /* SearchCollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionsViewController.swift; sourceTree = "<group>"; };
 		7D512D7424CEB0F700531F48 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		7D512D7B24D0231300531F48 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -347,6 +353,7 @@
 				7D09A7F124BE956300683FB4 /* Extensions+UIColor.swift */,
 				7D96A43924C534B500C2CCFB /* Extensions+String.swift */,
 				7D96A43B24C534D900C2CCFB /* Extensions+Date.swift */,
+				7D3FDF1824D2C26100B45643 /* Extensions+URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -646,6 +653,7 @@
 			children = (
 				7DED44C7247E067C0049E205 /* Enums */,
 				7DED44A024764A600049E205 /* Cache */,
+				7D3FDF1624D2BF4800B45643 /* UnSplashAuthManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -740,6 +748,7 @@
 				7DED44C8247E06820049E205 /* Orientation.swift */,
 				7DED44CA247E06B60049E205 /* OrderBy.swift */,
 				7DED44CC247F47FD0049E205 /* UnSplash.swift */,
+				7D3FDF1A24D2C31700B45643 /* Scope.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -1012,6 +1021,7 @@
 				7D78196224B84EDD005DF56D /* PinterestLayout+Rx.swift in Sources */,
 				7DED44AB24768B400049E205 /* SplashTabBarController.swift in Sources */,
 				7D2905A424C6F31400960A2E /* SearchPhotosCellModel.swift in Sources */,
+				7D3FDF1B24D2C31700B45643 /* Scope.swift in Sources */,
 				7DED449E247645270049E205 /* AuthError.swift in Sources */,
 				7DED44A8247653C80049E205 /* SplashError.swift in Sources */,
 				7D96A43624C5317E00C2CCFB /* UserProfileViewController.swift in Sources */,
@@ -1041,6 +1051,7 @@
 				7D1951942491B83400A9C0A2 /* Extensions+UIView.swift in Sources */,
 				7DDCB99224B2F146006C6D63 /* UIAlertController+Rx.swift in Sources */,
 				7DED44822473E96E0049E205 /* Constants.swift in Sources */,
+				7D3FDF1724D2BF4800B45643 /* UnSplashAuthManager.swift in Sources */,
 				7D19518E2490725800A9C0A2 /* Extensions+ObservableType.swift in Sources */,
 				7DED44A4247651770049E205 /* Splash+Style.swift in Sources */,
 				7D923CEE24BC249E0088B5BF /* SearchViewModel.swift in Sources */,
@@ -1048,6 +1059,7 @@
 				7DA5424124AEF58C002C5EE1 /* PhotoCollectionCellModel.swift in Sources */,
 				7DFDF1D024C1398800990C1A /* UIBarButtonItem+Rx.swift in Sources */,
 				7D8CD8B6249C68ED00F3929C /* Extensions+Int.swift in Sources */,
+				7D3FDF1924D2C26100B45643 /* Extensions+URL.swift in Sources */,
 				7D923CF224BC35160088B5BF /* UITableView+Identifiable.swift in Sources */,
 				7D96A43F24C5356600C2CCFB /* PhotoDetailsViewModel.swift in Sources */,
 				7DED449024760F4A0049E205 /* Exif.swift in Sources */,
