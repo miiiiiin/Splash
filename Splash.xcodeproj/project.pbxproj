@@ -31,6 +31,8 @@
 		7D512D7324CE9A8600531F48 /* SearchCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D512D7224CE9A8600531F48 /* SearchCollectionsViewController.swift */; };
 		7D512D7524CEB0F700531F48 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D512D7424CEB0F700531F48 /* PhotoCollectionViewCell.xib */; };
 		7D512D7C24D0231300531F48 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D512D7B24D0231300531F48 /* LoginViewModel.swift */; };
+		7D5F470824D3E3EC006883D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F470724D3E3EC006883D7 /* LoginViewController.swift */; };
+		7D5F470A24D3E83E006883D7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5F470924D3E83E006883D7 /* LoginViewController.xib */; };
 		7D63EFD624C926D9006B886B /* SearchServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D63EFD524C926D9006B886B /* SearchServiceType.swift */; };
 		7D63EFD824C9276B006B886B /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D63EFD724C9276B006B886B /* SearchService.swift */; };
 		7D63EFDA24C92AAA006B886B /* SearchPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D63EFD924C92AAA006B886B /* SearchPhotosViewController.swift */; };
@@ -165,6 +167,8 @@
 		7D512D7224CE9A8600531F48 /* SearchCollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionsViewController.swift; sourceTree = "<group>"; };
 		7D512D7424CEB0F700531F48 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		7D512D7B24D0231300531F48 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7D5F470724D3E3EC006883D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7D5F470924D3E83E006883D7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		7D63EFD524C926D9006B886B /* SearchServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceType.swift; sourceTree = "<group>"; };
 		7D63EFD724C9276B006B886B /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		7D63EFD924C92AAA006B886B /* SearchPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosViewController.swift; sourceTree = "<group>"; };
@@ -396,6 +400,8 @@
 			isa = PBXGroup;
 			children = (
 				7D512D7B24D0231300531F48 /* LoginViewModel.swift */,
+				7D5F470724D3E3EC006883D7 /* LoginViewController.swift */,
+				7D5F470924D3E83E006883D7 /* LoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -870,6 +876,7 @@
 				7D512D7524CEB0F700531F48 /* PhotoCollectionViewCell.xib in Resources */,
 				7DD98E0F24403CAC0051809A /* Main.storyboard in Resources */,
 				7DE1DACE24CAA34200553962 /* UserCell.xib in Resources */,
+				7D5F470A24D3E83E006883D7 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,6 +1046,7 @@
 				7DED44882474CC010049E205 /* Photo.swift in Sources */,
 				7DED44862474CBB90049E205 /* ProfileImage.swift in Sources */,
 				7DE1DAD024CAA49800553962 /* SearchUsersViewController.swift in Sources */,
+				7D5F470824D3E3EC006883D7 /* LoginViewController.swift in Sources */,
 				7DED44842474BC820049E205 /* User.swift in Sources */,
 				7DED449A247642FE0049E205 /* PhotoStatistics.swift in Sources */,
 				7D09A7EB24BD8CF900683FB4 /* CollectionsViewModel.swift in Sources */,

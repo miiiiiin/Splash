@@ -155,6 +155,8 @@ class HomeViewCellFooterModel: HomeViewCellFooterModelInput, HomeViewCellFooterM
 //            let viewModel = LoginViewModel()
             //            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
             //FIXME
+            
+            let viewModel = LoginViewModel()
             return self.sceneCoordinator.transition(to: Scene.login)
         }
     }()
