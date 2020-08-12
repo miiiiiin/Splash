@@ -90,10 +90,9 @@ extension Scene: TargetScene {
             return .tabBar(tabBarController)
 
         case let .login(viewModel):
-            //fixme
-//            let tabBarController = SplashTapBarController()
-//            return .tabBar(tabBarController)
-            
+            var vc = LoginViewController.initFromNib()
+            vc.bind(to: viewModel)
+            return .present(vc)
             
         case let .alert(viewModel):
             var vc = AlertViewController(title: nil, message: nil, preferredStyle: .alert)

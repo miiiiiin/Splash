@@ -16,7 +16,7 @@ class PhotoCollectionViewCell: UICollectionViewCell, BindableType, NibIdentifiab
    //MARK: IBOUTLETS
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var addToCollectionButton: UIButton!
-    @IBOutlet weak var collectionCoverImageView: UIButton!
+    @IBOutlet weak var collectionCoverImageView: UIImageView!
     @IBOutlet weak var collectionTitle: UILabel!
     
     //MARK: ViewModel
@@ -34,7 +34,7 @@ class PhotoCollectionViewCell: UICollectionViewCell, BindableType, NibIdentifiab
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        collectionCoverImageView.imageView?.image = nil //fixme
+        collectionCoverImageView.image = #imageLiteral(resourceName: "unsplash-icon-placeholder")
         addToCollectionButton.rx.action = nil
         disposeBag = DisposeBag()
     }
@@ -59,13 +59,13 @@ class PhotoCollectionViewCell: UICollectionViewCell, BindableType, NibIdentifiab
         
         outputs.coverPhotoURL
             .flatMap { this.imagePipeline.rx.loadImage(with: $0) }
-        .orEmpty()
+            .orEmpty()
             .map { $0.image }
             .execute { [unowned self] _ in
                 self.indicator.stopAnimating()
-        }
-        .bind(to: collectionCoverImageView.rx.image()) //fixme
-        .disposed(by: disposeBag)
+            }
+            .bind(to: collectionCoverImageView.rx.image)
+            .disposed(by: disposeBag)
         
         outputs.collectionName
             .bind(to: collectionTitle.rx.text)
