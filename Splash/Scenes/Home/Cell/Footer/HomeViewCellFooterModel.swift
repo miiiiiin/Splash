@@ -101,19 +101,19 @@ class HomeViewCellFooterModel: HomeViewCellFooterModelInput, HomeViewCellFooterM
         Action<Photo, Void> { [unowned self] photo in
             return self.userService.getMe()
                 .flatMap { result -> Observable<Void> in
-                switch result {
-                case let .success(user): //FIXME
-                    let viewModel = AddToCollectionViewModel(loggedInUser: user, photo: photo)
-                    return self.sceneCoordinator.transition(to: Scene.addToCollection(viewModel))
-                case let .failure(error):
-                    switch error {
-                    case .noAccessToken:
-                        self.navigateToLogin.execute(())
-                    case let .other(message):
-                        self.alertAction.execute((title: "Upsss...", message: message))
+                    switch result {
+                    case let .success(user):
+                        let viewModel = AddToCollectionViewModel(loggedInUser: user, photo: photo)
+                        return self.sceneCoordinator.transition(to: Scene.addToCollection(viewModel))
+                    case let .failure(error):
+                        switch error {
+                        case .noAccessToken:
+                            self.navigateToLogin.execute(())
+                        case let .other(message):
+                            self.alertAction.execute((title: "Upsss...", message: message))
+                        }
+                        return .empty()
                     }
-                    return .empty()
-                }
             }
         }
     }()
@@ -138,34 +138,23 @@ class HomeViewCellFooterModel: HomeViewCellFooterModelInput, HomeViewCellFooterM
     let likesNumber: Observable<String>
     let isLikedByUser: Observable<Bool>
     
-    //FIXME
     private lazy var alertAction: Action<(title: String, message: String), Void> = {
-        Action<(title: String, message: String), Void> { [unowned self] (title, message) in
-            let alertViewModel = AlertViewModel(
-                            title: title,
-                            message: message,
-                            mode: .ok)
-            return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
-        }
-    }()
+           Action<(title: String, message: String), Void> { [unowned self] (title, message) in
+               let alertViewModel = AlertViewModel(
+                   title: title,
+                   message: message,
+                   mode: .ok)
+               return self.sceneCoordinator.transition(to: Scene.alert(alertViewModel))
+           }
+       }()
     
-    private lazy var navigateToLogin: CocoaAction = { //FIXME
+    private lazy var navigateToLogin: CocoaAction = {
         CocoaAction { [unowned self] message in
-//            let viewModel =
-//            let viewModel = LoginViewModel()
-            //            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
-            //FIXME
-            return self.sceneCoordinator.transition(to: Scene.login)
+            print("message: \(message)")
+            let viewModel = LoginViewModel()
+            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
         }
     }()
-    
-//    private lazy var navigateToLogin: CocoaAction = {
-//        CocoaAction { [unowned self] message in
-//            let viewModel = LoginViewModel()
-//            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
-//        }
-//    }()
-    
     
     init(photo: Photo, cache: Cache = Cache.shared, userService: UserServiceType = UserService(), photoService: PhotoServiceType = PhotoService(), photoLibrary: PHPhotoLibrary = PHPhotoLibrary.shared(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
         

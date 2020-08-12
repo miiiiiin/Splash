@@ -11,6 +11,7 @@ import RxSwift
 import Action
 import AuthenticationServices
 
+//todo
 enum LoginState {
     case idle
     case fetchingToken
@@ -33,7 +34,7 @@ protocol LoginViewModelType {
     var outputs: LoginViewModelOutput { get }
 }
 
-final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput, LoginViewModelType {
+final class LoginViewModel: NSObject, LoginViewModelInput, LoginViewModelOutput, LoginViewModelType {
     
     //MARK: Inputs&Outputs
     var inputs: LoginViewModelInput { return self }
@@ -42,7 +43,7 @@ final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput, LoginView
     //MARK: Inputs
     lazy var loginAction: CocoaAction = {
         return CocoaAction { [unowned self] in
-//            self.authenticate() //fixmes
+            self.authenticate()
         }
     }()
     
@@ -57,12 +58,13 @@ final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput, LoginView
     var loginState: Observable<LoginState>
     var randomPhotos: Observable<[Photo]>
     
-//  fileprivate  let authManager: SplashAuthManager
+    fileprivate let authManager: UnSplashAuthManager
     private let userService: UserServiceType
     private let photoService: PhotoServiceType
     private let sceneCoordinator: SceneCoordinatorType
     private var _authSession: Any?
     
+    //todo
     private var authSession: ASWebAuthenticationSession? {
         get {
             return _authSession as? ASWebAuthenticationSession
@@ -76,11 +78,11 @@ final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput, LoginView
     private let loginStateProperty = BehaviorSubject<LoginState>(value: .idle)
     
     //MARK: Init
-    init(userService: UserServiceType = UserService(), photoService: PhotoServiceType = PhotoService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) { //fixme
+    init(userService: UserServiceType = UserService(), photoService: PhotoServiceType = PhotoService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared, authManager: UnSplashAuthManager = UnSplashAuthManager.shared) {
         self.userService = userService
         self.photoService = photoService
         self.sceneCoordinator = sceneCoordinator
-//        self.authmanager = authmanager //fixme
+        self.authManager = authManager
         
         loginState = loginStateProperty.asObservable()
         buttonName = buttonNameProperty.asObservable()
@@ -89,7 +91,7 @@ final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput, LoginView
 
         super.init()
         
-//        self.authmanager.delegate = self //fixme
+        self.authManager.delegate = self
     }
     
     private lazy var navigateToTabBarAction: CocoaAction = {
@@ -108,7 +110,37 @@ final class LoginViewModel: LoginViewModelInput, LoginViewModelOutput, LoginView
         }
     }()
     
-//    private func authenticate() -> Observable<Void> {
-//        self.authSession = ASWebAuthenticationSession(url: <#T##URL#>, callbackURLScheme: <#T##String?#>, completionHandler: <#T##ASWebAuthenticationSession.CompletionHandler##ASWebAuthenticationSession.CompletionHandler##(URL?, Error?) -> Void#>)
-//    } //fixme
+    private func authenticate() -> Observable<Void> {
+        self.authSession = ASWebAuthenticationSession(url: authManager.authURL, callbackURLScheme: Constants.Splash.callbackURLScheme, completionHandler: { [weak self] (callbackUrl, error) in
+            guard let callbackUrl = callbackUrl else { return }
+            self?.authManager.receivedCodeRedirect(url: callbackUrl)
+        })
+        
+        self.authSession?.presentationContextProvider = self
+        self.authSession?.start()
+        return .empty()
+    }
+}
+
+extension LoginViewModel: ASWebAuthenticationPresentationContextProviding {
+    //todo
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return ASPresentationAnchor()
+    }
+}
+
+extension LoginViewModel: UnsplashSessionListener {
+    func didReceiveRedirect(code: String) {
+        loginStateProperty.onNext(.tokenIsFetched)
+        buttonNameProperty.onNext("please wait...")
+        
+        self.authManager.accessToken(with: code) { [unowned self] result in
+            switch result {
+            case .success:
+                self.navigateToTabBarAction.execute(())
+            case let .failure(error):
+                self.alertAction.execute(error)
+            }
+        }
+    }
 }

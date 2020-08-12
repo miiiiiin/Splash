@@ -59,7 +59,7 @@ class SearchViewController: UIViewController, BindableType {
     private func configureTableView() {
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 56
-        tableView.register(SearchResultCell.self, forCellReuseIdentifier: "SearchResultCell")//fixme
+        tableView.register(cellType: SearchResultCell.self)
         datasource = RxTableViewSectionedReloadDataSource<SearchSectionModel>(configureCell: tableViewDataSource
         )
     }

@@ -94,17 +94,16 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput{
         let requestedPhotos = firstResult
         .merge(with: nextResult)
         .map { result -> [Photo]? in
-            switch result {
-                    
-            case let .success(photos):
+             switch result {
+             case let .success(photos):
                 return photos
-            case let .failure(error):
+             case let .failure(error):
                 let alertViewModel = AlertViewModel(
-                    title: "Upsss...",
-                    message: error.errorDescription,
-                    mode: .ok)
+                   title: "Upsss...",
+                   message: error.errorDescription,
+                   mode: .ok)
                 sceneCoordinator.transition(to: Scene.alert(alertViewModel))
-                return nil//fixme
+                return nil
             }
         }
         .unwrap()

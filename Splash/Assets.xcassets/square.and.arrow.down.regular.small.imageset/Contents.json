@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "square.and.arrow.down.regular.small.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

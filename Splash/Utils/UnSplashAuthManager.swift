@@ -9,7 +9,7 @@
 import Foundation
 import TinyNetworking
 
-protocol unsplashSessionListener {
+protocol UnsplashSessionListener {
     func didReceiveRedirect(code: String)
 }
 
@@ -54,7 +54,7 @@ enum UnsplashAuthorization: Resource {
 }
 
 class UnSplashAuthManager {
-    var delegate: unsplashSessionListener!
+    var delegate: UnsplashSessionListener!
     
     static var shared: UnSplashAuthManager {
         return UnSplashAuthManager(clientID: Constants.Splash.clientID, clientSecret: Constants.Splash.clientSecret, scopes: Scope.allCases)

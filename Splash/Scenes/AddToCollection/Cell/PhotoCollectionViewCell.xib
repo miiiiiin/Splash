@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YO3-qL-fZM" customClass="PhotoCollectionViewCell" customModule="Papr" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YO3-qL-fZM" customClass="PhotoCollectionViewCell" customModule="Splash" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="100" height="134"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -60,7 +60,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="pF7-Kr-Ene" id="Oyi-Ea-yFz"/>
                 <outlet property="addToCollectionButton" destination="68y-fC-R24" id="JDG-rf-Slt"/>
-                <outlet property="collectionCoverImageView" destination="68y-fC-R24" id="J0I-gg-AOC"/>
+                <outlet property="collectionCoverImageView" destination="Jzp-0r-vo4" id="a1q-GP-u2f"/>
                 <outlet property="collectionTitle" destination="M7K-Gk-Yhb" id="6er-Bm-pJ4"/>
                 <outlet property="indicator" destination="pF7-Kr-Ene" id="wi8-bf-UuD"/>
             </connections>
@@ -68,6 +68,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="unsplash-icon-placeholder" width="128" height="128"/>
+        <image name="unsplash-icon-placeholder" width="300" height="300"/>
     </resources>
 </document>

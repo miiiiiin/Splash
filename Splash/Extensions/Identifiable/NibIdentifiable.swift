@@ -8,6 +8,7 @@
 
 import UIKit
 
+//TODO
 protocol NibIdentifiable: class {
     static var nib: UINib { get }
 }
@@ -43,6 +44,7 @@ extension UIViewController: NibIdentifiable {
         return String(describing: self)
     }
 }
+
 
 extension NibIdentifiable where Self: UIViewController {
     static func initFromNib() -> Self {

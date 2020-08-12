@@ -10,6 +10,15 @@ import UIKit
 
 extension UITableView {
     
+    func register<T: UITableViewCell>(cellType: T.Type) where T: ClassIdentifiable {
+        print("register tableview celltype : \(cellType)")
+        register(cellType.self, forCellReuseIdentifier: cellType.reuseId)
+    }
+    
+    func register<T: UITableViewCell>(cellType: T.Type) where T: NibIdentifiable & ClassIdentifiable {
+        register(cellType.nib, forCellReuseIdentifier: cellType.reuseId)
+    }
+    
     func dequeueResuableCell<T: UITableViewCell>(withCellType type: T.Type) -> T where T: NibIdentifiable & ClassIdentifiable {
         guard let cell = dequeueReusableCell(withIdentifier: type.reuseId) as? T else { fatalError("Couldn't dequeue a UITableViewCell with identifier: \(type.reuseId)")}
         return cell

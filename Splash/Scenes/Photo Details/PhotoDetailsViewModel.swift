@@ -127,9 +127,8 @@ final class PhotoDetailsViewModel: PhotoDetailsViewModelInput, PhotoDetailsViewM
     
     private lazy var navigateToLogin: CocoaAction = {
         CocoaAction { [unowned self] message in
-//            let viewModel = loginviewmodel() //fixme
-            return self.sceneCoordinator.transition(to: Scene.login
-            )
+            let viewModel = LoginViewModel()
+            return self.sceneCoordinator.transition(to: Scene.login(viewModel))
         }
     }()
     

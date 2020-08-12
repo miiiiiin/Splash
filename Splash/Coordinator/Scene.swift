@@ -20,7 +20,7 @@ protocol TargetScene {
 
 enum Scene {
     case splash
-    case login
+    case login(LoginViewModel)
     case alert(AlertViewModel)
     case activity([Any])
     case photoDetails(PhotoDetailsViewModel)
@@ -89,10 +89,10 @@ extension Scene: TargetScene {
                 
             return .tabBar(tabBarController)
 
-        case .login:
-            //fixme
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)
+        case let .login(viewModel):
+            var vc = LoginViewController.initFromNib()
+            vc.bind(to: viewModel)
+            return .present(vc)
             
         case let .alert(viewModel):
             var vc = AlertViewController(title: nil, message: nil, preferredStyle: .alert)
