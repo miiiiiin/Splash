@@ -26,13 +26,13 @@ enum UnSplash {
         String?)
 
     /// Get a user’s public profile
-//    case userProfile(
-//        username: String,
-//        width: Int?,
-//        height: Int?)
+    case userProfile(
+        username: String,
+        width: Int?,
+        height: Int?)
 //
 //    /// Get a user’s portfolio link
-//    case userPortfolio(username: String)
+    case userPortfolio(username: String)
 //
 //    /// List a user’s photos
 ////    case userPhotos(
@@ -45,11 +45,11 @@ enum UnSplash {
 ////        quantity: Int?)
 //
 //    /// List a user’s liked photos
-//    case userLikedPhotos(
-//        username: String,
-//        page: Int?,
-//        perPage: Int?,
-//        orderBy: OrderBy?)
+    case userLikedPhotos(
+        username: String,
+        page: Int?,
+        perPage: Int?,
+        orderBy: OrderBy?)
 //
 //    /// List a user’s collections
     case userCollections(
@@ -192,14 +192,14 @@ extension UnSplash: Resource {
             return .get(path: "/me")
         case .updateMe:
             return .put(path: "/me")
-//        case let .userProfile(param):
-//            return .get(path: "/users/\(param.username)")
-//        case let .userPortfolio(username):
-//            return .get(path: "/users/\(username)/portfolio")
+        case let .userProfile(param):
+            return .get(path: "/users/\(param.username)")
+        case let .userPortfolio(username):
+            return .get(path: "/users/\(username)/portfolio")
 //        case let .userPhotos(param):
 //            return .get(path: "/users/\(param.username)/photos")
-//        case let .userLikedPhotos(param):
-//            return .get(path: "/users/\(param.username)/likes")
+        case let .userLikedPhotos(param):
+            return .get(path: "/users/\(param.username)/likes")
         case let .userCollections(param):
             return .get(path: "/users/\(param.username)/collections")
         case let .userStatistics(param):
@@ -268,13 +268,13 @@ extension UnSplash: Resource {
 
             return .requestWithParameters(params, encoding: URLEncoding())
 
-//        case let .userProfile(value):
-//
-//            var params: [String: Any] = [:]
+        case let .userProfile(value):
+            //fixme
+            var params: [String: Any] = [:]
 //            params["w"] = value.width
 //            params["h"] = value.height
-//
-//            return .requestWithParameters(params, encoding: URLEncoding())
+
+            return .requestWithParameters(params, encoding: URLEncoding())
 
 //        case let .userPhotos(value):
 //
@@ -288,15 +288,16 @@ extension UnSplash: Resource {
 //
 //            return .requestWithParameters(params, encoding: URLEncoding())
 
-//        case let .userLikedPhotos(_, pageNumber, photosPerPage, orderBy),
-//             let .photos(pageNumber, photosPerPage, orderBy):
-//
-//            var params: [String: Any] = [:]
+        case let .userLikedPhotos(_, pageNumber, photosPerPage, orderBy),
+             let .photos(pageNumber, photosPerPage, orderBy):
+
+            var params: [String: Any] = [:]
+            //fixme
 //            params["page"] = pageNumber
 //            params["per_page"] = photosPerPage
 //            params["order_by"] = orderBy
-//
-//            return .requestWithParameters(params, encoding: URLEncoding())
+
+            return .requestWithParameters(params, encoding: URLEncoding())
 
         case let .photo(value):
 
@@ -386,6 +387,8 @@ extension UnSplash: Resource {
             params["photo_id"] = value.photoID
 
             return .requestWithParameters(params, encoding: URLEncoding())
+            
+         
         default:
             return .requestWithParameters([:], encoding: URLEncoding())
         }

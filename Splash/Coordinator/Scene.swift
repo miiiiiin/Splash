@@ -135,9 +135,10 @@ extension Scene: TargetScene {
             controller.bind(to: viewModel)
             return .push(controller)
             
-        case .userProfile:
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)//fixme
+        case let .userProfile(viewModel):
+            var vc = UserProfileViewController.initFromNib()
+            vc.bind(to: viewModel)
+            return .push(vc)
         }
     }
 }
