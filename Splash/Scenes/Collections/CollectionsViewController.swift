@@ -65,6 +65,13 @@ class CollectionsViewController: UIViewController, BindableType {
             return cell
         }
     }
+//    private var collectionViewDatasource: CollectionViewSectionedDataSource<CollectionsSectionModel>.ConfigureCell {
+//        return { _, tableView, indexPath, cellModel in
+//            var cell: CollectionCell = self.collectionView.dequeueReusableCell(forIndexPath: indexPath)
+//            cell.bind(to: cellModel)
+//            return cell
+//        }
+//    }
     
     
     func bindViewModel() {

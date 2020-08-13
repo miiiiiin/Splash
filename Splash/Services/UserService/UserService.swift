@@ -16,8 +16,7 @@ struct UserService: UserServiceType {
     
     init(splash: TinyNetworking<UnSplash> = TinyNetworking<UnSplash>()) {
         self.splash = splash
-    }
-    
+    }    
 
     func getMe() -> Observable<Result<User, Splash.Error>> {
     return splash.rx

@@ -98,6 +98,7 @@ class UnSplashAuthManager {
         self.redirectURL = URL(string: Constants.Splash.redirectURL)!
         self.unsplash = unsplash
     }
+    
     public func accessToken(with code: String, completion: @escaping (Result<Void, Splash.Error>) -> ()) {
         unsplash.request(resource: .accessToken(with: code)) { [unowned self] result in
             let result = result

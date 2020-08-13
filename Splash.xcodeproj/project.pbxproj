@@ -123,6 +123,7 @@
 		7DFEE01524E4D474005A499B /* AddToCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFEE01424E4D474005A499B /* AddToCollectionViewController.xib */; };
 		7DFEE02524E4DC8B005A499B /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFEE02424E4DC8B005A499B /* PhotoDetailsViewController.swift */; };
 		7DFEE02724E4DCC5005A499B /* PhotoDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFEE02624E4DCC5005A499B /* PhotoDetailsViewController.xib */; };
+		7DFEE02924E5069B005A499B /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFEE02824E5069B005A499B /* CollectionCell.xib */; };
 		B504D98123B5EFA25E5B92F2 /* Pods_SplashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */; };
 		EBB5D7FC3E075CE8612143D2 /* Pods_Splash_SplashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */; };
 /* End PBXBuildFile section */
@@ -271,6 +272,7 @@
 		7DFEE01424E4D474005A499B /* AddToCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddToCollectionViewController.xib; sourceTree = "<group>"; };
 		7DFEE02424E4DC8B005A499B /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
 		7DFEE02624E4DCC5005A499B /* PhotoDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailsViewController.xib; sourceTree = "<group>"; };
+		7DFEE02824E5069B005A499B /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
 		B9E1D9023CE229121F80B2EE /* Pods-Splash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.release.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.release.xcconfig"; sourceTree = "<group>"; };
 		C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splash_SplashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DBBA000A9C1EEEB3C96E60 /* Pods-Splash-SplashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash-SplashUITests.debug.xcconfig"; path = "Target Support Files/Pods-Splash-SplashUITests/Pods-Splash-SplashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			children = (
 				7D09A7ED24BD91E700683FB4 /* CollectionCellViewModel.swift */,
 				7D09A7EF24BE8F9A00683FB4 /* CollectionCell.swift */,
+				7DFEE02824E5069B005A499B /* CollectionCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				7DD98E1124403CAD0051809A /* Assets.xcassets in Resources */,
 				7D09A7E624BD86E300683FB4 /* SearchViewController.xib in Resources */,
 				7D512D7524CEB0F700531F48 /* PhotoCollectionViewCell.xib in Resources */,
+				7DFEE02924E5069B005A499B /* CollectionCell.xib in Resources */,
 				7DFEE02724E4DCC5005A499B /* PhotoDetailsViewController.xib in Resources */,
 				7DF4E6CE24E3DD12004B9FFA /* CreateCollectionViewController.xib in Resources */,
 				7DD98E0F24403CAC0051809A /* Main.storyboard in Resources */,
