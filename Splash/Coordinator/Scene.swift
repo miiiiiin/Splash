@@ -29,7 +29,6 @@ enum Scene {
     case searchPhotos(SearchPhotosViewModel)
     case searchUsers(SearchUsersViewModel)
     case searchCollections(SearchCollectionsViewModel)
-//    case searchUsers
     case userProfile(UserProfileViewModel)
 }
 
@@ -99,26 +98,26 @@ extension Scene: TargetScene {
             vc.bind(to: viewModel)
             return.alert(vc)
             
-        case .activity(_):
-            //fixme
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)
-        case .photoDetails:
-            //fixme
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)
+        case let .activity(items):
+            let vc = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            return .alert(vc)
             
-        case .addToCollection:
-//            var vc = AddToCollectionViewController.initFromNib()
-//            let rootViewController = UINavigationController(rootViewController: vc)
-//            vc.bind(to: viewModel)
-//            return .present(rootViewController)//FIXME
+        case let .photoDetails(viewModel):
+            var vc = PhotoDetailsViewController.initFromNib()
+            vc.bind(to: viewModel)
+            return .present(vc)
             
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)//fixme
-        case .createCollection:
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)//fixme
+        case let .addToCollection(viewModel):
+            var vc = AddToCollectionViewController.initFromNib()
+            let rootViewController = UINavigationController(rootViewController: vc)
+            vc.bind(to: viewModel)
+            return .present(rootViewController)
+            
+        case let .createCollection(viewModel):
+            var vc = CreateCollectionViewController.initFromNib()
+            let rootViewController = UINavigationController(rootViewController: vc)
+            vc.bind(to: viewModel)
+            return .present(rootViewController)
             
         case let .searchPhotos(viewModel):
             var controller = SearchPhotosViewController(collectionViewLayout: PinterestLayout(numberOfColumns: 2))
@@ -135,9 +134,10 @@ extension Scene: TargetScene {
             controller.bind(to: viewModel)
             return .push(controller)
             
-        case .userProfile:
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)//fixme
+        case let .userProfile(viewModel):
+            var vc = UserProfileViewController.initFromNib()
+            vc.bind(to: viewModel)
+            return .push(vc)
         }
     }
 }

@@ -23,16 +23,24 @@ extension Constants {
 
 extension Constants.Splash {
     enum ClientAuth {
-        static let clientId = ClientAuth.environmentVariable(named: "0xEY4jia4h4ZY9VHWheBUzwbZxO9TWVYWha3Q-_q2ZE") ?? ""
-        static let secret = ClientAuth.environmentVariable(named: "_gL7FKhuBMHgtd2PmBjgTcvgGU1W3nz34Zzh0GoHA68") ?? ""
+        static let clientId = "uJO8NqgagYJtdwPgOjFDkKsNCvg8ymkako9SI990wC0"//ClientAuth.environmentVariable(named: "uJO8NqgagYJtdwPgOjFDkKsNCvg8ymkako9SI990wC0") ?? ""
+        static let secret = "gCvMF9lqjAn7p5bs8YRVxRdZotaSQLKTEa9x"//ClientAuth.environmentVariable(named: "gCvMF9lqjAn7p5bs8YRVxRdZotaSQLKTEa9x-CzQVgA") ?? ""
         
         
         private static func environmentVariable(named: String) -> String? {
-            guard let infoDict = Bundle.main.infoDictionary, let value = infoDict[named] as? String else {
-                debugPrint("Missing Environment Variable: '\(named)'")
+            guard let infoDictionary = Bundle.main.infoDictionary, let value = infoDictionary[named] as? String else {
+                print("Missing Environment Variable: '\(named)'")
                 return nil
             }
             return value
         }
+        
+//        private static func environmentVariable(named: String) -> String? {
+//            guard let infoDict = Bundle.main.infoDictionary, let value = infoDict[named] as? String else {
+//                debugPrint("Missing Environment Variable: '\(named)'")
+//                return nil
+//            }
+//            return value
+//        }
     }
 }

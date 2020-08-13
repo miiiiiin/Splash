@@ -20,7 +20,7 @@ class SplashNavigationController: UINavigationController {
     private var service: UserServiceType!
     private var sceneCoordinator: SceneCoordinatorType!
     
-    private lazy var showUserProfilAction: CocoaAction = {
+    private lazy var showUserProfileAction: CocoaAction = {
         let viewModel = UserProfileViewModel()
         return CocoaAction { [unowned self] in
             self.sceneCoordinator.transition(to: Scene.userProfile(viewModel))
@@ -60,7 +60,7 @@ class SplashNavigationController: UINavigationController {
         button.add(to: profileImage).size(profileImage.frame.size).pinToEdges()
         
         let profileImageBarButtonItem = UIBarButtonItem(customView: profileImage)
-        button.rx.action = showUserProfilAction
+        button.rx.action = showUserProfileAction
         
         topViewController?.navigationItem.leftBarButtonItem = profileImageBarButtonItem
         topViewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)

@@ -88,7 +88,7 @@ final class CreateCollectionViewModel: CreateCollectionViewModelInput, CreateCol
             .flatMap { result -> Observable<Photo> in
             switch result {
             case let.success(photo):
-                self.sceneCoordinator.pop(animated: true)
+                self.sceneCoordinator.pop(animated: true)//fixme
                 return .just(photo)
             case let .failure(error):
                 self.alertAction.execute(error)
