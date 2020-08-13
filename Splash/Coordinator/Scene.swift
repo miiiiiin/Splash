@@ -29,7 +29,6 @@ enum Scene {
     case searchPhotos(SearchPhotosViewModel)
     case searchUsers(SearchUsersViewModel)
     case searchCollections(SearchCollectionsViewModel)
-//    case searchUsers
     case userProfile(UserProfileViewModel)
 }
 
@@ -102,12 +101,11 @@ extension Scene: TargetScene {
         case let .activity(items):
             let vc = UIActivityViewController(activityItems: items, applicationActivities: nil)
             return .alert(vc)
-        case .photoDetails:
-            //fixme
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)
             
-            let vc = photodeta
+        case let .photoDetails(viewModel):
+            var vc = PhotoDetailsViewController.initFromNib()
+            vc.bind(to: viewModel)
+            return .present(vc)
             
         case let .addToCollection(viewModel):
             var vc = AddToCollectionViewController.initFromNib()
