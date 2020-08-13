@@ -99,23 +99,21 @@ extension Scene: TargetScene {
             vc.bind(to: viewModel)
             return.alert(vc)
             
-        case .activity(_):
-            //fixme
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)
+        case let .activity(items):
+            let vc = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            return .alert(vc)
         case .photoDetails:
             //fixme
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)
             
+            let vc = photodeta
+            
         case let .addToCollection(viewModel):
             var vc = AddToCollectionViewController.initFromNib()
             let rootViewController = UINavigationController(rootViewController: vc)
             vc.bind(to: viewModel)
-            return .present(rootViewController)//FIXME
-            
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)//fixme
+            return .present(rootViewController)
             
         case let .createCollection(viewModel):
             var vc = CreateCollectionViewController.initFromNib()
