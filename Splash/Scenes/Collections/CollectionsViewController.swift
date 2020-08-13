@@ -25,7 +25,7 @@ class CollectionsViewController: UIViewController, BindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-//        title = "Explore 🌄"
+        title = "Explore 🌄"
         
         configureCollectionView()
         configureRefreshControl()
@@ -39,9 +39,10 @@ class CollectionsViewController: UIViewController, BindableType {
         
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         
-        let spacing = (1 / UIScreen.main.scale) + 16
+        let spacing: CGFloat = (1 / UIScreen.main.scale) + 16
         let cellWidth = (UIScreen.main.bounds.width / 2) - spacing
         
+        print("collection spacing : \(spacing), widh : \(cellWidth)")
         flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         flowLayout.sectionInset = UIEdgeInsets(top: 16.0, left: 8.0, bottom: 0, right: 8.0)
         collectionView.register(cellType: CollectionCell.self)
@@ -65,14 +66,6 @@ class CollectionsViewController: UIViewController, BindableType {
             return cell
         }
     }
-//    private var collectionViewDatasource: CollectionViewSectionedDataSource<CollectionsSectionModel>.ConfigureCell {
-//        return { _, tableView, indexPath, cellModel in
-//            var cell: CollectionCell = self.collectionView.dequeueReusableCell(forIndexPath: indexPath)
-//            cell.bind(to: cellModel)
-//            return cell
-//        }
-//    }
-    
     
     func bindViewModel() {
         let input = viewModel.input
@@ -80,7 +73,7 @@ class CollectionsViewController: UIViewController, BindableType {
         
         output.isRefreshing
             .bind(to: refreshControl.rx.isRefreshing)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         
         output.collectionCellsModelType
             .map { [CollectionsSectionModel(model: "", items: $0)]}

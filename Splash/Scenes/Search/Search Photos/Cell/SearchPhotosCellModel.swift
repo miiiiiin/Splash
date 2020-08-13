@@ -18,7 +18,7 @@ protocol SearchPhotosCellModelInput {
 protocol SearchPhotosCellModelOutput {
     var photoStream: Observable<Photo> { get }
     var smallPhotoURL: Observable<URL> { get }
-    var regularPhotURL: Observable<URL> { get }
+    var regularPhotoURL: Observable<URL> { get }
     var photoSize: Observable<(Double, Double)> { get }
 }
 
@@ -36,7 +36,7 @@ final class SearchPhotosCellModel: SearchPhotosCellModelInput, SearchPhotosCellM
     //MARK: Output
     let photoStream: Observable<Photo>
     let smallPhotoURL: Observable<URL>
-    let regularPhotURL: Observable<URL>
+    var regularPhotoURL: Observable<URL>
     let photoSize: Observable<(Double, Double)>
  
     //MARK: Init
@@ -48,10 +48,10 @@ final class SearchPhotosCellModel: SearchPhotosCellModelInput, SearchPhotosCellM
             .unwrap()
             .mapToURL()
         
-        regularPhotURL = photoStream
+        regularPhotoURL = photoStream
             .map { $0.urls?.regular }
-        .unwrap()
-        .mapToURL()
+            .unwrap()
+            .mapToURL()
         
         photoSize = Observable.combineLatest(
             photoStream.map { $0.width }.unwrap().map { Double($0) },

@@ -144,8 +144,8 @@ final class PhotoDetailsViewModel: PhotoDetailsViewModelInput, PhotoDetailsViewM
         
         regularPhotoURL = photoStream
             .map { $0.urls?.regular }
-        .unwrap()
-        .mapToURL()
+            .unwrap()
+            .mapToURL()
         
         photoSize = Observable.combineLatest(photoStream.map { $0.width }.unwrap().map { Double($0)}, photoStream.map { $0.height }.unwrap().map { Double($0) }
         )

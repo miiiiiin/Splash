@@ -6,7 +6,6 @@
 //  Copyright © 2020 Running Raccoon. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import RxSwift
 import Nuke
@@ -40,17 +39,17 @@ class SearchPhotosCell: UICollectionViewCell, BindableType, NibIdentifiable & Cl
         //fixme
 //        Observable.combineLatest(outputs.smallPhotoURL, outputs.regularPhotoURL)
 //            .flatMap { smallPhotoURL, regularPhotoURL -> Observable<ImageResponse> in
-//                return Observable.concat(
-//                    this.imagePipeline.rx.loadImage(with: smallPhotoURL).asObservable(),
-//                    this.imagePipeline.rx.loadImage(with: regularPhotoURL).asObservable()
-//                )
-//            }
-//            .orEmpty()
-//            .map { $0.image }
-//            .execute { [unowned self] _ in
-//                self.indicator.stopAnimating()
-//            }
-//            .bind(to: photoImageView.rx.image)
-//            .disposed(by: disposeBag)
+//                return Observable.concat(this.imagePipeline.rx.loadImage(with: smallPhotoURL).asObservable(),
+//                 this.imagePipeline.rx.loadImage(with: regularPhotoURL).asObservable())
+//                .orEmpty()
+//                .map { $0.image }
+//                .execute { [unowned self] _ in
+//                    self.indicator.stopAnimating()
+//                }
+//                .bind(to: photoImageView.rx.image)
+//                .disposed(by: disposeBag)
+//
+//
+//        }
     }
 }
