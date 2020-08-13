@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddToCollectionViewController" customModule="Splash" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="WT0-pg-joh" id="l6D-Ng-CIj"/>
+                <outlet property="photoActivityIndicator" destination="ZSg-k9-mWx" id="6fE-8W-MWo"/>
+                <outlet property="photoImageView" destination="XLR-3o-Jjb" id="ESv-hQ-BUr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="PGz-nW-jNK">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XLR-3o-Jjb">
+                    <rect key="frame" x="16" y="60" width="382" height="636"/>
+                </imageView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZSg-k9-mWx">
+                    <rect key="frame" x="197" y="368" width="20" height="20"/>
+                </activityIndicatorView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WT0-pg-joh">
+                    <rect key="frame" x="8" y="712" width="398" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="Jdj-bM-2qJ"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K3n-5X-pdY">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="XLR-3o-Jjb" firstAttribute="leading" secondItem="cwu-n3-Cfa" secondAttribute="leading" constant="16" id="50s-xu-Gqe"/>
+                <constraint firstItem="WT0-pg-joh" firstAttribute="leading" secondItem="cwu-n3-Cfa" secondAttribute="leading" constant="8" id="8df-cQ-pYG"/>
+                <constraint firstItem="WT0-pg-joh" firstAttribute="top" secondItem="XLR-3o-Jjb" secondAttribute="bottom" constant="16" id="NgX-8A-wLB"/>
+                <constraint firstItem="ZSg-k9-mWx" firstAttribute="centerX" secondItem="XLR-3o-Jjb" secondAttribute="centerX" id="c99-le-H1L"/>
+                <constraint firstItem="cwu-n3-Cfa" firstAttribute="trailing" secondItem="WT0-pg-joh" secondAttribute="trailing" constant="8" id="fGD-6v-88D"/>
+                <constraint firstItem="WT0-pg-joh" firstAttribute="bottom" secondItem="cwu-n3-Cfa" secondAttribute="bottom" id="hzb-vm-WdQ"/>
+                <constraint firstItem="XLR-3o-Jjb" firstAttribute="top" secondItem="cwu-n3-Cfa" secondAttribute="top" constant="16" id="keN-48-Pi1"/>
+                <constraint firstItem="ZSg-k9-mWx" firstAttribute="centerY" secondItem="XLR-3o-Jjb" secondAttribute="centerY" id="rEb-wb-C0t"/>
+                <constraint firstItem="cwu-n3-Cfa" firstAttribute="trailing" secondItem="XLR-3o-Jjb" secondAttribute="trailing" constant="16" id="zw8-oq-NQ3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="cwu-n3-Cfa"/>
+            <point key="canvasLocation" x="-287" y="-81"/>
+        </view>
+    </objects>
+</document>

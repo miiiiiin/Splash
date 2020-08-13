@@ -119,6 +119,8 @@
 		7DF4E6CC24E3DC80004B9FFA /* CreateCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4E6CB24E3DC80004B9FFA /* CreateCollectionViewController.swift */; };
 		7DF4E6CE24E3DD12004B9FFA /* CreateCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DF4E6CD24E3DD12004B9FFA /* CreateCollectionViewController.xib */; };
 		7DFDF1D024C1398800990C1A /* UIBarButtonItem+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDF1CF24C1398800990C1A /* UIBarButtonItem+Rx.swift */; };
+		7DFEE01324E4D17C005A499B /* AddToCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFEE01224E4D17C005A499B /* AddToCollectionViewController.swift */; };
+		7DFEE01524E4D474005A499B /* AddToCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFEE01424E4D474005A499B /* AddToCollectionViewController.xib */; };
 		B504D98123B5EFA25E5B92F2 /* Pods_SplashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570CC6AAEC09E12FD153EE65 /* Pods_SplashTests.framework */; };
 		EBB5D7FC3E075CE8612143D2 /* Pods_Splash_SplashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */; };
 /* End PBXBuildFile section */
@@ -263,6 +265,8 @@
 		7DF4E6CB24E3DC80004B9FFA /* CreateCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCollectionViewController.swift; sourceTree = "<group>"; };
 		7DF4E6CD24E3DD12004B9FFA /* CreateCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateCollectionViewController.xib; sourceTree = "<group>"; };
 		7DFDF1CF24C1398800990C1A /* UIBarButtonItem+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Rx.swift"; sourceTree = "<group>"; };
+		7DFEE01224E4D17C005A499B /* AddToCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCollectionViewController.swift; sourceTree = "<group>"; };
+		7DFEE01424E4D474005A499B /* AddToCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddToCollectionViewController.xib; sourceTree = "<group>"; };
 		B9E1D9023CE229121F80B2EE /* Pods-Splash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.release.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.release.xcconfig"; sourceTree = "<group>"; };
 		C62C312D0ECABB84598F2A2E /* Pods_Splash_SplashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splash_SplashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DBBA000A9C1EEEB3C96E60 /* Pods-Splash-SplashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash-SplashUITests.debug.xcconfig"; path = "Target Support Files/Pods-Splash-SplashUITests/Pods-Splash-SplashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -485,6 +489,8 @@
 			children = (
 				7DA5423F24AEF582002C5EE1 /* Cell */,
 				7DA5423624AEDE5C002C5EE1 /* AddToCollectionViewModel.swift */,
+				7DFEE01224E4D17C005A499B /* AddToCollectionViewController.swift */,
+				7DFEE01424E4D474005A499B /* AddToCollectionViewController.xib */,
 			);
 			path = AddToCollection;
 			sourceTree = "<group>";
@@ -883,6 +889,7 @@
 				7DF4E6CE24E3DD12004B9FFA /* CreateCollectionViewController.xib in Resources */,
 				7DD98E0F24403CAC0051809A /* Main.storyboard in Resources */,
 				7DE1DACE24CAA34200553962 /* UserCell.xib in Resources */,
+				7DFEE01524E4D474005A499B /* AddToCollectionViewController.xib in Resources */,
 				7D5F470A24D3E83E006883D7 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,6 +1063,7 @@
 				7D5F470824D3E3EC006883D7 /* LoginViewController.swift in Sources */,
 				7DED44842474BC820049E205 /* User.swift in Sources */,
 				7DED449A247642FE0049E205 /* PhotoStatistics.swift in Sources */,
+				7DFEE01324E4D17C005A499B /* AddToCollectionViewController.swift in Sources */,
 				7D09A7EB24BD8CF900683FB4 /* CollectionsViewModel.swift in Sources */,
 				7DDCB99724B58CD9006C6D63 /* CreateCollectionViewModel.swift in Sources */,
 				7D1951922490E66800A9C0A2 /* HomeViewCellHeader.swift in Sources */,

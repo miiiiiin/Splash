@@ -108,17 +108,20 @@ extension Scene: TargetScene {
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)
             
-        case .addToCollection:
-//            var vc = AddToCollectionViewController.initFromNib()
-//            let rootViewController = UINavigationController(rootViewController: vc)
-//            vc.bind(to: viewModel)
-//            return .present(rootViewController)//FIXME
+        case let .addToCollection(viewModel):
+            var vc = AddToCollectionViewController.initFromNib()
+            let rootViewController = UINavigationController(rootViewController: vc)
+            vc.bind(to: viewModel)
+            return .present(rootViewController)//FIXME
             
             let tabBarController = SplashTapBarController()
             return .tabBar(tabBarController)//fixme
-        case .createCollection:
-            let tabBarController = SplashTapBarController()
-            return .tabBar(tabBarController)//fixme
+            
+        case let .createCollection(viewModel):
+            var vc = CreateCollectionViewController.initFromNib()
+            let rootViewController = UINavigationController(rootViewController: vc)
+            vc.bind(to: viewModel)
+            return .present(rootViewController)
             
         case let .searchPhotos(viewModel):
             var controller = SearchPhotosViewController(collectionViewLayout: PinterestLayout(numberOfColumns: 2))
