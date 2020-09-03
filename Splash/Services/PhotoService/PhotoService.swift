@@ -72,17 +72,12 @@ struct PhotoService: PhotoServiceType {
             }
     }
     
-//    func statistics(of photo: Photo) -> Observable<PhotoStatistics> {
-       
-//        return unsplash.rx
-//                   .request(resource: .photoStatistics(
-//                       id: photo.id ?? "",
-//                       resolution: .days,
-//                       quantity: 30)
-//                   )
-//                   .map(to: PhotoStatistics.self)
-//                   .asObservable()
-//    }//fixme
+    func statistics(of photo: Photo) -> Observable<PhotoStatistics> {
+        return splash.rx.request(resource: .photoStatistics(id: photo.id ?? "", resolution: .days, quantity: 30)
+        )
+        .map(to: PhotoStatistics.self)
+        .asObservable()
+    }
     
     func photoDownloadLink(wihId id: String) -> Observable<Result<String, Splash.Error>> {
         return splash.rx.request(resource: .photoDownloadLink(id: id))

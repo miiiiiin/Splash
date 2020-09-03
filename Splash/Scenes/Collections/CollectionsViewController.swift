@@ -31,7 +31,6 @@ class CollectionsViewController: UIViewController, BindableType {
         configureRefreshControl()
     }
     
-    
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = .white
