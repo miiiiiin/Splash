@@ -17,6 +17,7 @@ class SearchCollectionsViewController: UIViewController, BindableType {
         super.viewDidLoad()
     }
     
+    //MARK: - Bindable Type -
     func bindViewModel() {
         
     }

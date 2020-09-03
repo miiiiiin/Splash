@@ -91,10 +91,20 @@ class SearchPhotosViewController: UIViewController, BindableType {
         .disposed(by: disposeBag)
         
         
+//        collectionView.rx.itemSelected
+//            .flatMap { [weak self] indexPath -> Observable<SearchPhotosCell> in
+//                guard let cell = self?.collectionView.cellForItem(at: indexPath) as? SearchPhotosCell else { return .empty() }
+//                return .just(cell)
+//        }
+//        .flatMap { $0.viewModel.outputs.photoStream }
+//        .bind(to: inputs.photoDetailsAction.inputs)
+//        .disposed(by: disposeBag)
+  
         collectionView.rx.itemSelected
-            .flatMap { [weak self] indexPath -> Observable<SearchPhotosCell> in
-                guard let cell = self?.collectionView.cellForItem(at: indexPath) as? SearchPhotosCell else { return .empty() }
-                return .just(cell)
+        .flatMap { [weak self] indexPath -> Observable<SearchPhotosCell> in
+            guard let cell = self?.collectionView.cellForItem(at: indexPath) as? SearchPhotosCell
+                else { return .empty() }
+            return .just(cell)
         }
         .flatMap { $0.viewModel.outputs.photoStream }
         .bind(to: inputs.photoDetailsAction.inputs)

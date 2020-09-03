@@ -86,7 +86,7 @@ class PhotoDetailsViewController: UIViewController, BindableType {
         view.bringSubviewToFront(statsContainerView)
     }
     
-    private func configureTapGestures() { //fixme
+    private func configureTapGestures() {
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(showHideOverlays(withDelay:)))
         
         tapGesture.addTarget(self, action: #selector(zoomOut))
