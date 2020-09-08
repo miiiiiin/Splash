@@ -11,7 +11,6 @@ import Foundation
 struct User: Codable {
     let id: String?
     let username: String?
-    let name: String?
     let firstName: String?
     let fullName: String?
     let lastName: String?
@@ -41,8 +40,7 @@ struct User: Codable {
         case username
         case firstName = "first_name"
         case lastName = "last_name"
-        case name
-        case fullName = "full_name"
+        case fullName = "name"
         case email
         case url
         case location

@@ -85,10 +85,9 @@ final class SearchUsersViewModel: SearchUsersViewModelInput, SearchUsersViewMode
         users = Observable.merge(requestFirst, requestNext)
             .map { users -> [User] in
                 users.forEach { user in
-                    usersArray.append(contentsOf: usersArray)
+                    usersArray.append(user)
                 }
                 return usersArray
         }
-        
     }
 }
