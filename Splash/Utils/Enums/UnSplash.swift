@@ -32,7 +32,7 @@ enum UnSplash {
         height: Int?)
 
     /// Get a user’s portfolio link
-//    case userPortfolio(username: String)
+    case userPortfolio(username: String)
 
     /// List a user’s photos
     case userPhotos(

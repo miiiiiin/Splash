@@ -11,9 +11,16 @@ import RxSwift
 import RxCocoa
 
 extension Reactive where Base: PinterestLayout {
+    
+    private var delegate: RxPinterestLayoutDelegateProxy {
+        print("base check: \(base)")
+        return RxPinterestLayoutDelegateProxy.proxy(for: base)
+    }
+    
     func updateSize(_ indexPath: IndexPath) -> Binder<CGSize> {
         return Binder(base) { base, size in
-//            self.delegate.sizes[indexPath] = size //fixme
+            print("base check2222: \(base)")
+            self.delegate.sizes[indexPath] = size //fixme
             base.invalidateLayout()
         }
     }
