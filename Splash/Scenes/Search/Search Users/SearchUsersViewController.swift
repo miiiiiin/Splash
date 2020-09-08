@@ -60,7 +60,8 @@ class SearchUsersViewController: UIViewController, BindableType {
     private func configureTableView() {
         tableView = UITableView(frame: .zero)
         tableView.add(to: view).pinToEdges()
-        tableView.register(UserCell.self, forCellReuseIdentifier: "UserCell")
+//        tableView.register(UserCell.self, forCellReuseIdentifier: "UserCell")
+        tableView.register(cellType: UserCell.self)
         tableView.rowHeight = 60
         dataSource = RxTableViewSectionedReloadDataSource<SearchUsersSectionModel>(configureCell: tableViewDataSource)
     }

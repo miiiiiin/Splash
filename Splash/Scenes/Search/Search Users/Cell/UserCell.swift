@@ -22,7 +22,6 @@ class UserCell: UITableViewCell, BindableType, NibIdentifiable & ClassIdentifiab
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
         profilePhotoImageView.roundCorners(withRadius: Splash.Style.Layer.imageCornersRadius)
     }
     
@@ -35,14 +34,14 @@ class UserCell: UITableViewCell, BindableType, NibIdentifiable & ClassIdentifiab
     func bindViewModel() {
         let outputs = viewModel.outputs
         let this = UserCell.self
-        
+
         outputs.fullName
             .bind(to: fullNameLbl.rx.attributedText)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         
         outputs.profilePhotoURL
             .flatMap { this.imagePipeLine.rx.loadImage(with: $0) }
-        .orEmpty()
+            .orEmpty()
             .map { $0.image }
             .bind(to: profilePhotoImageView.rx.image)
         .disposed(by: disposeBag)
