@@ -27,6 +27,7 @@
 		7D2905A624C6F50E00960A2E /* SearchPhotosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D2905A524C6F50E00960A2E /* SearchPhotosCell.xib */; };
 		7D2C1F9C25007C700084E893 /* SearchCollectionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D2C1F9B25007C700084E893 /* SearchCollectionsViewController.xib */; };
 		7D2C1F9E25007DFF0084E893 /* Resolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2C1F9D25007DFF0084E893 /* Resolution.swift */; };
+		7D2F0FB3250751F40011BB35 /* RxPinterestLayoutDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2F0FB2250751F40011BB35 /* RxPinterestLayoutDelegateProxy.swift */; };
 		7D3FDF1724D2BF4800B45643 /* UnSplashAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3FDF1624D2BF4800B45643 /* UnSplashAuthManager.swift */; };
 		7D3FDF1924D2C26100B45643 /* Extensions+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3FDF1824D2C26100B45643 /* Extensions+URL.swift */; };
 		7D3FDF1B24D2C31700B45643 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3FDF1A24D2C31700B45643 /* Scope.swift */; };
@@ -172,6 +173,7 @@
 		7D2905A524C6F50E00960A2E /* SearchPhotosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPhotosCell.xib; sourceTree = "<group>"; };
 		7D2C1F9B25007C700084E893 /* SearchCollectionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionsViewController.xib; sourceTree = "<group>"; };
 		7D2C1F9D25007DFF0084E893 /* Resolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolution.swift; sourceTree = "<group>"; };
+		7D2F0FB2250751F40011BB35 /* RxPinterestLayoutDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPinterestLayoutDelegateProxy.swift; sourceTree = "<group>"; };
 		7D3FDF1624D2BF4800B45643 /* UnSplashAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashAuthManager.swift; sourceTree = "<group>"; };
 		7D3FDF1824D2C26100B45643 /* Extensions+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+URL.swift"; sourceTree = "<group>"; };
 		7D3FDF1A24D2C31700B45643 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				7D09A7F524BE9C5200683FB4 /* UIScrollView+Rx.swift */,
 				7DFDF1CF24C1398800990C1A /* UIBarButtonItem+Rx.swift */,
 				7D7D4F2924C13BB10036D847 /* UIRefreshControl+Rx.swift */,
+				7D2F0FB2250751F40011BB35 /* RxPinterestLayoutDelegateProxy.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -1117,6 +1120,7 @@
 				7D78195C24B84BEC005DF56D /* UICollectionView+Identifiable.swift in Sources */,
 				7D8CD8B0249C5BE600F3929C /* HomeViewCellFooter.swift in Sources */,
 				7DED44C0247DF8E70049E205 /* HomeViewCellHeaderModel.swift in Sources */,
+				7D2F0FB3250751F40011BB35 /* RxPinterestLayoutDelegateProxy.swift in Sources */,
 				7DE1DACC24CA82B100553962 /* UserCell.swift in Sources */,
 				7D63EFD624C926D9006B886B /* SearchServiceType.swift in Sources */,
 				7DED449224760FF40049E205 /* ImageURLs.swift in Sources */,
