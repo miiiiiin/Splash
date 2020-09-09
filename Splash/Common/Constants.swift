@@ -18,6 +18,8 @@ extension Constants {
         static let clientID = ClientAuth.clientId
         static let clientSecret = ClientAuth.secret
         static let redirectURL = "splash://unsplash"
+//        static let authorizeURL = "https://unsplash.com/oauth/authorize"
+//        static let tokenURL = "https://unsplash.com/oauth/token"
     }
 }
 
