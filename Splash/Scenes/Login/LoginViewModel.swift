@@ -120,6 +120,8 @@ final class LoginViewModel: NSObject, LoginViewModelInput, LoginViewModelOutput,
         self.authSession?.start()
         return .empty()
     }
+    
+//    https://unsplash.com/oauth/authorize?redirect_uri=splash://unsplash&client_id=uJO8NqgagYJtdwPgOjFDkKsNCvg8ymkako9SI990wC0&response_type=code&scope=public+read_user+write_user+read_photos+write_photos+write_likes+write_followers+read_collections+write_collections
 }
 
 extension LoginViewModel: ASWebAuthenticationPresentationContextProviding {

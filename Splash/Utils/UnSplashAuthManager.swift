@@ -81,15 +81,20 @@ class UnSplashAuthManager {
         components.path = "/oauth/authorize"
         
         var params: [String:String] = [:]
+        params["response_type"] = "code"
         params["client_id"] = Constants.Splash.clientID
         params["redirect_uri"] = redirectURL.absoluteString
-        params["response_type"] = "code"
         params["scope"] = scopes.map { $0.rawValue }.joined(separator: "+")
         
         let url = components.url?.appendingQueryParameters(params)
         
         return url!
+        
+//        https://unsplash.com/oauth/authorize?redirect_uri=splash://unsplash&client_id=uJO8NqgagYJtdwPgOjFDkKsNCvg8ymkako9SI990wC0&response_type=code&scope=public+read_user+write_user+read_photos+write_photos+write_likes+write_followers+read_collections+write_collections
+        
     }
+    
+//    https://unsplash.com/oauth/authorize?response_type=code&client_id=0dd1dc721b7672e96f4bdf71af623fb68ea7b1d4829681744a4a08e0a8ef68c8&redirect_uri=papr://unsplash&scope=public+read_user+write_user+read_photos+write_photos+write_likes+write_followers+read_collections+write_collections
     
     init(clientID: String, clientSecret: String, scopes: [Scope] = [Scope.pub], unsplash: TinyNetworking<UnsplashAuthorization> = TinyNetworking<UnsplashAuthorization>()) {
         self.clientID = clientID
